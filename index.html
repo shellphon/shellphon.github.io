@@ -1,20 +1,96 @@
 <!DOCTYPE html>
 <html>
  <head>
-  <title>来吧，Fire</title>
+  <title>Dont的项目主页</title>
 <style type="text/css">
   div{
    margin:0 auto;
    text-align:center;
   }
-  </style>
+</style>
   <script type="text/javascript">
-   
+   var time = 1500000;//25 min
+   var leftTime = time;
+   var status = 0;// 0 开始; 1 计时; 2 暂停;
+   var clockInstance=null;
+   function clockin(){
+    console.log("每秒运行一次，剩余时间："+leftTime);
+    var leftMin = document.getElementById("left_min").innerHTML;
+    var leftSec = document.getElementById("left_second").innerHTML;
+    leftTime -= 1000;
+    if(leftTime==0){
+     clearInterval(clockInstance);
+     alert("时间到了！！！");
+     document.getElementById("run").value="开始";
+     status = 0;
+     leftTime=time;
+     startView();
+    }else{
+     if(leftSec==0){
+      document.getElementById("left_second").innerHTML=59;
+      document.getElementById("left_min").innerHTML-=1;
+      if(document.getElementById("left_min").innerHTML<10){
+       document.getElementById("left_min").innerHTML="0" + document.getElementById("left_min").innerHTML;
+      }
+     }else{
+      document.getElementById("left_second").innerHTML-=1;
+      if(document.getElementById("left_second").innerHTML<10){
+       document.getElementById("left_second").innerHTML="0" + document.getElementById("left_second").innerHTML;
+      }
+     }
+    }
+   }
+   function run(){
+    if(status==0||status==2){
+     document.getElementById("run").value="暂停";
+     status = 1;
+     clockInstance = setInterval("clockin()",1000);
+    }else if(status==1){
+     document.getElementById("run").value="继续";
+     status = 2;
+     clearInterval(clockInstance);
+    }
+   }
+   function reset(){
+    time = 1500000;//25 min
+     leftTime = time;
+    status = 0;// 0 开始; 1 计时; 2 暂停;
+    clearInterval(clockInstance);
+    clockInstance=null;
+    document.getElementById("run").value="开始";
+    startView();
+   }
+   function startView(){
+    document.getElementById("left_second").innerHTML = "00";
+    document.getElementById("left_min").innerHTML = 25;
+   }
   </script>
  </head>
  <body>
-    <h1>Hello World</h1>
-	<p>I'm hosted with GitHub Pages.</p>
+   <div>
+   	<h1>Welcome to dont github home!</h1>
+   </div>
+  <!--
+   开始界面：开始按钮，剩下时间（25分钟）
+             按开始按钮，按钮变成暂停按钮，剩下时间开始变化，每一秒变化一次，直到剩下时间为0的时候弹出提示框；
+             期间按暂停按钮，则时间都不变化，暂停按钮变继续按钮。
+             继续按钮之后继续计时；
+             提示框弹出后，所有界面都重置回开始页面。
+   技术关键： 首先计算时间，时间计算
+       剩下时间，计时器：每一秒减1，直到时间为0结束；
+       停止计时器，继续计时器；
+       结束时弹出提示框并结束计时器，剩下时间重置；
+        时间展示 mm:ss
+          每一秒过去，展示ss就减1，当ss为0时变为59，mm减1；
+  -->
+  <div><span font-size="20">番茄工作法</span></div>
+  <div id="time">
+   <span id="left_min">25</span>:<span id="left_second">00</span>
+  </div>
+  <div>
+   <input type="button" id="run" value="开始" onclick="run();"/>
+   <input type="button" id="reset" value="重置" onclick="reset();"/>
+  </div>
  </body>
  <script type="text/javascript">
   startView();
