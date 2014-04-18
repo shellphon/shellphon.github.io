@@ -7,6 +7,12 @@
    margin:0 auto;
    text-align:center;
   }
+   .circular-wrap{
+    padding:20px 0 20px 0;
+    width:400px;
+    border-radius: 20px;
+    background-color: #FFE4B5;
+  }
 </style>
   <script type="text/javascript">
    var time = 1500000;//25 min
@@ -83,13 +89,15 @@
         时间展示 mm:ss
           每一秒过去，展示ss就减1，当ss为0时变为59，mm减1；
   -->
-  <div><span font-size="20">番茄工作法</span></div>
-  <div id="time">
-   <span id="left_min">25</span>:<span id="left_second">00</span>
-  </div>
-  <div>
-   <input type="button" id="run" value="开始" onclick="run();"/>
-   <input type="button" id="reset" value="重置" onclick="reset();"/>
+  <div class="circular-wrap">
+    <div><span font-size="20">番茄工作法</span></div>
+    <div id="time">
+     <span id="left_min">25</span>:<span id="left_second">00</span>
+    </div>
+    <div>
+     <input type="button" id="run" value="开始" onclick="run();"/>
+     <input type="button" id="reset" value="重置" onclick="reset();"/>
+    </div>
   </div>
  </body>
  <script type="text/javascript">
