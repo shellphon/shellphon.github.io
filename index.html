@@ -7,11 +7,25 @@
    margin:0 auto;
    text-align:center;
   }
+  /*  #FFE4B5 */
    .circular-wrap{
-    padding:20px 0 20px 0;
+    padding:10px 0 10px 0;
     width:400px;
     border-radius: 20px;
     background-color: #FFE4B5;
+  }
+  .div-btn{
+  	margin-top:10px;
+  }
+  .div-time span{
+  	color:#99CC99;
+  }
+  .input-btn{
+  	color: #A1A1A1;
+  	border-radius: 5px;
+  	border-width: 1px;
+  	border-color: #8C8C8C;
+  	background:transparent;
   }
 </style>
   <script type="text/javascript">
@@ -90,13 +104,15 @@
           每一秒过去，展示ss就减1，当ss为0时变为59，mm减1；
   -->
   <div class="circular-wrap">
-    <div><span font-size="20">番茄工作法</span></div>
-    <div id="time">
-     <span id="left_min">25</span>:<span id="left_second">00</span>
+    <div class="div-time"><span>番茄工作法</span></div>
+    <div id="time" class="div-time">
+     <span id="left_min">25</span>
+     <span>:</span>
+     <span id="left_second">00</span>
     </div>
-    <div>
-     <input type="button" id="run" value="开始" onclick="run();"/>
-     <input type="button" id="reset" value="重置" onclick="reset();"/>
+    <div class="div-btn">
+     <input type="button" class="input-btn" id="run" value="开始" onclick="run();"/>
+     <input type="button" class="input-btn" id="reset" value="重置" onclick="reset();"/>
     </div>
   </div>
  </body>
