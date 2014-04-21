@@ -11,6 +11,21 @@
    margin:0 auto;
    text-align:center;
   }
+  .portrait{
+    float: center;
+    width: 220px;
+    height: 220px;
+    border-radius: 220px;
+    padding: 20px;
+  }
+  .portrait:after{
+    content: ".";
+    display: block;
+    visibility: hidden;
+  }
+  .div-title{
+    height: 300px;
+  }
   .div-guide{
     width:820px;
   }
@@ -56,8 +71,9 @@
 </style>
  </head>
  <body>
-   <div>
-   	<h3>Welcome to dont github home!</h3>
+   <div class="div-title">
+    <h3>Welcome to dont github home!</h3>
+   <img class="portrait" src="images/finger.png" />
    </div>
    <div class="div-guide">
       <ul class="ul-guide">
