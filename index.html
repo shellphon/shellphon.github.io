@@ -29,12 +29,12 @@
   }
 </style>
   <script type="text/javascript">
-   var time = 1500000;//25 min
-   var leftTime = time;
-   var status = 0;// 0 开始; 1 计时; 2 暂停;
-   var clockInstance=null;
+   var 
+     time=leftTime = 1500000,//25 min
+     status = 0,// 0 开始; 1 计时; 2 暂停;
+     clockInstance=null;
    function clockin(){
-    console.log("每秒运行一次，剩余时间："+leftTime);
+    //console.log("每秒运行一次，剩余时间："+leftTime);
     var leftMin = document.getElementById("left_min").innerHTML;
     var leftSec = document.getElementById("left_second").innerHTML;
     leftTime -= 1000;
