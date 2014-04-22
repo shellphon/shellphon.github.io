@@ -11,20 +11,20 @@
    margin:0 auto;
    text-align:center;
   }
+  .portrait-wrap{
+    position: absolute;
+    left: 20px;
+    top: 0px;
+  }
   .portrait{
-    float: center;
-    width: 220px;
-    height: 220px;
-    border-radius: 220px;
-    padding: 20px;
+    width: 110px;
+    height: 110px;
+    border-radius: 110px;
+    padding: 10px;
   }
-  .portrait:after{
-    content: ".";
-    display: block;
-    visibility: hidden;
-  }
+  
   .div-title{
-    height: 300px;
+    height: 50px;
   }
   .div-guide{
     width:820px;
@@ -73,8 +73,10 @@
  <body>
    <div class="div-title">
     <h3>Welcome to dont github home!</h3>
-   <img class="portrait" src="images/finger.png" />
    </div>
+    <div class="portrait-wrap">
+     <img class="portrait" src="images/finger.png" />
+    </div>
    <div class="div-guide">
       <ul class="ul-guide">
         <li class="li-guide">
