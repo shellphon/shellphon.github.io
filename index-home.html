@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
  <head>
-  <title>Dont的项目主页</title>
+  <link rel="shortcut icon" href="/fav.ico" type="image/x-icon">
+  <title>Dont主页No.1</title>
 <style type="text/css">
   *{
     margin:0;
@@ -23,6 +24,16 @@
     display: block;
     visibility: hidden;
   }
+  .img-sns{
+    width: 150px;
+    height: 150px;
+    border-radius: 150px;
+    padding: 10px;
+    float: right;
+    position: absolute;
+    top: 200px;
+    right: 254px;
+  }
   h3{
     display: inline;
   }
@@ -31,14 +42,19 @@
   .div-title{
   }
   .div-guide{
-    width:820px;
+    width: 803px;
+  }
+  #tab_content{
+    width: 803px;
+    height: 400px;
   }
   .ul-guide{
     min-width:800px;
+    height: 40px;
   }
-  .li-guide{
+  .ul-guide>li{
     list-style-type: none;
-    background-color: #FFFF99;
+    background-color: #99CCFF;
     width: 200px;
     height:30px;
     border-radius: 5px;
@@ -46,11 +62,34 @@
     margin-right:1px;
     padding-top: 8px;
   }
-  a{
+  .ul-guide>li.last{
+    margin-right: 0px;
+  }
+  .ul-guide>li:hover{
+    background-color: #CCFF66;
+  }
+  #cur{
+    background-color: #FF9966;
+  }
+  .ul-guide>li>a{
+    display: block;
+    color: white;
     text-decoration: none;
   }
-  .li-guide.last{
+  .last{
     margin-right: 0px;
+  }
+  .div-tab{
+    float: center;
+    clear: both;
+    margin: 10% auto;
+    text-align: center;
+  }
+  .div-tab>span{
+    float: center;
+    vertical-align: middle;
+  }
+  .div-tab>p{
   }
 </style>
  </head>
@@ -61,19 +100,55 @@
    </div>
    <div class="div-guide">
       <ul class="ul-guide">
-        <li class="li-guide">
-          <a href="#">首页</a>
+        <li >
+          <a href="#" onclick="showTab(0);">首页</a>
         </li>
-        <li class="li-guide">
-          <a href="#">关于我</a>
+        <li >
+          <a href="#" onclick="showTab(1)">关于我</a>
         </li>
-        <li class="li-guide">
-          <a href="#">SNS</a>
+        <li >
+          <a href="#" onclick="showTab(2)">SNS</a>
         </li>
-        <li class="li-guide last">
-          <a href="#">其他</a>
+        <li class="last">
+          <a href="#" onclick="showTab(3)">其他</a>
         </li>
       </ul>
    </div>
+   <div id="tab_content">
+     <div id="div_home" class="div-tab">
+       <p>
+         <blockquote>
+           <p>
+             “世界是一面镜子，你对她笑，她就对着你笑.”
+           </p>
+         </blockquote>
+       </p>
+     </div>
+     <div id="div_about" class="div-tab" style="display:none;">
+       <p>一个徘徊在A和C之间的字母，世界的重心不在这，但是梦想的重心必须在这！</p>
+       <p>喜欢javascript，会java，偶尔玩玩python，已经忘了c#. CSS好难，但很有挑战性。</p>
+       <p>漫画宅，又爱好玩ukulele~</p>
+     </div>
+     <div id="div_sns" class="div-tab" style="display:none;">
+       <span>
+        Github: <a href="http://github.com/shellphon" target="_blank">github.com/shellphon</a><br />
+        微博(不建议关注): <a href="http://weibo.com/dont27" target="_blank">weibo.com/dont27</a><br />
+        Segmentfault: <a href="http://segmentfault.com/dont" target="_blank">segmentfault.com/dont</a>
+       </span>
+       <img class="img-sns" src="images/bear.png" />
+     </div>
+     <div id="div_other" class="div-tab" style="display:none;">
+       我是其他，我还没想好
+     </div>
+   </div>
+<script type="text/javascript">
+  var tabs = document.getElementById("tab_content").getElementsByTagName("div");
+  var displayTab = tabs[0];
+  function showTab(index, oriObj){
+    displayTab.style.display="none";
+   tabs[index].style.display="";
+   displayTab = tabs[index];
+  }
+</script>
  </body>
 </html>
