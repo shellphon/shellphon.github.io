@@ -12,9 +12,7 @@
    text-align:center;
   }
   .portrait-wrap{
-    position: absolute;
-    left: 20px;
-    top: 0px;
+
   }
   .portrait{
     width: 110px;
@@ -22,9 +20,19 @@
     border-radius: 110px;
     padding: 10px;
   }
-  
+  .portrait:after{
+    content: ".";
+    display: block;
+    visibility: hidden;
+  }
+  h3{
+    display: inline;
+  }
+  span{
+  }
   .div-title{
-    height: 50px;
+    height: 200px;
+    line-height: 200px;
   }
   .div-guide{
     width:820px;
@@ -48,35 +56,15 @@
   .li-guide.last{
     margin-right: 0px;
   }
-  /*  #FFE4B5 */
-   .circular-wrap{
-    padding:10px 0 10px 0;
-    width:400px;
-    border-radius: 20px;
-    background-color: #FFE4B5;
-  }
-  .div-btn{
-  	margin-top:10px;
-  }
-  .div-time span{
-  	color:#99CC99;
-  }
-  .input-btn{
-  	color: #A1A1A1;
-  	border-radius: 5px;
-  	border-width: 1px;
-  	border-color: #8C8C8C;
-  	background:transparent;
-  }
 </style>
  </head>
  <body>
    <div class="div-title">
+    <div class="portrait-wrap">
+    </div>
+     <img class="portrait" src="images/finger.png" />
     <h3>Welcome to dont github home!</h3>
    </div>
-    <div class="portrait-wrap">
-     <img class="portrait" src="images/finger.png" />
-    </div>
    <div class="div-guide">
       <ul class="ul-guide">
         <li class="li-guide">
