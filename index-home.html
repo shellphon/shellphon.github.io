@@ -31,14 +31,17 @@
   .div-title{
   }
   .div-guide{
-    width:820px;
+    width: 820px;
+  }
+  #tab_content{
+    width: 820px;
   }
   .ul-guide{
     min-width:800px;
   }
-  .li-guide{
+  .ul-guide>li{
     list-style-type: none;
-    background-color: #FFFF99;
+    background-color: #99CCFF;
     width: 200px;
     height:30px;
     border-radius: 5px;
@@ -46,13 +49,25 @@
     margin-right:1px;
     padding-top: 8px;
   }
-  a{
+  .ul-guide>li:hover{
+    background-color: #CCFF66;
+  }
+  #cur{
+    background-color: #FF9966;
+  }
+  .ul-guide>li>a{
+    color: white;
     text-decoration: none;
   }
-  .li-guide.last{
+  .last{
     margin-right: 0px;
   }
 </style>
+<script type="text/javascript">
+  function showTab(index){
+    
+  }
+</script>
  </head>
  <body>
    <div class="div-title">
@@ -61,19 +76,25 @@
    </div>
    <div class="div-guide">
       <ul class="ul-guide">
-        <li class="li-guide">
-          <a href="#">首页</a>
+        <li >
+          <a href="#" onclick="showTab(0);">首页</a>
         </li>
-        <li class="li-guide">
-          <a href="#">关于我</a>
+        <li >
+          <a href="#" onclick="showTab(1)">关于我</a>
         </li>
-        <li class="li-guide">
-          <a href="#">SNS</a>
+        <li >
+          <a href="#" onclick="showTab(2)">SNS</a>
         </li>
-        <li class="li-guide last">
-          <a href="#">其他</a>
+        <li class="last">
+          <a href="#" onclick="showTab(3)">其他</a>
         </li>
       </ul>
+   </div>
+   <div id="tab_content">
+     <div id="div_home"></div>
+     <div id="div_about"></div>
+     <div id="div_sns"></div>
+     <div id="div_other"></div>
    </div>
  </body>
 </html>
