@@ -40,7 +40,8 @@
     leftTime -= 1000;
     if(leftTime==0){
      clearInterval(clockInstance);
-     alert("时间到了！！！");
+     var textAlert = document.getElementById("text_miss").value;
+     alert("时间到了！！！  "+ textAlert);
      document.getElementById("run").value="开始";
      status = 0;
      leftTime=time;
@@ -109,6 +110,9 @@
      <span id="left_min">25</span>
      <span>:</span>
      <span id="left_second">00</span>
+    </div>
+    <div>
+      <input type="text" id="text_miss" value="" />
     </div>
     <div class="div-btn">
      <input type="button" class="input-btn" id="run" value="开始" onclick="run();"/>
