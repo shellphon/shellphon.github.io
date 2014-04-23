@@ -24,16 +24,6 @@
     display: block;
     visibility: hidden;
   }
-  .img-sns{
-    width: 150px;
-    height: 150px;
-    border-radius: 150px;
-    padding: 10px;
-    float: right;
-    position: absolute;
-    top: 200px;
-    right: 254px;
-  }
   h3{
     display: inline;
   }
@@ -94,6 +84,27 @@
   }
   .div-tab>p{
   }
+  .div-namecard{
+      width: 530px;
+      height: 222px;
+      border: 1px dotted black;
+      margin: 0 auto;
+  }
+  .div-namecard>div{
+      width: 300px;
+      float: left;
+      margin-top: 50px;
+      margin-left: 4px;
+      line-height: 36px;
+  }
+  .img-sns{
+      float: right;
+      width: 200px;
+      height: 200px;
+      border-radius: 200px;
+      padding: 10px;
+      background-color: transparent;
+  }
 </style>
 <script type="text/javascript">
   function showTab(index){
@@ -138,12 +149,17 @@
        <p>漫画宅，又爱好玩ukulele~</p>
      </div>
      <div id="div_sns" class="div-tab" style="display:none;">
-       <span>
-        Github: <a href="http://github.com/shellphon" target="_blank">github.com/shellphon</a><br />
-        微博(不建议关注): <a href="http://weibo.com/dont27" target="_blank">weibo.com/dont27</a><br />
-        Segmentfault: <a href="http://segmentfault.com/dont" target="_blank">segmentfault.com/dont</a>
-       </span>
-       <img class="img-sns" src="images/bear.png" />
+       <div class="div-namecard">
+        <div>
+           <p>
+           Github: <a href="http://github.com/shellphon" target="_blank">github.com/shellphon</a>
+           </p>
+           <p>
+           Segmentfault: <a href="http://segmentfault.com/dont" target="_blank">segmentfault.com/u/dont</a>
+           </p>
+        </div>
+        <img class="img-sns" src="images/bear.png" />
+      </div>
      </div>
      <div id="div_other" class="div-tab" style="display:none;">
        我是其他，我还没想好
@@ -151,11 +167,12 @@
    </div>
 <script type="text/javascript">
   var tabs = document.getElementById("tab_content").getElementsByTagName("div");
-  var displayTab = tabs[0];
+  var displayTab = tabs["div_home"];
+  var arrTab = ["div_home","div_about","div_sns","div_other"];
   function showTab(index, oriObj){
     displayTab.style.display="none";
    tabs[index].style.display="";
-   displayTab = tabs[index];
+   displayTab = tabs[arrTab[index]];
   }
 </script>
  </body>
