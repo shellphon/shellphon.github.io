@@ -77,7 +77,7 @@
   .div-tab{
     float: center;
     clear: both;
-    margin: 10% auto;
+    margin-top: 5%;
     text-align: center;
   }
   .div-tab>span{
@@ -107,6 +107,110 @@
       padding: 10px;
       background-color: transparent;
   }
+
+  .div-diabox{
+      width: 200px;
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 10px;
+      border-color: #CCCC33;
+      background-color: #FFFFCC;
+      position: relative;
+      margin: 0 auto;
+      padding:30px;
+      top: 10px;
+    }
+    .div-diabox .arrow-bottom-out{
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-color: #CCCC33 transparent transparent transparent;
+      border-width: 10px;
+      position: absolute;
+      top: 79px;
+      left: 50px;
+    }
+    .div-diabox .arrow-bottom-in{
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-color: #FFFFCC transparent transparent transparent;
+      border-width: 10px;
+      position: absolute;
+      top: 78px;
+      left: 50px;
+    }
+    .div-diabox .arrow-top-out{
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-color: transparent transparent #CCCC33 transparent;
+      border-width: 10px;
+      position: absolute;
+      top: -20px;
+      right: 10px;
+    }
+    .div-diabox .arrow-top-in{
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-color: transparent transparent #FFFFCC transparent;
+      border-width: 10px;
+      position: absolute;
+      top: -19px;
+      right: 10px;
+    }
+    .div-diabox .arrow-right-out{
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-color: transparent transparent transparent #CCCC33;
+      border-width: 10px;
+      position: absolute;
+      top: 10px;
+      right: -20px;
+    }
+    .div-diabox .arrow-right-in{
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-color: transparent transparent transparent #FFFFCC;
+      border-width: 10px;
+      position: absolute;
+      top: 10px;
+      right: -19px;
+    }
+    .div-diabox .arrow-left-out{
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-color: transparent #CCCC33 transparent transparent;
+      border-width: 10px;
+      position: absolute;
+      top: 10px;
+      left: -20px;
+    }
+    .div-diabox .arrow-left-in{
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-color: transparent #FFFFCC transparent transparent;
+      border-width: 10px;
+      position: absolute;
+      top: 10px;
+      left: -19px;
+    }
+    .div-diabox .photo{
+      float: left;
+      width: 100px;
+      height: 100px;
+      border-radius: 100px;
+      padding: 10px;
+      background-color: transparent;
+      position: absolute;
+      top: 79px;
+      left: 0px;
+    }
 </style>
 <script type="text/javascript">
   function showTab(index){
@@ -164,7 +268,12 @@
       </div>
      </div>
      <div id="div_other" class="div-tab" style="display:none;">
-       我是其他，我还没想好
+       <div class="div-diabox">
+        <span class="arrow-bottom-out"></span>
+        <span class="arrow-bottom-in"></span>
+        雷猴码
+        <img class="photo" src="images/finger.png" />
+      </div>
      </div>
    </div>
 <script type="text/javascript">
