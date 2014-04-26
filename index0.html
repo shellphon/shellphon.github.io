@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <link rel="shortcut icon" href="/fav.ico" type="image/x-icon">
+  <title>Dont的项目主页</title>
+<style type="text/css">
+  div{
+   margin:0 auto;
+   text-align:center;
+  }
+  /*  #FFE4B5 */
+   .circular-wrap{
+    padding:10px 0 10px 0;
+    width:400px;
+    border-radius: 20px;
+    background-color: #FFE4B5;
+  }
+  .div-btn{
+  	margin-top:10px;
+  }
+  .div-time span{
+  	color:#99CC99;
+  }
+  .input-btn{
+  	color: #A1A1A1;
+  	border-radius: 5px;
+  	border-width: 1px;
+  	border-color: #8C8C8C;
+  	background:transparent;
+  }
+</style>
+  <script type="text/javascript">
+   var 
+     time=leftTime = 1500000,//25 min
+     status = 0,// 0 开始; 1 计时; 2 暂停;
+     clockInstance=null;
+   function clockin(){
+    //console.log("每秒运行一次，剩余时间："+leftTime);
+    var leftMin = document.getElementById("left_min").innerHTML;
+    var leftSec = document.getElementById("left_second").innerHTML;
+    leftTime -= 1000;
+    if(leftTime==0){
+     clearInterval(clockInstance);
+     var textAlert = document.getElementById("text_miss").value;
+     alert("时间到了！！！  "+ textAlert);
+     document.getElementById("run").value="开始";
+     status = 0;
+     leftTime=time;
+     startView();
+    }else{
+     if(leftSec==0){
+      document.getElementById("left_second").innerHTML=59;
+      document.getElementById("left_min").innerHTML-=1;
+      if(document.getElementById("left_min").innerHTML<10){
+       document.getElementById("left_min").innerHTML="0" + document.getElementById("left_min").innerHTML;
+      }
+     }else{
+      document.getElementById("left_second").innerHTML-=1;
+      if(document.getElementById("left_second").innerHTML<10){
+       document.getElementById("left_second").innerHTML="0" + document.getElementById("left_second").innerHTML;
+      }
+     }
+    }
+   }
+   function run(){
+    if(status==0||status==2){
+     document.getElementById("run").value="暂停";
+     status = 1;
+     clockInstance = setInterval("clockin()",1000);
+    }else if(status==1){
+     document.getElementById("run").value="继续";
+     status = 2;
+     clearInterval(clockInstance);
+    }
+   }
+   function reset(){
+    time = 1500000;//25 min
+     leftTime = time;
+    status = 0;// 0 开始; 1 计时; 2 暂停;
+    clearInterval(clockInstance);
+    clockInstance=null;
+    document.getElementById("run").value="开始";
+    startView();
+   }
+   function startView(){
+    document.getElementById("left_second").innerHTML = "00";
+    document.getElementById("left_min").innerHTML = 25;
+   }
+  </script>
+ </head>
+ <body>
+   <div>
+   	<h1>Welcome to dont github home!</h1>
+   </div>
+  <!--
+   开始界面：开始按钮，剩下时间（25分钟）
+             按开始按钮，按钮变成暂停按钮，剩下时间开始变化，每一秒变化一次，直到剩下时间为0的时候弹出提示框；
+             期间按暂停按钮，则时间都不变化，暂停按钮变继续按钮。
+             继续按钮之后继续计时；
+             提示框弹出后，所有界面都重置回开始页面。
+   技术关键： 首先计算时间，时间计算
+       剩下时间，计时器：每一秒减1，直到时间为0结束；
+       停止计时器，继续计时器；
+       结束时弹出提示框并结束计时器，剩下时间重置；
+        时间展示 mm:ss
+          每一秒过去，展示ss就减1，当ss为0时变为59，mm减1；
+  -->
+  <div class="circular-wrap">
+    <div class="div-time"><span>番茄工作法</span></div>
+    <div id="time" class="div-time">
+     <span id="left_min">25</span>
+     <span>:</span>
+     <span id="left_second">00</span>
+    </div>
+    <div>
+      <input type="text" id="text_miss" value="" />
+    </div>
+    <div class="div-btn">
+     <input type="button" class="input-btn" id="run" value="开始" onclick="run();"/>
+     <input type="button" class="input-btn" id="reset" value="重置" onclick="reset();"/>
+    </div>
+  </div>
+ </body>
+ <script type="text/javascript">
+  startView();
+ </script>
+</html>

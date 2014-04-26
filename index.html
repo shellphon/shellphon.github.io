@@ -2,126 +2,294 @@
 <html>
  <head>
   <link rel="shortcut icon" href="/fav.ico" type="image/x-icon">
-  <title>Dont的项目主页</title>
+  <title>Dont主页No.1</title>
 <style type="text/css">
+  *{
+    margin:0;
+    padding: 0;
+  }
   div{
    margin:0 auto;
    text-align:center;
   }
-  /*  #FFE4B5 */
-   .circular-wrap{
-    padding:10px 0 10px 0;
-    width:400px;
-    border-radius: 20px;
-    background-color: #FFE4B5;
+  .portrait{
+    width: 110px;
+    height: 110px;
+    border-radius: 110px;
+    padding: 10px;
+    vertical-align:middle;
   }
-  .div-btn{
-  	margin-top:10px;
+  .portrait:after{
+    content: ".";
+    display: block;
+    visibility: hidden;
   }
-  .div-time span{
-  	color:#99CC99;
+  h3{
+    display: inline;
   }
-  .input-btn{
-  	color: #A1A1A1;
-  	border-radius: 5px;
-  	border-width: 1px;
-  	border-color: #8C8C8C;
-  	background:transparent;
+  span{
   }
+  .div-title{
+  }
+  .div-guide{
+    width: 803px;
+  }
+  #tab_content{
+    width: 803px;
+  }
+  #tab_content{
+    width: 803px;
+    height: 400px;
+  }
+  .ul-guide{
+    min-width:800px;
+    height: 40px;
+  }
+  /*    background-color: #99CCFF;  */
+  .ul-guide>li{
+    list-style-type: none;
+    background-color: #FF9933;
+    width: 200px;
+    height:30px;
+    border-radius: 5px;
+    float: left;
+    margin-right:1px;
+    padding-top: 8px;
+  }
+  .ul-guide>li.last{
+    margin-right: 0px;
+  }
+  /*  background-color: #CCFF66; */
+  .ul-guide>li:hover{
+    background-color: #66CC99;
+  }
+  #cur{
+    background-color: #FF9966;
+  }
+  .ul-guide>li>a{
+    display: block;
+    color: white;
+    text-decoration: none;
+  }
+  .last{
+    margin-right: 0px;
+  }
+  .div-tab{
+    float: center;
+    clear: both;
+    margin-top: 5%;
+    text-align: center;
+  }
+  .div-tab>span{
+    float: center;
+    vertical-align: middle;
+  }
+  .div-tab>p{
+  }
+  .div-namecard{
+      background-color: #FFFFCC;
+      width: 530px;
+      height: 222px;
+      border: 1px dashed black;
+      border-radius: 10px;
+      margin: 0 auto;
+  }
+  .div-namecard>div{
+      width: 300px;
+      float: left;
+      margin-top: 50px;
+      margin-left: 4px;
+      line-height: 36px;
+  }
+  .div-namecard a{
+    text-decoration: none;
+  }
+  .img-sns{
+      float: right;
+      width: 200px;
+      height: 200px;
+      border-radius: 200px;
+      padding: 10px;
+      background-color: transparent;
+  }
+
+  .div-diabox{
+      width: 200px;
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 10px;
+      border-color: #CCCC33;
+      background-color: #FFFFFF;
+      position: relative;
+      margin: 0 auto;
+      padding:30px;
+      top: 10px;
+    }
+    .div-diabox .arrow-bottom-out{
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-color: #CCCC33 transparent transparent transparent;
+      border-width: 10px;
+      position: absolute;
+      top: 79px;
+      left: 50px;
+    }
+    .div-diabox .arrow-bottom-in{
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-color: #FFFFFF transparent transparent transparent;
+      border-width: 10px;
+      position: absolute;
+      top: 78px;
+      left: 50px;
+    }
+    .div-diabox .arrow-top-out{
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-color: transparent transparent #CCCC33 transparent;
+      border-width: 10px;
+      position: absolute;
+      top: -20px;
+      right: 10px;
+    }
+    .div-diabox .arrow-top-in{
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-color: transparent transparent #FFFFFF transparent;
+      border-width: 10px;
+      position: absolute;
+      top: -19px;
+      right: 10px;
+    }
+    .div-diabox .arrow-right-out{
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-color: transparent transparent transparent #CCCC33;
+      border-width: 10px;
+      position: absolute;
+      top: 10px;
+      right: -20px;
+    }
+    .div-diabox .arrow-right-in{
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-color: transparent transparent transparent #FFFFFF;
+      border-width: 10px;
+      position: absolute;
+      top: 10px;
+      right: -19px;
+    }
+    .div-diabox .arrow-left-out{
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-color: transparent #CCCC33 transparent transparent;
+      border-width: 10px;
+      position: absolute;
+      top: 10px;
+      left: -20px;
+    }
+    .div-diabox .arrow-left-in{
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-color: transparent #FFFFFF transparent transparent;
+      border-width: 10px;
+      position: absolute;
+      top: 10px;
+      left: -19px;
+    }
+    .div-diabox .photo{
+      float: left;
+      width: 100px;
+      height: 100px;
+      border-radius: 100px;
+      padding: 10px;
+      background-color: transparent;
+      position: absolute;
+      top: 79px;
+      left: 0px;
+    }
 </style>
-  <script type="text/javascript">
-   var 
-     time=leftTime = 1500000,//25 min
-     status = 0,// 0 开始; 1 计时; 2 暂停;
-     clockInstance=null;
-   function clockin(){
-    //console.log("每秒运行一次，剩余时间："+leftTime);
-    var leftMin = document.getElementById("left_min").innerHTML;
-    var leftSec = document.getElementById("left_second").innerHTML;
-    leftTime -= 1000;
-    if(leftTime==0){
-     clearInterval(clockInstance);
-     var textAlert = document.getElementById("text_miss").value;
-     alert("时间到了！！！  "+ textAlert);
-     document.getElementById("run").value="开始";
-     status = 0;
-     leftTime=time;
-     startView();
-    }else{
-     if(leftSec==0){
-      document.getElementById("left_second").innerHTML=59;
-      document.getElementById("left_min").innerHTML-=1;
-      if(document.getElementById("left_min").innerHTML<10){
-       document.getElementById("left_min").innerHTML="0" + document.getElementById("left_min").innerHTML;
-      }
-     }else{
-      document.getElementById("left_second").innerHTML-=1;
-      if(document.getElementById("left_second").innerHTML<10){
-       document.getElementById("left_second").innerHTML="0" + document.getElementById("left_second").innerHTML;
-      }
-     }
-    }
-   }
-   function run(){
-    if(status==0||status==2){
-     document.getElementById("run").value="暂停";
-     status = 1;
-     clockInstance = setInterval("clockin()",1000);
-    }else if(status==1){
-     document.getElementById("run").value="继续";
-     status = 2;
-     clearInterval(clockInstance);
-    }
-   }
-   function reset(){
-    time = 1500000;//25 min
-     leftTime = time;
-    status = 0;// 0 开始; 1 计时; 2 暂停;
-    clearInterval(clockInstance);
-    clockInstance=null;
-    document.getElementById("run").value="开始";
-    startView();
-   }
-   function startView(){
-    document.getElementById("left_second").innerHTML = "00";
-    document.getElementById("left_min").innerHTML = 25;
-   }
-  </script>
+<script type="text/javascript">
+  function showTab(index){
+    
+  }
+</script>
  </head>
  <body>
-   <div>
-   	<h1>Welcome to dont github home!</h1>
+   <div class="div-title">
+     <img class="portrait" src="images/finger.png" />
+     <h3>Welcome to dont github home!</h3>
    </div>
-  <!--
-   开始界面：开始按钮，剩下时间（25分钟）
-             按开始按钮，按钮变成暂停按钮，剩下时间开始变化，每一秒变化一次，直到剩下时间为0的时候弹出提示框；
-             期间按暂停按钮，则时间都不变化，暂停按钮变继续按钮。
-             继续按钮之后继续计时；
-             提示框弹出后，所有界面都重置回开始页面。
-   技术关键： 首先计算时间，时间计算
-       剩下时间，计时器：每一秒减1，直到时间为0结束；
-       停止计时器，继续计时器；
-       结束时弹出提示框并结束计时器，剩下时间重置；
-        时间展示 mm:ss
-          每一秒过去，展示ss就减1，当ss为0时变为59，mm减1；
-  -->
-  <div class="circular-wrap">
-    <div class="div-time"><span>番茄工作法</span></div>
-    <div id="time" class="div-time">
-     <span id="left_min">25</span>
-     <span>:</span>
-     <span id="left_second">00</span>
-    </div>
-    <div>
-      <input type="text" id="text_miss" value="" />
-    </div>
-    <div class="div-btn">
-     <input type="button" class="input-btn" id="run" value="开始" onclick="run();"/>
-     <input type="button" class="input-btn" id="reset" value="重置" onclick="reset();"/>
-    </div>
-  </div>
+   <div class="div-guide">
+      <ul class="ul-guide">
+        <li >
+          <a href="#" onclick="showTab(0);">首页</a>
+        </li>
+        <li >
+          <a href="#" onclick="showTab(1)">关于我</a>
+        </li>
+        <li >
+          <a href="#" onclick="showTab(2)">SNS</a>
+        </li>
+        <li class="last">
+          <a href="#" onclick="showTab(3)">其他</a>
+        </li>
+      </ul>
+   </div>
+   <div id="tab_content">
+     <div id="div_home" class="div-tab">
+       <p>
+         <blockquote>
+           <p>
+             “世界是一面镜子，你对她笑，她就对着你笑.”
+           </p>
+         </blockquote>
+       </p>
+     </div>
+     <div id="div_about" class="div-tab" style="display:none;">
+       <p>一个徘徊在A和C之间的字母，世界的重心不在这，但是梦想的重心必须在这！<br />
+       喜欢javascript，会java，偶尔玩玩python，已经忘了c#. CSS好难，但很有挑战性。<br />
+       漫画宅，又爱好玩ukulele~</p>
+     </div>
+     <div id="div_sns" class="div-tab" style="display:none;">
+       <div class="div-namecard">
+        <div>
+           <p>
+           &nbsp;&nbsp;&nbsp;Github: <a href="http://github.com/shellphon" target="_blank">github.com/shellphon</a>
+           </p>
+           <p>
+           Segmentfault: <a href="http://segmentfault.com/dont" target="_blank">segmentfault.com/u/dont</a>
+           </p>
+        </div>
+        <img class="img-sns" src="images/bear.png" />
+      </div>
+     </div>
+     <div id="div_other" class="div-tab" style="display:none;">
+       <div class="div-diabox">
+        <span class="arrow-bottom-out"></span>
+        <span class="arrow-bottom-in"></span>
+        雷猴码?
+        <img class="photo" src="images/finger.png" />
+      </div>
+     </div>
+   </div>
+<script type="text/javascript">
+  var tabs = document.getElementById("tab_content").getElementsByTagName("div");
+  var displayTab = tabs["div_home"];
+  var arrTab = ["div_home","div_about","div_sns","div_other"];
+  function showTab(index, oriObj){
+    displayTab.style.display="none";
+   tabs[arrTab[index]].style.display="";
+   displayTab = tabs[arrTab[index]];
+  }
+</script>
  </body>
- <script type="text/javascript">
-  startView();
- </script>
 </html>
