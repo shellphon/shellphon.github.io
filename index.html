@@ -36,9 +36,6 @@
   }
   #tab_content{
     width: 803px;
-  }
-  #tab_content{
-    width: 803px;
     height: 400px;
   }
   .ul-guide{
@@ -97,12 +94,16 @@
   .div-namecard>div{
       width: 300px;
       float: left;
-      margin-top: 50px;
+      margin-top: 37px;
       margin-left: 4px;
       line-height: 36px;
   }
   .div-namecard a{
     text-decoration: none;
+    color: #666666;
+  }
+  .div-namecard p{
+    color: #CC6633;
   }
   .img-sns{
       float: right;
@@ -216,12 +217,114 @@
       top: 79px;
       left: 0px;
     }
+    /* skill table */
+    .skill-back{
+      background-color: rgba(204, 255, 153, 0.27);
+      width: 800px;
+      height: 300px;
+      border:1px dashed #000;
+    }
+    .div-skill{
+      margin: 0 auto;
+      text-align: center;
+      width: 605px;
+      height: 300px;
+    }
+    .div-skill ul{
+
+    }
+    .div-skill ul.skill-title{
+      font-weight:bold;
+    }
+    .div-skill ul.skill-title>li{
+      border-top: 1px solid #CC9966;
+    }
+
+    .div-skill li{
+      list-style-type: none;
+        background-color: #FFFFFF;
+        width: 150px;
+        height:30px;
+        float: left;
+      border-left: 1px solid #CC9966;
+      border-bottom: 1px solid #CC9966;
+        padding-top: 8px;
+
+    }
+    .div-skill li.last{
+      border-right: 1px solid #CC9966;
+    }
+    .div-degree{
+      width:150px;
+      height: 30px;
+      position: relative;
+    }
+    .div-degree .degree-out{
+      width: 100px;
+      height: 8px;
+      border: 1px solid #000;
+      position: absolute;
+      top: 6px;
+      left:20px;
+    }
+    .div-degree .degree-in{
+      width: 100px;
+      height: 8px;
+      position: absolute;
+      top: 7px;
+      left:21px;
+      background-color: #00ff00;
+    }
+    .div-degree .degree-in5{
+      width: 100px;
+      height: 8px;
+      position: absolute;
+      top: 7px;
+      left:21px;
+      background-color: #00ff00;
+    }
+    .div-degree .degree-in4{
+      width: 80px;
+      height: 8px;
+      position: absolute;
+      top: 7px;
+      left:21px;
+      background-color: #00ff00;
+    }
+    .div-degree .degree-in3{
+      width: 60px;
+      height: 8px;
+      position: absolute;
+      top: 7px;
+      left:21px;
+      background-color: #00ff00;
+    }
+    .div-degree .degree-in2{
+      width: 40px;
+      height: 8px;
+      position: absolute;
+      top: 7px;
+      left:21px;
+      background-color: #00ff00;
+    }
+    .div-degree .degree-in1{
+      width: 20px;
+      height: 8px;
+      position: absolute;
+      top: 7px;
+      left:21px;
+      background-color: #00ff00;
+    }
+    .div-degree .degree-in0{
+      width: 0px;
+      height: 8px;
+      position: absolute;
+      top: 7px;
+      left:21px;
+      background-color: #00ff00;
+    }
+
 </style>
-<script type="text/javascript">
-  function showTab(index){
-    
-  }
-</script>
  </head>
  <body>
    <div class="div-title">
@@ -255,15 +358,73 @@
        </p>
      </div>
      <div id="div_about" class="div-tab" style="display:none;">
-       <p>一个徘徊在A和C之间的字母，世界的重心不在这，但是梦想的重心必须在这！<br />
-       喜欢javascript，会java，偶尔玩玩python，已经忘了c#. CSS好难，但很有挑战性。<br />
-       漫画宅，又爱好玩ukulele~</p>
+         <div class="skill-back">
+          <div class="div-skill">
+            <p style="padding:10px;">技能表</p>
+            <ul class="skill-title">
+              <li>技能</li>
+              <li>HP</li>
+              <li>喜欢程度</li>
+              <li class="last">备注</li>
+            </ul>
+            <ul>
+              <li>JAVA</li>
+              <li>  
+                <div class="div-degree">
+                  <span class="degree-out"></span>
+                  <span class="degree-in4"></span>
+                </div>
+              </li>
+              <li>工作所用</li>
+              <li class="last">b/s,jave web</li>
+            </ul>
+            <ul>
+              <li>Javascript</li>
+              <li>
+                <div class="div-degree">
+                  <span class="degree-out"></span>
+                  <span class="degree-in3"></span>
+                </div>
+              </li>
+              <li>运行轻便给力</li>
+              <li class="last">很好玩</li>
+            </ul>
+            <ul>
+              <li>CSS</li>
+              <li>
+                  <div class="div-degree">
+                  <span class="degree-out"></span>
+                  <span class="degree-in2"></span>
+                </div>
+              </li>
+              <li>魅力</li>
+              <li class="last">做多点小东西</li>
+            </ul>
+            <ul>
+              <li>Python</li>
+              <li>
+                  <div class="div-degree">
+                  <span class="degree-out"></span>
+                  <span class="degree-in1"></span>
+                </div>
+              </li>
+              <li>感兴趣</li>
+              <li class="last">爬东西好玩</li>
+            </ul>
+          </div>
+       </div>
      </div>
      <div id="div_sns" class="div-tab" style="display:none;">
        <div class="div-namecard">
         <div>
            <p>
            &nbsp;&nbsp;&nbsp;Github: <a href="http://github.com/shellphon" target="_blank">github.com/shellphon</a>
+           </p>
+            <p>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CSDN: <a href="http://blog.csdn.net/dont27" target="_blank">blog.csdn.net/dont27</a>
+           </p>
+            <p>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;博客园: <a href="http://www.cnblogs.com/dont27" target="_blank">www.cnblogs.com/dont27</a>
            </p>
            <p>
            Segmentfault: <a href="http://segmentfault.com/dont" target="_blank">segmentfault.com/u/dont</a>
@@ -287,7 +448,10 @@
   var arrTab = ["div_home","div_about","div_sns","div_other"];
   function showTab(index, oriObj){
     displayTab.style.display="none";
+    console.log(index + ","+arrTab[index] + ","+tabs[arrTab[index]]+","+tabs[arrTab[index]].style.display);
+    console.dir(tabs[arrTab[index]]);
    tabs[arrTab[index]].style.display="";
+    console.log(index + ","+arrTab[index] + ","+tabs[arrTab[index]]+","+tabs[arrTab[index]].style.display);
    displayTab = tabs[arrTab[index]];
   }
 </script>
