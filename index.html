@@ -331,7 +331,7 @@
       left:21px;
       background-color: #00ff00;
     }
-/* new css for ukulele */
+      /* new css for ukulele */
       .ukubox{
         width: 100px;
         height: 250px;
@@ -349,10 +349,11 @@
         -moz-transform: rotate(60deg);
         -o-transform: rotate(60deg);
         transform: rotate(60deg);
-      }
-      .ukubox *{
+
+        }
+        .ukubox *{
           position: absolute;
-      }
+        }
       .ukubox .ukuhead{
         width: 34px;
         height: 46px;
@@ -467,6 +468,44 @@
         -o-transform: rotate(10deg);
         transform: rotate(10deg);
       }
+      .ukubox .fret{
+        width: 24px;
+        height: 1px;
+        left: 0px;
+        background-color: #BBB6B6;
+        border-radius: 1px;
+      }
+      .ukubox .fret.f1{
+        top: 14px;
+      }
+      .ukubox .fret.f2{
+        top: 29px;
+      }
+      .ukubox .fret.f3{
+        top: 41px;
+      }
+      .ukubox .fret.f4{
+        top: 52px;
+      }
+      .ukubox .fret.f5{
+        top: 62px;
+      }
+      .ukubox .fret.f6{
+        top: 71px;
+      }
+      .ukubox .fret.f7{
+        top: 79px;
+      }
+      .ukubox .fret.f8{
+        top: 86px;
+      }
+      .ukubox .fret.f9{
+        top: 92px;
+      }
+      .ukubox .fret.f10{
+        top: 97px;
+      }
+
       .dont{
         bottom: 22px;
         right: 13px;
@@ -486,7 +525,8 @@
         width: 24px;
         height: 108px;
         background-color: #a54747;
-        border-top:1px solid #fff;
+        border-top:2px solid #fff;
+        border-radius: 2px;
         top: 0px;
         left: 1px;
       }
@@ -587,6 +627,7 @@
         -o-transform: rotate(31deg);
         transform: rotate(31deg);
       }
+      
 </style>
  </head>
  <body>
@@ -616,40 +657,50 @@
         “世界是一面镜子，你对她笑，她就对着你笑.”
        </p>
        <div class="ukubox">
-          <span class="ukuhead">
-            <span class="knob g"></span>
-            <span class="knob c"></span>
-            <span class="knob e"></span>
-            <span class="knob a"></span>
-            <span class="g-str"></span>
-            <span class="c-str"></span>
-            <span class="e-str"></span>
-            <span class="a-str"></span>
-            <span class="knob g-out"></span>
-            <span class="knob c-out"></span>
-            <span class="knob e-out"></span>
-            <span class="knob a-out"></span>
+        <span class="ukuhead">
+          <span class="knob g"></span>
+          <span class="knob c"></span>
+          <span class="knob e"></span>
+          <span class="knob a"></span>
+          <span class="g-str"></span>
+          <span class="c-str"></span>
+          <span class="e-str"></span>
+          <span class="a-str"></span>
+          <span class="knob g-out"></span>
+          <span class="knob c-out"></span>
+          <span class="knob e-out"></span>
+          <span class="knob a-out"></span>
+        </span>
+        <span class="ukubody">
+          <span class="bd-top"></span>
+          <span class="bd-mid">
+            <span class="mid-left"></span>
+            <span class="mid-right"></span>
           </span>
-          <span class="ukubody">
-            <span class="bd-top"></span>
-            <span class="bd-mid">
-              <span class="mid-left"></span>
-              <span class="mid-right"></span>
-            </span>
-            <span class="bd-bottom">
-              <span class="dont">Dont</span>
-            </span>
-            <span class="hole"></span>
-            <span class="bridge"></span>
+          <span class="bd-bottom">
+            <span class="dont">Dont</span>
           </span>
-          <span class="ukuneck">
-            <span class="fingerboard">
-              <span class="string g"></span>
-              <span class="string c"></span>
-              <span class="string e"></span>
-              <span class="string a"></span>
-            </span>
+          <span class="hole"></span>
+          <span class="bridge"></span>
+        </span>
+        <span class="ukuneck">
+          <span class="fingerboard">
+            <span class="fret f1"></span>
+            <span class="fret f2"></span>
+            <span class="fret f3"></span>
+            <span class="fret f4"></span>
+            <span class="fret f5"></span>
+            <span class="fret f6"></span>
+            <span class="fret f7"></span>
+            <span class="fret f8"></span>
+            <span class="fret f9"></span>
+            <span class="fret f10"></span>
+            <span class="string g"></span>
+            <span class="string c"></span>
+            <span class="string e"></span>
+            <span class="string a"></span>
           </span>
+        </span>
        </div>
      </div>
      <div id="div_about" class="div-tab" style="display:none;">
