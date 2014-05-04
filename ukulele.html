@@ -23,30 +23,173 @@
 				padding:30px;
 				top: 30px;
 
-				-webkit-transform: rotate(31deg);
-				-moz-transform: rotate(31deg);
-				-o-transform: rotate(31deg);
-				transform: rotate(31deg);
+				-webkit-transform: rotate(60deg);
+				-moz-transform: rotate(60deg);
+				-o-transform: rotate(60deg);
+				transform: rotate(60deg);
 
 		    }
 		    .ukubox *{
 		    	position: absolute;
 		    }
-		    .ukubox .hole{
-		    	width: 40px;
-		    	height: 40px;
-		    	border-radius: 40px;
-		    	background-color: #5D5D81;
-		    	top: 175px;
-		    	left:61px;
-		    }
 			.ukubox .ukuhead{
 				width: 34px;
-				height: 42px;
+				height: 46px;
 				background-color: #CC6600;
 				border-radius: 8px;
-				top: 20px;
+				top: 16px;
 				left: 64px;
+			}
+			.ukubox .knob{
+				width: 5px;
+				height: 5px;
+				background-color: #fcfcfc;
+				border-radius: 5px;
+			}
+			.ukubox .knob.g{
+				box-shadow: -1px -1px 1px 0px black inset;
+				top: 10px;
+				left: 5px;
+			}
+			.ukubox .knob.g-out{
+				width: 5px;
+				height: 10px;
+				background-color: #fcfcfc;
+				border-radius: 50%;
+				box-shadow: -1px -1px 1px 0px black inset;
+				top: 8px;
+				left: -5px;
+			}
+			.ukubox .knob.c{
+				box-shadow: -1px -1px 1px 0px black inset;
+				bottom: 10px;
+				left: 5px;
+			}
+			.ukubox .knob.c-out{
+				width: 5px;
+				height: 10px;
+				background-color: #fcfcfc;
+				border-radius: 50%;
+				box-shadow: -1px -1px 1px 0px black inset;
+				bottom: 8px;
+				left: -5px;
+			}
+			.ukubox .knob.e{
+				box-shadow: 1px -1px 1px 0px black inset;
+				top: 10px;
+				right: 5px;
+			}
+			.ukubox .knob.e-out{
+				width: 5px;
+				height: 10px;
+				background-color: #fcfcfc;
+				border-radius: 50%;
+				box-shadow: 1px -1px 1px 0px black inset;
+				top: 8px;
+				right: -5px;
+			}
+			.ukubox .knob.a{
+				box-shadow: 1px -1px 1px 0px black inset;
+				bottom: 10px;
+				right: 5px;
+			}
+			.ukubox .knob.a-out{
+				width: 5px;
+				height: 10px;
+				background-color: #fcfcfc;
+				border-radius: 50%;
+				box-shadow: 1px -1px 1px 0px black inset;
+				bottom: 8px;
+				right: -5px;
+			}
+			.ukubox .g-str{
+				width: 1px;
+				height: 33px;
+				background-color: #fff;
+				bottom: 1px;
+				left: 11px;
+				-webkit-transform: rotate(-10deg);
+				-moz-transform: rotate(-10deg);
+				-o-transform: rotate(-10deg);
+				transform: rotate(-10deg);
+			}
+			.ukubox .c-str{
+				width: 1px;
+				height: 10px;
+				background-color: #fff;
+				bottom: 1px;
+				left: 8px;
+				-webkit-transform: rotate(-10deg);
+				-moz-transform: rotate(-10deg);
+				-o-transform: rotate(-10deg);
+				transform: rotate(-10deg);
+			}
+			.ukubox .e-str{
+				width: 1px;
+				height: 33px;
+				background-color: #fff;
+				bottom: 1px;
+				right: 11px;
+				-webkit-transform: rotate(10deg);
+				-moz-transform: rotate(10deg);
+				-o-transform: rotate(10deg);
+				transform: rotate(10deg);
+			}
+			.ukubox .a-str{
+				width: 1px;
+				height: 10px;
+				background-color: #fff;
+				bottom: 1px;
+				right: 8px;
+				-webkit-transform: rotate(10deg);
+				-moz-transform: rotate(10deg);
+				-o-transform: rotate(10deg);
+				transform: rotate(10deg);
+			}
+			.ukubox .fret{
+				width: 24px;
+				height: 1px;
+				background-color: #FFF;
+				border-radius: 1px;
+			}
+			.ukubox .fret.f1{
+				top: 14px;
+			}
+			.ukubox .fret.f2{
+				top: 29px;
+			}
+			.ukubox .fret.f3{
+				top: 41px;
+			}
+			.ukubox .fret.f4{
+				top: 52px;
+			}
+			.ukubox .fret.f5{
+				top: 62px;
+			}
+			.ukubox .fret.f6{
+				top: 71px;
+			}
+			.ukubox .fret.f7{
+				top: 79px;
+			}
+			.ukubox .fret.f8{
+				top: 86px;
+			}
+			.ukubox .fret.f9{
+				top: 92px;
+			}
+			.ukubox .fret.f10{
+				top: 97px;
+			}
+
+			.dont{
+				bottom: 22px;
+				right: 13px;
+				-webkit-transform: rotate(-18deg);
+				-moz-transform: rotate(-18deg);
+				-o-transform: rotate(-18deg);
+				transform: rotate(-18deg);
 			}
 			.ukubox .ukuneck{
 				width: 26px;
@@ -59,45 +202,39 @@
 				width: 24px;
 				height: 108px;
 				background-color: #a54747;
-				border-top:1px solid #fff;
-				top: 66px;
-				left: 69px;
+				border-top:2px solid #fff;
+				border-radius: 2px;
+				top: 0px;
+				left: 1px;
 			}
 			.ukubox .bridge{
 				width: 50px;
 				height: 10px;
 				background-color: #FFF;
-				top: 245px;
-				left: 57px;
+				top: 99px;
+				left: 25px;
 				box-shadow: 0px -5px 15px 0px black inset;
 			}
-			.ukubox .g-string{
+			.ukubox .string{
 				width: 1px;
 				height: 184px;
 				background-color: #FFF;
-				top: 66px;
-				left: 73px;
 			}
-			.ukubox .c-string{
-				width: 1px;
-				height: 184px;
-				background-color: #FFF;
-				top: 66px;
-				left: 78px;
+			.ukubox .string.g{
+				top: 0px;
+				left: 4px;
 			}
-			.ukubox .e-string{
-				width: 1px;
-				height: 184px;
-				background-color: #FFF;
-				top: 66px;
-				left: 83px;
+			.ukubox .string.c{
+				top: 0px;
+				left: 9px;
 			}
-			.ukubox .a-string{
-				width: 1px;
-				height: 184px;
-				background-color: #FFF;
-				top: 66px;
-				left: 88px;
+			.ukubox .string.e{
+				top: 0px;
+				left: 14px;
+			}
+			.ukubox .string.a{
+				top: 0px;
+				left: 19px;
 			}
 			
 			.ukubox .ukubody{
@@ -106,6 +243,14 @@
 				top: 140px;
 				left: 32px;
 			}
+			.ukubox .hole{
+		    	width: 40px;
+		    	height: 40px;
+		    	border-radius: 40px;
+		    	background-color: #5D5D81;
+		    	top: 32px;
+		    	left: 29px;
+		    }
 			.ukubox .bd-top{
 				width: 80px;
 				height: 70px;
@@ -164,25 +309,51 @@
 	</head>
 	<body>
 	<div>
-		<p>结构上还差旋钮、旋钮上的弦、品柱，后面就是细节上的修饰，如琴头的形状、部件的阴影、琴桥的细节、音孔的修饰，以及代码的优化</p>
 		<div class="ukubox">
-			<span class="ukuhead"></span>
-			<span class="ukuneck"></span>
+			<span class="ukuhead">
+				<span class="knob g"></span>
+				<span class="knob c"></span>
+				<span class="knob e"></span>
+				<span class="knob a"></span>
+				<span class="g-str"></span>
+				<span class="c-str"></span>
+				<span class="e-str"></span>
+				<span class="a-str"></span>
+				<span class="knob g-out"></span>
+				<span class="knob c-out"></span>
+				<span class="knob e-out"></span>
+				<span class="knob a-out"></span>
+			</span>
 			<span class="ukubody">
 				<span class="bd-top"></span>
 				<span class="bd-mid">
 					<span class="mid-left"></span>
 					<span class="mid-right"></span>
 				</span>
-				<span class="bd-bottom"></span>
+				<span class="bd-bottom">
+					<span class="dont">Dont</span>
+				</span>
+				<span class="hole"></span>
+				<span class="bridge"></span>
 			</span>
-			<span class="hole"></span>
-			<span class="fingerboard"></span>
-			<span class="bridge"></span>
-			<span class="g-string"></span>
-			<span class="c-string"></span>
-			<span class="e-string"></span>
-			<span class="a-string"></span>
+			<span class="ukuneck">
+				<span class="fingerboard">
+					<span class="fret f1"></span>
+					<span class="fret f2"></span>
+					<span class="fret f3"></span>
+					<span class="fret f4"></span>
+					<span class="fret f5"></span>
+					<span class="fret f6"></span>
+					<span class="fret f7"></span>
+					<span class="fret f8"></span>
+					<span class="fret f9"></span>
+					<span class="fret f10"></span>
+					<span class="string g"></span>
+					<span class="string c"></span>
+					<span class="string e"></span>
+					<span class="string a"></span>
+				</span>
+			</span>
 		</div>
 	</div>
 	</body>
