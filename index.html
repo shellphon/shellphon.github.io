@@ -12,6 +12,7 @@
    margin:0 auto;
    text-align:center;
   }
+  /*banner of title */
   .portrait{
     width: 110px;
     height: 110px;
@@ -33,6 +34,7 @@
   .div-title{
     min-width: 500px;
   }
+  /*  navigator */
   .div-guide{
     width: 803px;
   }
@@ -73,6 +75,7 @@
   .last{
     margin-right: 0px;
   }
+  /* tab of content */
   .div-tab{
     float: center;
     clear: both;
@@ -85,6 +88,7 @@
   }
   .div-tab>p{
   }
+  /* namecard */
   .div-namecard{
       background-color: #FFFFCC;
       width: 530px;
@@ -101,10 +105,20 @@
       line-height: 36px;
   }
   .div-namecard a{
+    width:50%;
+    display: inline-block;
     text-decoration: none;
     color: #666666;
+    text-align: left;
+  }
+  .div-namecard span{
+    width:36%;
+    /* span 和 a 之间不要有空格，不然又不对齐了回车也不行*/
+    text-align: right;
+    display: inline-block;
   }
   .div-namecard p{
+    width: 100%;
     color: #CC6633;
   }
   .img-sns{
@@ -115,7 +129,7 @@
       margin:10px;
       background-color: transparent;
   }
-
+   /* dialog box */
   .div-diabox{
       width: 200px;
       border-style: solid;
@@ -281,7 +295,7 @@
       position: absolute;
       top: 7px;
       left:21px;
-      background-color: #00ff00;
+      background-color: #0000ff;
     }
     .div-degree .degree-in5{
       width: 100px;
@@ -289,7 +303,7 @@
       position: absolute;
       top: 7px;
       left:21px;
-      background-color: #00ff00;
+      background-color: #0000ff;
     }
     .div-degree .degree-in4{
       width: 80px;
@@ -313,7 +327,92 @@
       position: absolute;
       top: 7px;
       left:21px;
-      background-color: #00ff00;
+      background-color: #ff0000;
+
+      /* Chrome, Safari, Opera */
+      -webkit-animation-name: move;
+      -webkit-animation-duration: 4s;
+      -webkit-animation-timing-function: ease-in;
+      -webkit-animation-delay: 2s;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-direction: alternate;
+      -webkit-animation-play-state: running;
+
+      -moz-animation-name: move;
+      -moz-animation-duration: 4s;
+      -moz-animation-timing-function: ease-in;
+      -moz-animation-delay: 2s;
+      -moz-animation-iteration-count: infinite;
+      -moz-animation-direction: alternate;
+      -moz-animation-play-state: running;
+      /* Standard syntax */
+      animation-name: move;
+      animation-duration: 4s;
+      animation-timing-function: ease-in;
+      animation-delay: 2s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-play-state: running;
+    }
+    @-webkit-keyframes move{
+      0%{
+        width:40px;
+        background-color: #ff0000;
+      }
+    
+      25%{
+        width:60px;
+        background-color: #00ff00;
+      }
+
+      50%{
+        width:80px;
+        background-color: #00ff00;
+      }
+      100%{
+        width:100px;
+        background-color: #0000ff;
+      }
+    }
+    @-moz-keyframes move{
+      0%{
+        width:40px;
+        background-color: #ff0000;
+      }
+    
+      25%{
+        width:60px;
+        background-color: #00ff00;
+      }
+
+      50%{
+        width:80px;
+        background-color: #00ff00;
+      }
+      100%{
+        width:100px;
+        background-color: #0000ff;
+      }
+    }
+    @keyframes move{
+      0%{
+        width:40px;
+        background-color: #ff0000;
+      }
+    
+      25%{
+        width:60px;
+        background-color: #00ff00;
+      }
+
+      50%{
+        width:80px;
+        background-color: #00ff00;
+      }
+      100%{
+        width:100px;
+        background-color: #0000ff;
+      }
     }
     .div-degree .degree-in1{
       width: 20px;
@@ -321,7 +420,7 @@
       position: absolute;
       top: 7px;
       left:21px;
-      background-color: #00ff00;
+      background-color: #ff0000;
     }
     .div-degree .degree-in0{
       width: 0px;
@@ -329,8 +428,9 @@
       position: absolute;
       top: 7px;
       left:21px;
-      background-color: #00ff00;
+      background-color: #ff0000;
     }
+
       /* new css for ukulele */
       .ukubox{
         width: 100px;
@@ -762,16 +862,16 @@
        <div class="div-namecard">
         <div>
            <p>
-           &nbsp;&nbsp;&nbsp;Github: <a href="http://github.com/shellphon" target="_blank">github.com/shellphon</a>
+           <span>Github:</span><a href="http://github.com/shellphon" target="_blank">github.com/shellphon</a>
            </p>
             <p>
-           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CSDN: <a href="http://blog.csdn.net/dont27" target="_blank">blog.csdn.net/dont27</a>
+           <span>CSDN:</span><a href="http://blog.csdn.net/dont27" target="_blank">blog.csdn.net/dont27</a>
            </p>
             <p>
-           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;博客园: <a href="http://www.cnblogs.com/dont27" target="_blank">www.cnblogs.com/dont27</a>
+           <span>博客园:</span><a href="http://www.cnblogs.com/dont27" target="_blank">www.cnblogs.com/dont27</a>
            </p>
            <p>
-           Segmentfault: <a href="http://segmentfault.com/dont" target="_blank">segmentfault.com/u/dont</a>
+           <span>Segmentfault:</span><a href="http://segmentfault.com/dont" target="_blank">segmentfault.com/u/dont</a>
            </p>
         </div>
         <img class="img-sns" src="images/bear.png" />
