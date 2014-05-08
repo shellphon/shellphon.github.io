@@ -1,0 +1,416 @@
+*{
+margin:0;padding:0;
+}
+
+div{
+margin:0 auto;
+text-align:center;
+}
+.draw-item{
+	margin-top: 40px;
+	font-family: Arial, Helvetica;
+	font-weight: bold;
+}
+/* cup */
+.cup{
+width: 200px;
+height: 200px;
+position: relative;
+}
+.cup *{
+position: absolute;
+}
+.cup .cup-head{
+width: 150px;
+height: 60px;
+border-radius: 150px/60px;
+background-color: #FF4500;
+top: 50px;
+left: 25px;
+}
+.cup .cup-head-in{
+width: 146px;
+height: 56px;
+border-radius: 146px/56px;
+background-color: rgba(0,0,0,0.22);
+top: 52px;
+left: 27px;
+}
+.cup .cup-body{
+width: 100px;
+height: 0px;
+border-style: solid;
+border-top-width: 80px;
+border-left-width: 25px;
+border-right-width: 25px;
+border-bottom-width: 0px;
+border-color: #FF4500 transparent transparent transparent;
+background-color: transparent;
+top: 80px;
+left: 25px;
+}
+.cup .cup-foot{
+width: 100px;
+height: 40px;
+border-radius: 100px/40px;
+background-color: #FF4500;
+top: 140px;
+left: 50px;
+}
+.cup .cup-hand-out{
+width: 100px;
+height: 60px;
+border-radius: 100px/60px;
+background-color: #FF4500;
+top: 87px;
+left: 103px;
+-webkit-transform: rotate(-30deg);
+-moz-transform: rotate(-30deg);
+-o-transform: rotate(-30deg);
+transform: rotate(-30deg);
+}
+.cup .cup-hand-in{
+  width: 87px;
+  height: 52px;
+  border-radius: 98px/58px;
+  background-color: #FFF;
+  top: 91px;
+  left: 107px;
+  -webkit-transform: rotate(-30deg);
+  -moz-transform: rotate(-30deg);
+  -o-transform: rotate(-30deg);
+  transform: rotate(-30deg);
+}
+.cup .smoke{
+ background-color: transparent;
+ top: 65px;
+ left: 78px;
+ -webkit-transform: rotate(-60deg);
+ -moz-transform: rotate(-60deg);
+ -o-transform: rotate(-60deg);
+ transform: rotate(-60deg);
+}
+.cup .smoke-down{
+  background-color: transparent;
+  width: 20px;
+  height: 20px;
+  border-style: solid;
+  border-top-width: 18px;
+  border-top-left-radius: 19px 38px;
+  border-color: #F7F7F7 transparent transparent transparent;
+  top: 0px;
+  left: 0px;
+}
+.cup .smoke-up{
+background-color: transparent;
+width: 20px;
+height: 20px;
+border-style: solid;
+border-bottom-width: 18px;
+border-bottom-right-radius: 19px 38px;
+border-color: transparent transparent #F7F7F7 transparent;
+top: -23px;
+left: 20px;
+}
+.cup .name{
+top: 120px;
+left: 64px;
+background-color: transparent;
+font-weight: bold;
+font-family: Arial, Helvetica;
+}
+ /* new css for ukulele */
+.ukubox{
+	width: 100px;
+	height: 250px;
+	border-style: solid;
+	border-width: 0px;
+	border-radius: 10px;
+	border-color: #CCCC33;
+	background-color: #FFFFFF;
+	position: relative;
+	margin: 0 auto;
+	padding:30px;
+	top: 30px;
+
+	-webkit-transform: rotate(60deg);
+	-moz-transform: rotate(60deg);
+	-o-transform: rotate(60deg);
+	transform: rotate(60deg);
+
+}
+.ukubox *{
+	position: absolute;
+}
+.ukubox .ukuhead{
+	width: 34px;
+	height: 46px;
+	background-color: #CC6600;
+	border-radius: 8px;
+	top: 16px;
+	left: 64px;
+}
+.ukubox .knob{
+	width: 5px;
+	height: 5px;
+	background-color: #fcfcfc;
+	border-radius: 5px;
+}
+.ukubox .knob.g{
+	box-shadow: -1px -1px 1px 0px black inset;
+	top: 10px;
+	left: 5px;
+}
+.ukubox .knob.g-out{
+	width: 5px;
+	height: 10px;
+	background-color: #fcfcfc;
+	border-radius: 50%;
+	box-shadow: -1px -1px 1px 0px black inset;
+	top: 8px;
+	left: -5px;
+}
+.ukubox .knob.c{
+	box-shadow: -1px -1px 1px 0px black inset;
+	bottom: 10px;
+	left: 5px;
+}
+.ukubox .knob.c-out{
+	width: 5px;
+	height: 10px;
+	background-color: #fcfcfc;
+	border-radius: 50%;
+	box-shadow: -1px -1px 1px 0px black inset;
+	bottom: 8px;
+	left: -5px;
+}
+.ukubox .knob.e{
+	box-shadow: 1px -1px 1px 0px black inset;
+	top: 10px;
+	right: 5px;
+}
+.ukubox .knob.e-out{
+	width: 5px;
+	height: 10px;
+	background-color: #fcfcfc;
+	border-radius: 50%;
+	box-shadow: 1px -1px 1px 0px black inset;
+	top: 8px;
+	right: -5px;
+}
+.ukubox .knob.a{
+	box-shadow: 1px -1px 1px 0px black inset;
+	bottom: 10px;
+	right: 5px;
+}
+.ukubox .knob.a-out{
+	width: 5px;
+	height: 10px;
+	background-color: #fcfcfc;
+	border-radius: 50%;
+	box-shadow: 1px -1px 1px 0px black inset;
+	bottom: 8px;
+	right: -5px;
+}
+.ukubox .g-str{
+	width: 1px;
+	height: 33px;
+	background-color: #fff;
+	bottom: 1px;
+	left: 11px;
+	-webkit-transform: rotate(-10deg);
+	-moz-transform: rotate(-10deg);
+	-o-transform: rotate(-10deg);
+	transform: rotate(-10deg);
+}
+.ukubox .c-str{
+	width: 1px;
+	height: 10px;
+	background-color: #fff;
+	bottom: 1px;
+	left: 8px;
+	-webkit-transform: rotate(-10deg);
+	-moz-transform: rotate(-10deg);
+	-o-transform: rotate(-10deg);
+	transform: rotate(-10deg);
+}
+.ukubox .e-str{
+	width: 1px;
+	height: 33px;
+	background-color: #fff;
+	bottom: 1px;
+	right: 11px;
+	-webkit-transform: rotate(10deg);
+	-moz-transform: rotate(10deg);
+	-o-transform: rotate(10deg);
+	transform: rotate(10deg);
+}
+.ukubox .a-str{
+	width: 1px;
+	height: 10px;
+	background-color: #fff;
+	bottom: 1px;
+	right: 8px;
+	-webkit-transform: rotate(10deg);
+	-moz-transform: rotate(10deg);
+	-o-transform: rotate(10deg);
+	transform: rotate(10deg);
+}
+.ukubox .fret{
+	width: 24px;
+	height: 1px;
+	background-color: #FFF;
+	border-radius: 1px;
+}
+.ukubox .fret.f1{
+	top: 14px;
+}
+.ukubox .fret.f2{
+	top: 29px;
+}
+.ukubox .fret.f3{
+	top: 41px;
+}
+.ukubox .fret.f4{
+	top: 52px;
+}
+.ukubox .fret.f5{
+	top: 62px;
+}
+.ukubox .fret.f6{
+	top: 71px;
+}
+.ukubox .fret.f7{
+	top: 79px;
+}
+.ukubox .fret.f8{
+	top: 86px;
+}
+.ukubox .fret.f9{
+	top: 92px;
+}
+.ukubox .fret.f10{
+	top: 97px;
+}
+
+.dont{
+	bottom: 22px;
+	right: 13px;
+	-webkit-transform: rotate(-18deg);
+	-moz-transform: rotate(-18deg);
+	-o-transform: rotate(-18deg);
+	transform: rotate(-18deg);
+}
+.ukubox .ukuneck{
+	width: 26px;
+	height: 82px;
+	background-color: #CC6600;
+	top: 60px;
+	left: 68px;
+}
+.ukubox .fingerboard{
+	width: 24px;
+	height: 108px;
+	background-color: #a54747;
+	border-top:2px solid #fff;
+	border-radius: 2px;
+	top: 0px;
+	left: 1px;
+}
+.ukubox .bridge{
+	width: 50px;
+	height: 10px;
+	background-color: #FFF;
+	top: 99px;
+	left: 25px;
+	box-shadow: 0px -5px 15px 0px black inset;
+}
+.ukubox .string{
+	width: 1px;
+	height: 184px;
+	background-color: #FFF;
+}
+.ukubox .string.g{
+	top: 0px;
+	left: 4px;
+}
+.ukubox .string.c{
+	top: 0px;
+	left: 9px;
+}
+.ukubox .string.e{
+	top: 0px;
+	left: 14px;
+}
+.ukubox .string.a{
+	top: 0px;
+	left: 19px;
+}
+
+.ukubox .ukubody{
+	width: 100px;
+	height: 160px;
+	top: 140px;
+	left: 32px;
+}
+.ukubox .hole{
+	width: 40px;
+	height: 40px;
+	border-radius: 40px;
+	background-color: #5D5D81;
+	top: 32px;
+	left: 29px;
+}
+.ukubox .bd-top{
+	width: 80px;
+	height: 70px;
+	top: 0px;
+	left: 10px;
+	border-top-left-radius: 35px 30px;
+	border-top-right-radius: 35px 30px;
+	border-bottom-right-radius: 20px 40px;
+	border-bottom-left-radius: 20px 40px; 
+	background-color: #CC6600;
+}
+.ukubox .bd-bottom{
+	width: 100px;
+	height: 80px;
+	top: 70px;
+	left: 0px;
+	border-top-left-radius: 35px 45px;
+	border-top-right-radius: 35px 45px;
+	border-bottom-right-radius: 50px 34px;
+	border-bottom-left-radius: 50px 34px; 
+	background-color: #CC6600;
+}
+.ukubox .bd-mid{
+	width: 78px;
+	height: 40px;
+	top: 59px;
+	left: 11px;
+	background-color: #CC6600;
+}
+.bd-mid .mid-left{
+	width: 48px;
+	height: 31px;
+	background-color: #FFFFFF;
+	top: 3px;
+	left: -35px;
+	border-bottom-right-radius: 55px 27px;
+	-webkit-transform: rotate(-31deg);
+	-moz-transform: rotate(-31deg);
+	-o-transform: rotate(-31deg);
+	transform: rotate(-31deg);
+}
+.bd-mid .mid-right{
+	width: 48px;
+	height: 31px;
+	background-color: #FFFFFF;
+	top: 3px;
+	right: -35px;
+	border-bottom-left-radius: 55px 27px;
+	-webkit-transform: rotate(31deg);
+	-moz-transform: rotate(31deg);
+	-o-transform: rotate(31deg);
+	transform: rotate(31deg);
+}  
