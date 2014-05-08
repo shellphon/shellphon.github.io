@@ -307,6 +307,8 @@ font-family: Arial, Helvetica;
 	background-color: #CC6600;
 	top: 60px;
 	left: 68px;
+	/* for fret span */
+	text-align: left;
 }
 .ukubox .fingerboard{
 	width: 24px;
