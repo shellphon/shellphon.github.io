@@ -8,6 +8,7 @@
   *{
     margin:0;
     padding: 0;
+    font-family: Arial, Helvetica;
   }
   div{
    margin:0 auto;
@@ -139,9 +140,11 @@
       border-color: #CCCC33;
       background-color: #FFFFFF;
       position: relative;
-      margin: 0 auto;
+      /* position for real */
+      margin: 0;
       padding:30px;
-      top: 10px;
+      top: -200px;
+      left: 320px;
     }
     .div-diabox .arrow-bottom-out{
       width: 0px;
@@ -235,6 +238,30 @@
       top: 79px;
       left: 0px;
     }
+    /*other-page-guide*/
+     .div-page-url{
+        width: 200px;
+        height: 200px;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 10px;
+        border-color: #CCCC33;
+        background-color: rgba(235, 235, 31, 0.39);
+        position: relative;
+        margin: 0;
+        padding:30px;
+        top: 0px;
+        left: 20px;
+        text-align: left;
+    }
+    .div-page-url ul li{
+        list-style-type: circle;
+        margin-bottom: 10px;
+    }
+    .div-page-url ul li a{
+        text-decoration: none;
+    }
+
     /* skill table */
     .skill-back{
       background-color: rgba(204, 255, 153, 0.27);
@@ -880,6 +907,14 @@
       </div>
      </div>
      <div id="div_other" class="div-tab" style="display:none;">
+      <div class="div-page-url">
+        <ul>
+          <li><a href="./tomatto.html" target="_blank">番茄</a></li>
+          <li><a href="./ukulele.html" target="_blank">我的第一把CSS-ukulele</a></li>
+          <li><a href="./css_draw.html" target="_blank">CSS画图</a></li>
+          <li><a href="#" target="_blank">其他工具待续</a></li>
+        </ul>
+      </div>
        <div class="div-diabox">
         <span class="arrow-bottom-out"></span>
         <span class="arrow-bottom-in"></span>
