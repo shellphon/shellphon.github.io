@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <title>仿wechat</title>
+<style type="text/css">
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  div{
+   margin:0 auto;
+  }
+  .friend-circle{
+    width: 270px;
+    height: 465px;
+    border-radius: 8px;
+    background-color: #FFF;
+    border:1px solid #000;
+  }
+  .cir-banner{
+    position: relative;
+    height: 35px;
+    background-color: rgba(91, 91, 95, 0.92);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px; 
+  }
+  .cir-banner *{
+    position: absolute;
+  }
+  .cir-content{
+    background-color: #FFF;
+  }
+  .cir-content .cir-pic{
+    position: relative;
+    height: 160px; 
+  }
+  .cir-content .cir-pic .pic-back{
+    width: 270px;
+    height: 160px; 
+  }
+  .cir-content .cir-pic *{
+    position: absolute;
+  }
+  .cir-content .cir-pic .portrait{
+    bottom: -32px;
+    right: 8px;
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    border: 2px solid #FFF;
+  }
+  .cir-content .cir-pic .self-nickname{
+    bottom: 5px;
+    right: 70px;
+    font-size: 30px;
+    color: #FFF;
+  }
+  .cir-states ul{
+    margin-top:22px; 
+    font-family: Microsoft Yahei, Arial;
+  }
+  .cir-states ul li{
+    list-style-type: none;
+    position: relative;
+    padding-top: 8px; 
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+  }
+  .cir-nickname{
+    position: relative;
+    top: -20px;
+    left: 10px;
+    font-size: 12px;
+    color: rgba(0,0,127,0.4);
+    font-weight: bold;
+  }
+  .cir-states p{
+    position: relative;
+    top: -10px;
+    left: 54px;
+    font-size: 12px;
+  }
+  .cir-time{
+    position: relative;
+    left: 54px;
+    top: -10px;
+    font-size: 10px;
+    color: rgba(0,0,0,0.4);
+  }
+  .cir-states .per-port{
+    width: 40px;
+    height: 40px;
+    position: relative;
+    left:5px;
+    border-radius: 40px;
+  }
+  .comment-button{
+    position: absolute;
+    top: 57px;
+    right: 20px;
+    width: 16px;
+    height: 14px;
+    background-color: rgba(0,0,127,0.3);
+  }
+  .comment-button .arrow{
+    border-width: 3px;
+    border-style: solid;
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    top: 4px;
+    left: -6px;
+    border-color: transparent rgba(0,0,127,0.3) transparent transparent;
+  }
+  .comment-button .pot0{
+    width: 3px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: #FFF;
+    position: absolute;
+    top: 4px;
+    left: 3px;
+  }
+  .comment-button .pot1{
+    width: 3px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: #FFF;
+    position: absolute;
+    top: 4px;
+    right: 3px;
+  }
+  .cir-comments{
+    position: static;
+    height: 35px;
+  }
+  .cir-comment{
+    position: relative;
+    top: 0px;
+    left: 16px;
+    width: 190px;
+    height: 20px;
+    padding: 5px;
+    background-color: rgba(127,127,120,0.2);
+    font-size: 12px;
+  }
+  .cir-comment .arrow{
+    border-width: 8px;
+    border-style: solid;
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    top: -16px;
+    left: 16px;
+    border-color: transparent transparent rgba(127,127,120,0.2) transparent;
+  }
+  </style>
+  
+ </head>
+ <body>
+  <div class="friend-circle">
+    <div class="cir-banner">
+    </div>
+    <div class="cir-content">
+      <div class="cir-pic">
+        <img class="pic-back" src="./../images/finger.png" />
+        <span class="self-nickname">Dont</span>
+        <img  class="portrait" src="./../images/bear.png"/>
+      </div>
+      <div class="cir-states">
+        <ul>
+          <li>
+              <img class="per-port" src="./../images/bear.png" />
+              <span class="cir-nickname">大王</span>
+              <p>今天天气超热,尼玛</p>
+              <span class="cir-time">32分钟前</span>
+              <div class="comment-button">
+                <div class="arrow"></div>
+                <div class="pot0"></div>
+                <div class="pot1"></div>
+              </div>
+          </li>
+          <li>
+              <img class="per-port" src="./../images/bear.png" />
+              <span class="cir-nickname">大王</span>
+              <p>我来啦，怎么没人呢？</p>
+              <span class="cir-time">45分钟前</span>
+              <div class="comment-button">
+                <div class="arrow"></div>
+                <div class="pot0"></div>
+                <div class="pot1"></div>
+              </div>
+              <div class="cir-comments">
+                <div class="cir-comment">
+                  <div class="arrow">
+                  </div>
+                  <span>皇上:</span><span>  朕在啊！</span>
+                </div>
+              </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+ </body>
+</html>
