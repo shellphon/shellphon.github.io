@@ -26,7 +26,40 @@
     border-top-right-radius: 8px; 
   }
   .cir-banner *{
-    position: absolute;
+  /*   position: absolute; */
+  }
+  .div-logo{
+    float: left;
+    margin-left: 0px;
+    margin-top: 7px;
+    /*overflow: hidden;*/
+  }
+  .div-logo span{
+    color: #D6D3D3;
+    font-family: Microsoft Yahei,Arial;
+    font-size: 10px;
+  }
+  .div-logo img#logo{
+    width: 21px;
+    height: 21px;
+    margin-left: 3px;
+    vertical-align: middle;
+  }
+  .div-logo img{
+    margin-left: -6px;
+    width: 18px;
+    height: 14px;
+    vertical-align: middle;
+  }
+  .tool-float{
+    float: right;
+    margin-right: 8px;
+    margin-top: 7px;
+    /*overflow: hidden;*/
+  }
+  .tool-float img{
+    width: 21px;
+    height: 21px;
   }
   .cir-content{
     background-color: #FFF;
@@ -85,6 +118,7 @@
     overflow: hidden;
     position: relative;
     padding-top: 8px; 
+    padding-bottom: 5px;
     border-bottom: 1px solid rgba(0,0,0,0.2);
   }
   .cir-nickname{
@@ -158,7 +192,7 @@
     height: 100px;
   }
   .cir-comments{
-    margin-bottom: 5px;
+    /*margin-bottom: 5px;*/
   }
   .cir-comment{
     position: relative;
@@ -185,110 +219,109 @@
   .cir-comment .comment-nick{
     color: rgba(0,0,127,0.4);
   }
+  .scroll-content{
+    margin-top: 0px;
+  }
   </style>
   
  </head>
  <body>
   <div class="friend-circle">
     <div class="cir-banner">
+      <div class="div-logo">
+        <img src="./img/back.png" /><img id="logo" src="./img/logo.png" alt="Chat" />
+        <span>朋友圈</span>
+      </div>
+      <div class="tool-float">
+        <img src="./img/photo.png" alt="photo" />
+      </div>
     </div>
     <div class="cir-content">
-      <div class="cir-pic">
-        <img class="pic-back" src="./../images/finger.png" />
-        <span class="self-nickname">Dont</span>
-        <img  class="portrait" src="./../images/bear.png"/>
-      </div>
-      <div class="cir-states">
-        <ul>
-            <li>
-              <div class="cir-left">
-                <img class="per-port" src="./../images/bear.png" />
-              </div>
-              <div class="cir-right">
-                <div class="cir-nickname">
-                  <span>孙悟空</span>
+      <div id="divScroll" class="scroll-content">
+        <div class="cir-pic">
+          <img class="pic-back" src="./../images/finger.png" />
+          <span class="self-nickname">Dont</span>
+          <img  class="portrait" src="./../images/bear.png"/>
+        </div>
+        <div class="cir-states">
+          <ul>
+              <li>
+                <div class="cir-left">
+                  <img class="per-port" src="./../images/bear.png" />
                 </div>
-                <div class="cir-statement">
-                  <p>今天找到了五星龙珠，可是我要四星龙珠啊。</p>
+                <div class="cir-right">
+                  <div class="cir-nickname">
+                    <span>孙悟空</span>
+                  </div>
+                  <div class="cir-statement">
+                    <p>今天找到了五星龙珠，可是我要四星龙珠啊。</p>
+                  </div>
+                  <div class="state-pic">
+                    <img class="state-img" src="http://s2.img.766.com/202/110622/1517/196649.jpg" />
+                  </div>
+                  <div class="cir-time">
+                    <span>32分钟前</span>
+                    <div class="comment-button">
+                      <div class="arrow"></div>
+                      <div class="pot0"></div>
+                      <div class="pot1"></div>
+                    </div>
+                  </div>
+                  <div class="cir-comments"></div>
                 </div>
-                <div class="state-pic">
-                  <img class="state-img" src="http://s2.img.766.com/202/110622/1517/196649.jpg" />
+              </li>
+              <li>
+                <div class="cir-left">
+                  <img class="per-port" src="./../images/bear.png" />
                 </div>
-                <div class="cir-time">
-                  <span>32分钟前</span>
-                  <div class="comment-button">
-                    <div class="arrow"></div>
-                    <div class="pot0"></div>
-                    <div class="pot1"></div>
+                <div class="cir-right">
+                  <div class="cir-nickname">
+                    <span>孙悟空</span>
+                  </div>
+                  <div class="cir-statement">
+                    <p>求四星龙珠，那是爷爷留给我的。</p>
+                  </div>
+                  <div class="cir-time">
+                    <span>54分钟前</span>
+                    <div class="comment-button">
+                      <div class="arrow"></div>
+                      <div class="pot0"></div>
+                      <div class="pot1"></div>
+                    </div>
+                  </div>
+                  <div class="cir-comments">
+                    <div class="cir-comment">
+                    <div class="arrow">
+                    </div>
+                    <span class="comment-nick">布尔玛</span><span>: 用龙珠雷达呀！</span>
+                  </div>
                   </div>
                 </div>
-                <div class="cir-comments"></div>
-              </div>
-            </li>
-            <li>
-              <div class="cir-left">
-                <img class="per-port" src="./../images/bear.png" />
-              </div>
-              <div class="cir-right">
-                <div class="cir-nickname">
-                  <span>孙悟空</span>
-                </div>
-                <div class="cir-statement">
-                  <p>求四星龙珠，那是爷爷留给我的。</p>
-                </div>
-                <div class="cir-time">
-                  <span>54分钟前</span>
-                  <div class="comment-button">
-                    <div class="arrow"></div>
-                    <div class="pot0"></div>
-                    <div class="pot1"></div>
-                  </div>
-                </div>
-                <div class="cir-comments">
-                  <div class="cir-comment">
-                  <div class="arrow">
-                  </div>
-                  <span class="comment-nick">布尔玛</span><span>: 用龙珠雷达呀！</span>
-                </div>
-                </div>
-              </div>
-            </li>
-        </ul>
-        <!--
-        <ul>
-          <li>
-              <img class="per-port" src="./../images/bear.png" />
-              <span class="cir-nickname">大王</span>
-              <p>今天天气超热,尼玛</p>
-              <span class="cir-time">32分钟前</span>
-              <div class="comment-button">
-                <div class="arrow"></div>
-                <div class="pot0"></div>
-                <div class="pot1"></div>
-              </div>
-          </li>
-          <li>
-              <img class="per-port" src="./../images/bear.png" />
-              <span class="cir-nickname">大王</span>
-              <p>我来啦，怎么没人呢？</p>
-              <span class="cir-time">45分钟前</span>
-              <div class="comment-button">
-                <div class="arrow"></div>
-                <div class="pot0"></div>
-                <div class="pot1"></div>
-              </div>
-              <div class="cir-comments">
-                <div class="cir-comment">
-                  <div class="arrow">
-                  </div>
-                  <span>皇上:</span><span>  朕在啊！</span>
-                </div>
-              </div>
-          </li>
-        </ul>
-        -->
+              </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
+  <script type="text/javascript">
+  var scrollDiv = document.getElementById("divScroll");
+  var marginTop = 0;
+  scrollDiv.addEventListener("mousewheel", function(e){
+    //console.log(e.detail);
+    //console.log(e.wheelDelta);
+    if(e.wheelDelta>0){
+      if(marginTop==0){
+        return; 
+      }
+      marginTop+=10;
+    }else{
+      if(marginTop==-430){
+        return;
+      }
+      marginTop-=10;
+    }
+    scrollDiv.style["margin-top"] = marginTop+"px";
+  });
+  </script>
  </body>
 </html>
