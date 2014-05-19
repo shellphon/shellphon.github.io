@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <title>吃饭</title>
+<style type="text/css">
+  *{
+    margin: 0;
+    padding: 0;
+    font-family: Microsoft Yahei, Arial;
+  }
+  div{
+   margin:0 auto;
+   text-align:center;
+  }
+  #resturants{
+    padding: 20px;
+    width: 400px;
+    height: 300px;
+    border-radius: 20px;
+    /* border: 2px solid rgba(0, 0, 0, 0); */
+    background-color: rgba(255, 204, 51, 0.59);
+    box-shadow: 0px 4px 16px 1px rgba(0, 0, 0, 0.79);
+    position: relative;
+    margin-top: 50px;
+  }
+  #resturants ul{
+    list-style-type: none;
+    text-align: left;
+    width: 100px;
+    margin: 0 auto;
+  }
+  #resturants ul li{
+    color: #23C75E;
+    padding: 3px;
+   /*  border-bottom: 1px solid #fff;
+   border-right: 1px solid #fff;
+   border-left: 1px solid #fff; 
+   background-color: #99CC33;
+   border-radius: 2px; */
+  }
+  #resturants ul li.first{
+   /*border-top: 1px solid #fff;*/
+  }
+
+  #btn{
+    position: absolute;
+    bottom: 0px;
+    width: 100px;
+    right: -120px;
+    height: 37px;
+    color: #fff;
+    background-color: rgba(127, 226, 72, 0.56);
+    border: 0px;
+    border-radius: 21px;
+  }
+  #alertWrap{
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.42);
+    position: fixed;
+  }
+  #alertWrap div#alertContent{
+    background-color: rgba(247, 175, 69, 0.95); 
+    width:200px;
+    height: 27px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 39px;
+    clear: both;
+    position: relative;
+  }
+  #floater{
+    float:left; 
+    height:30%; 
+    /*margin-bottom:-120px;*/
+  }
+  #close{
+    position: absolute;
+    top:5px;
+    right: 20px;
+    cursor: pointer;
+  }
+  </style>
+  
+ </head>
+ <body>
+  <div>
+    <div id="resturants">
+      <ul>
+        <li class="first">家乐缘</li>
+        <li>都城快餐</li>
+        <li>筒骨粉</li>
+        <li>潮汕卤味</li>
+        <li>猪杂汤</li>
+        <li>蒸饭</li>
+        <li>大老远的烧鹅</li>
+        <li>大餐</li>
+        <li>华润熟食</li>
+      </ul>
+      <input type="button" id="btn" value="开始随机" onclick="where2Eat();" />
+    </div>
+  </div>
+      <div id="alertWrap">
+        <div id="floater"></div>
+        <div id="alertContent">
+          <span id="alertResult">哈哈</span>
+          <span id="close">X</span>
+        </div>
+      </div>
+  <script type="text/javascript">
+      var resturants = new Array();
+      var randTime = 10;
+      //resturants[0]={name:"家乐缘",vote:0};
+      var tempMax = 0;
+      var tempVote= 0;
+      var domRests = document.getElementById("resturants").getElementsByTagName("li");
+      var alertWrap = document.getElementById("alertWrap");
+      alertWrap.style.display = "none";
+      function where2Eat(){
+        for(var j=0; j<domRests.length; j++){//init from dom
+          resturants.push({name:domRests[j].innerHTML,vote:0});
+        }
+        for(var i=0; i<randTime; i++){//rand vote
+          var temp = Math.floor(Math.random()*resturants.length);
+          resturants[temp]["vote"]++;
+          if(resturants[temp]["vote"]>tempVote){
+            tempMax = temp;
+            tempVote=resturants[temp]["vote"];
+          }
+          console.log(resturants[temp]["name"]);
+        }
+        //console.log(resturants.sort(sortBy("vote")));
+        //resturants = resturants.sort(sortBy("vote"));
+        //console.log(resturants[0]["name"]+ "  "+resturants[0]["vote"]);
+        //alertWrap.getElementsByTagName("span")[0].innerHTML=resturants[0]["name"]+ " : "+resturants[0]["vote"];
+        alertWrap.getElementsByTagName("span")[0].innerHTML=resturants[tempMax]["name"]+ " : "+resturants[tempMax]["vote"];
+        alertWrap.style.display = "";
+        console.log("----------end------------");
+
+      }
+      var close = document.getElementById("close");
+      close.addEventListener("click",function(){
+        alertWrap.style.display = "none";
+        tempMax = 0;
+        tempVote= 0;
+        resturants= new Array();
+      });
+      function sortBy(pname){
+        return function(a, b){
+          // if(a===b){
+          //   return 0;
+          // }
+          // if(typeof a !== typeof b){
+          //   return 1;
+          // }
+          if(a&&b&&a[pname]&&b[pname]){
+            return b[pname]-a[pname];
+          }
+        };
+      }
+  </script>
+ </body>
+
+</html>
