@@ -16,7 +16,7 @@
   #resturants{
     padding: 20px;
     width: 400px;
-    height: 300px;
+    /*height: 300px;*/
     border-radius: 20px;
     /* border: 2px solid rgba(0, 0, 0, 0); */
     background-color: rgba(255, 204, 51, 0.59);
@@ -27,7 +27,7 @@
   #resturants ul{
     list-style-type: none;
     text-align: left;
-    width: 100px;
+    width: 130px;
     margin: 0 auto;
   }
   #resturants ul li{
@@ -45,7 +45,7 @@
 
   #btn{
     position: absolute;
-    bottom: 0px;
+    top: 250px;
     width: 100px;
     right: -120px;
     height: 37px;
@@ -53,6 +53,37 @@
     background-color: rgba(127, 226, 72, 0.56);
     border: 0px;
     border-radius: 21px;
+  }
+  #voteDiv{
+    position: absolute;
+    top: 220px;
+    width: 50px;
+    right: -120px;
+    height: 37px;
+  }
+  #votes{
+    /*position: absolute;
+    bottom: 40px;
+    width: 100px;
+    right: -120px;
+    height: 37px;*/
+    color: #000;
+    background-color: transparent;
+    border: 0px;
+    border-radius: 21px;
+    cursor: pointer;
+  }
+  #votesDesc{
+    position: absolute;
+    top: 190px;
+    width: 163px;
+    right: -200px;
+    height: 26px;
+    color: #000;
+    background-color: transparent;
+    border: 1px solid #000;
+    border-radius: 21px;
+    z-index: 2;
   }
   #alertWrap{
     width: 100%;
@@ -72,6 +103,7 @@
     padding: 39px;
     clear: both;
     position: relative;
+    box-shadow: 0px 0px 5px 2px rgba(255, 255, 0, 0.72);
   }
   #floater{
     float:left; 
@@ -84,12 +116,25 @@
     right: 20px;
     cursor: pointer;
   }
+  #addBtn{
+    position: absolute;
+    top: 100px;
+    width: 100px;
+    right: -120px;
+    height: 37px;
+    color: #fff;
+    background-color: rgba(127, 226, 72, 0.56);
+    border: 0px;
+    border-radius: 21px;
+  }
   </style>
   
  </head>
  <body>
   <div>
     <div id="resturants">
+      <h3>中午去哪吃随机V1.0</h3>
+      <hr />
       <ul>
         <li class="first">家乐缘</li>
         <li>都城快餐</li>
@@ -98,10 +143,17 @@
         <li>猪杂汤</li>
         <li>蒸饭</li>
         <li>大老远的烧鹅</li>
-        <li>大餐</li>
         <li>华润熟食</li>
       </ul>
+      <input type="text" value="" id="inputContent" style="display:none;"/>
+      <div id="votesDesc" >
+        <span>抽奖次数，滚动修改</span>
+      </div>
+      <div id="voteDiv">
+        <input type="text" id="votes" value="11" disabled />
+      </div>
       <input type="button" id="btn" value="开始随机" onclick="where2Eat();" />
+      <input type="button" id="addBtn" value="添加店" onclick="addRest();" />
     </div>
   </div>
       <div id="alertWrap">
@@ -112,56 +164,89 @@
         </div>
       </div>
   <script type="text/javascript">
-      var resturants = new Array();
-      var randTime = 10;
-      //resturants[0]={name:"家乐缘",vote:0};
-      var tempMax = 0;
-      var tempVote= 0;
-      var domRests = document.getElementById("resturants").getElementsByTagName("li");
+      var resturants = [];
+      var resturantAll = document.getElementById("resturants");
+      var domRests = resturantAll.getElementsByTagName("li");
       var alertWrap = document.getElementById("alertWrap");
+      var votesDesc = document.getElementById("votesDesc");
+      var votes = document.getElementById("votes");
+      var voteDiv = document.getElementById("voteDiv");
+      var inputContent = document.getElementById("inputContent");
+      resturantAll.addEventListener("click", function(e){
+        if(e.target.nodeName=="LI"){
+          e.target.contentEditable = true;
+        }
+      });
+      voteDiv.addEventListener("mouseenter", function(e){
+        //console.log("voe");
+        votesDesc.style.display = "";
+      });
+      voteDiv.addEventListener("mouseleave", function(e){
+        // console.log("voeut");
+        votesDesc.style.display="none";
+      });
+      voteDiv.addEventListener("mousewheel",function(e){
+        // console.log("voewhell");
+        var val = parseInt(votes.value);
+        var delta = 10;
+        if(e.wheelDelta<0){
+          if(val+delta>1001){
+            return;
+          }
+          val+=delta;
+        }else{
+          if(val-delta<1){
+            return;
+          }
+          val-=delta;
+        }
+          votes.value=val;
+      });
+      votesDesc.style.display="none";
       alertWrap.style.display = "none";
+      function addRest(){
+        if(domRests[domRests.length-1].value){
+          alert("已增加店位，请输入店名");
+        }
+        domRests[domRests.length-1].insertAdjacentHTML("afterend", "<li></li>");
+        domRests[domRests.length-1].contentEditable=true;
+        domRests[domRests.length-1].focus();
+      }
       function where2Eat(){
+        resturants= [];
         for(var j=0; j<domRests.length; j++){//init from dom
           resturants.push({name:domRests[j].innerHTML,vote:0});
         }
+        var randTime = parseInt(votes.value);
+        var randNum = Math.floor(Math.random()*10000);
         for(var i=0; i<randTime; i++){//rand vote
-          var temp = Math.floor(Math.random()*resturants.length);
+          var temp = randNum%domRests.length;
           resturants[temp]["vote"]++;
-          if(resturants[temp]["vote"]>tempVote){
-            tempMax = temp;
-            tempVote=resturants[temp]["vote"];
-          }
-          console.log(resturants[temp]["name"]);
+          console.log(resturants[temp]["name"]+" vote:"+resturants[temp]["vote"]);
         }
-        //console.log(resturants.sort(sortBy("vote")));
-        //resturants = resturants.sort(sortBy("vote"));
-        //console.log(resturants[0]["name"]+ "  "+resturants[0]["vote"]);
-        //alertWrap.getElementsByTagName("span")[0].innerHTML=resturants[0]["name"]+ " : "+resturants[0]["vote"];
-        alertWrap.getElementsByTagName("span")[0].innerHTML=resturants[tempMax]["name"]+ " : "+resturants[tempMax]["vote"];
+        // console.log("----------result------------");
+        // console.log(resturants.sort(sortBy("vote")));
+        // console.log(resturants[0]["vote"]+"  "+resturants[0]["name"]);
+        resturants.sort(sortBy("vote"));
+        alertWrap.getElementsByTagName("span")[0].innerHTML=votes.value+"次中，抽到"+resturants[0]["vote"]+"次"+ " : <br/>"+resturants[0]["name"];
         alertWrap.style.display = "";
-        console.log("----------end------------");
-
+        // console.log("----------end------------");
       }
       var close = document.getElementById("close");
       close.addEventListener("click",function(){
         alertWrap.style.display = "none";
-        tempMax = 0;
-        tempVote= 0;
-        resturants= new Array();
       });
       function sortBy(pname){
         return function(a, b){
-          // if(a===b){
-          //   return 0;
-          // }
-          // if(typeof a !== typeof b){
-          //   return 1;
-          // }
-          if(a&&b&&a[pname]&&b[pname]){
+          // console.log(a["name"]+a[pname]+" ? "+b["name"]+b[pname]+"   "+(b[pname]-a[pname]));
+          if(a&&b&&a[pname]!=undefined&&b[pname]!=undefined){//这里坑了，囧
             return b[pname]-a[pname];
+          }else{
+            throw "error";
           }
         };
       }
+      // var testDemo = [{name:"A",vote:0},{name:"B",vote:0},{name:"C",vote:2},{name:"D",vote:2},{name:"E",vote:2},{name:"F",vote:0},{name:"G",vote:2},{name:"H",vote:2},{name:"I",vote:0}];
   </script>
  </body>
 
