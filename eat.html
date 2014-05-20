@@ -145,6 +145,7 @@
         <li>大老远的烧鹅</li>
         <li>华润熟食</li>
       </ul>
+      <input type="text" value="" id="inputContent" style="display:none;"/>
       <div id="votesDesc" >
         <span>抽奖次数，滚动修改</span>
       </div>
@@ -170,18 +171,22 @@
       var votesDesc = document.getElementById("votesDesc");
       var votes = document.getElementById("votes");
       var voteDiv = document.getElementById("voteDiv");
+      var inputContent = document.getElementById("inputContent");
       resturantAll.addEventListener("click", function(e){
         if(e.target.nodeName=="LI"){
           e.target.contentEditable = true;
         }
       });
       voteDiv.addEventListener("mouseenter", function(e){
+        //console.log("voe");
         votesDesc.style.display = "";
       });
       voteDiv.addEventListener("mouseleave", function(e){
+        // console.log("voeut");
         votesDesc.style.display="none";
       });
       voteDiv.addEventListener("mousewheel",function(e){
+        // console.log("voewhell");
         var val = parseInt(votes.value);
         var delta = 10;
         if(e.wheelDelta<0){
