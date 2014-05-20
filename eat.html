@@ -54,6 +54,37 @@
     border: 0px;
     border-radius: 21px;
   }
+  #voteDiv{
+    position: absolute;
+    bottom: 40px;
+    width: 50px;
+    right: -120px;
+    height: 37px;
+  }
+  #votes{
+    /*position: absolute;
+    bottom: 40px;
+    width: 100px;
+    right: -120px;
+    height: 37px;*/
+    color: #000;
+    background-color: transparent;
+    border: 0px;
+    border-radius: 21px;
+    cursor: pointer;
+  }
+  #votesDesc{
+    position: absolute;
+    bottom: 80px;
+    width: 163px;
+    right: -200px;
+    height: 26px;
+    color: #000;
+    background-color: transparent;
+    border: 1px solid #000;
+    border-radius: 21px;
+    z-index: 2;
+  }
   #alertWrap{
     width: 100%;
     top: 0px;
@@ -101,6 +132,12 @@
         <li>大餐</li>
         <li>华润熟食</li>
       </ul>
+      <div id="votesDesc" >
+        <span>抽奖次数，滚动修改</span>
+      </div>
+      <div id="voteDiv">
+        <input type="text" id="votes" value="11" disabled />
+      </div>
       <input type="button" id="btn" value="开始随机" onclick="where2Eat();" />
     </div>
   </div>
@@ -112,56 +149,75 @@
         </div>
       </div>
   <script type="text/javascript">
-      var resturants = new Array();
-      var randTime = 10;
-      //resturants[0]={name:"家乐缘",vote:0};
-      var tempMax = 0;
-      var tempVote= 0;
+      var resturants = [];
       var domRests = document.getElementById("resturants").getElementsByTagName("li");
       var alertWrap = document.getElementById("alertWrap");
+      var votesDesc = document.getElementById("votesDesc");
+      var votes = document.getElementById("votes");
+      var voteDiv = document.getElementById("voteDiv");
+      voteDiv.addEventListener("mouseenter", function(e){
+        //console.log("voe");
+        votesDesc.style.display = "";
+      });
+      voteDiv.addEventListener("mouseleave", function(e){
+        // console.log("voeut");
+        votesDesc.style.display="none";
+      });
+      voteDiv.addEventListener("mousewheel",function(e){
+        // console.log("voewhell");
+        var val = parseInt(votes.value);
+        var delta = 10;
+        if(e.wheelDelta<0){
+          if(val+delta>1001){
+            return;
+          }
+          val+=delta;
+        }else{
+          if(val-delta<1){
+            return;
+          }
+          val-=delta;
+        }
+          votes.value=val;
+      });
+      votesDesc.style.display="none";
       alertWrap.style.display = "none";
       function where2Eat(){
+        tempMax = 0;
+        tempVote= 0;
+        resturants= [];
         for(var j=0; j<domRests.length; j++){//init from dom
           resturants.push({name:domRests[j].innerHTML,vote:0});
         }
+        var randTime = parseInt(votes.value);
         for(var i=0; i<randTime; i++){//rand vote
           var temp = Math.floor(Math.random()*resturants.length);
           resturants[temp]["vote"]++;
-          if(resturants[temp]["vote"]>tempVote){
-            tempMax = temp;
-            tempVote=resturants[temp]["vote"];
-          }
-          console.log(resturants[temp]["name"]);
+          console.log(resturants[temp]["name"]+" vote:"+resturants[temp]["vote"]);
         }
-        //console.log(resturants.sort(sortBy("vote")));
-        //resturants = resturants.sort(sortBy("vote"));
-        //console.log(resturants[0]["name"]+ "  "+resturants[0]["vote"]);
-        //alertWrap.getElementsByTagName("span")[0].innerHTML=resturants[0]["name"]+ " : "+resturants[0]["vote"];
+        // console.log("----------result------------");
+        // console.log(resturants.sort(sortBy("vote")));
+        // console.log(resturants[0]["vote"]+"  "+resturants[0]["name"]);
+        resturants.sort(sortBy("vote"));
         alertWrap.getElementsByTagName("span")[0].innerHTML=resturants[tempMax]["name"]+ " : "+resturants[tempMax]["vote"];
         alertWrap.style.display = "";
-        console.log("----------end------------");
-
+        // console.log("----------end------------");
       }
       var close = document.getElementById("close");
       close.addEventListener("click",function(){
         alertWrap.style.display = "none";
-        tempMax = 0;
-        tempVote= 0;
-        resturants= new Array();
       });
       function sortBy(pname){
         return function(a, b){
-          // if(a===b){
-          //   return 0;
-          // }
-          // if(typeof a !== typeof b){
-          //   return 1;
-          // }
-          if(a&&b&&a[pname]&&b[pname]){
+          // console.log(a["name"]+a[pname]+" ? "+b["name"]+b[pname]+"   "+(b[pname]-a[pname]));
+          if(a&&b&&a[pname]!=undefined&&b[pname]!=undefined){//这里坑了，囧
             return b[pname]-a[pname];
+          }else{
+            throw "error";
           }
         };
       }
+      // var testDemo = [{name:"A",vote:0},{name:"B",vote:0},{name:"C",vote:2},{name:"D",vote:2},{name:"E",vote:2},{name:"F",vote:0},{name:"G",vote:2},{name:"H",vote:2},{name:"I",vote:0}];
   </script>
  </body>
 
