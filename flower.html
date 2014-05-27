@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <title>菜单</title>
+<style type="text/css">
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  div{
+   margin:0 auto;
+   text-align:center;
+  }
+  .menu{
+    background-color: #FCF49A;/*#ffcc99*/
+    /*border: 5px solid #000;*/
+    width: 150px;
+    height: 150px;
+    border-radius: 150px; 
+    box-shadow: 0px 0px 5px 2px #F1F13C;/*#ffff00;*/
+    position: relative;
+    margin-top: 200px;
+  }
+  .menu-click{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    background-color: #E9F55D/*#C8E944*/;
+    margin: 15px;
+    padding: 10px;
+    position: absolute;
+  }
+  .branch{
+    background-color: #AEF228;
+    width: 10px;
+    height: 200px;
+    z-index: -2;
+    position: absolute;
+    top: 150px;
+    left: 70px;
+  }
+  .menu-click span{
+    clear: both;
+  }
+  .item{
+    width: 80px;
+    height: 80px;
+    background-color: #AEE228;
+    border-radius: 80px;
+    z-index: -1;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    -webkit-transition-property:left,top,right;
+    -webkit-transition-delay: 0s;
+    -webkit-transition-duration: 0.8s;
+    -webkit-transition-timing-function: ease;
+  }
+  .floater{
+    width: 100%;
+    height: 40%;
+    float: left;
+  }
+
+  </style>
+  
+ </head>
+ <body>
+  <div>
+    <div class="menu">
+      <div id="menuClick" class="menu-click">
+        <div class="floater"></div>
+        <span>Flower?</span>
+        <div class="item" id="itemA"></div>
+        <div class="item" id="itemB"></div>
+        <div class="item" id="itemC"></div>
+        <div class="item" id="itemD"></div>
+        <div class="item" id="itemE"></div>
+        <div class="item" id="itemF"></div>
+        <div class="item" id="itemG"></div>
+        <div class="item" id="itemH"></div>
+      </div>
+      <div class="branch"></div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    var menu = document.getElementById("menuClick");
+    menu.addEventListener("click", function(event){
+      
+      items = document.getElementsByClassName("item");
+      if(items["itemA"].style.left=="-30px"){
+        items["itemA"].style.left="20px";
+        items["itemA"].style.top="20px";
+        items["itemB"].style.top="20px";
+        items["itemC"].style.left="20px";
+        items["itemC"].style.top= "20px";
+        items["itemD"].style.left="20px";
+        items["itemH"].style.left="20px";
+        items["itemE"].style.left="20px";
+        items["itemE"].style.top="20px";
+        items["itemF"].style.top="20px";
+        items["itemG"].style.top="20px";
+        items["itemG"].style.left="20px";
+      }else{
+        items["itemA"].style.top="-29px";
+        items["itemA"].style.left="-30px";
+
+        items["itemB"].style.top="-50px";
+
+        items["itemC"].style.top="-29px";
+        items["itemC"].style.left="70px";
+
+        items["itemD"].style.left="90px";
+
+        items["itemE"].style.top="69px";
+        items["itemE"].style.left="70px";
+
+        items["itemF"].style.top="90px";
+
+        items["itemG"].style.top="69px";
+        items["itemG"].style.left="-30px";
+        
+        items["itemH"].style.left="-50px";
+
+
+        // items["itemA"].style.left="-100px";
+        // items["itemA"].style.top="-60px";
+        // items["itemB"].style.top="-120px";
+        // items["itemC"].style.left="140px";
+        // items["itemC"].style.top = "-60px";
+      }
+    });
+  </script>
+ </body>
+</html>
