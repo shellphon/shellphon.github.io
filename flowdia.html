@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <title>模板</title>
+<style type="text/css">
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  div{
+
+   margin:0 auto;
+   text-align:center;
+  }
+  .flow{
+    width: 400px;
+    position: relative;
+    margin-top: 100px;
+  }
+  .flow *{
+    margin-top: 40px;
+    position: relative;
+  }
+  .begin{
+    background-color: #CCCCCC;
+    border-radius: 200%;
+    width: 85px;
+    padding: 10px;
+  }
+  .gray{
+    background-color: #CCCCCC;
+    border-radius: 10px;
+    padding: 10px;
+    width: 150px;
+  }
+  .green{
+    padding: 10px;
+    background-color: #00ff00;
+    border-radius: 10px;
+    width: 100px;
+  }
+  .condition{
+    background-color: transparent;
+    width: 100px;
+    padding: 10px;
+  }
+  .blue{
+    padding: 10px;
+    background-color: #00adff;
+    width: 100px;
+    border-radius: 10px;
+  }
+  .end{
+    padding: 10px;
+    background-color: #00adff;
+    border-radius: 200%;
+    width: 85px;
+  }
+  .blueab{
+    padding: 10px;
+    position: absolute;
+    left: 228px;
+    width: 100px;
+    top: -41px;
+    border-radius: 10px;
+    background-color: #00adff;
+  }
+  .cpan{
+    position: absolute;
+    left: 122px;
+    top: -49px;
+    width: 100px;
+  }
+  .hline{
+    width: 100px;
+    height: 2px;
+    background: #000;
+    position: absolute;
+    top: -21px;
+    right:-100px;
+    z-index:-1;
+  }
+  .hline::after{
+    content: " ";
+    display: block;
+    width: 0px;
+    height: 0px;
+    border-width: 10px;
+    position: absolute;
+    top: -9px;
+    right: -18px;
+    border-style: solid;
+    border-color: transparent transparent transparent #000;
+  }
+  .line{
+      height: 40px;
+      width: 2px;
+      background-color: #000;
+      position: absolute;
+      bottom: -40px;
+      left: 50px;
+      z-index: -1;
+      margin: 0;
+    }
+  .line::after{
+    content: " ";
+    display: block;
+    width: 0px;
+    height: 0px;
+    border-width: 10px;
+    position: absolute;
+    top: 31px;
+    left: -9px;
+    border-style: solid;
+    border-color: #000 transparent transparent transparent;
+  }
+  .trdiv{
+    width: 0px;
+    height: 0px;
+    border-width: 21px 72px;
+    border-style: solid;
+    border-color: transparent transparent #00adff transparent;
+    position: absolute;
+    top: -62px;
+    left: -15px;
+  }
+  .trdiv::after{
+    content: " ";
+    display: block;
+    width: 0px;
+    height: 0px;
+    border-width: 21px 72px;
+    position: absolute;
+    top: 21px;
+    left: -74px;
+    border-style: solid;
+    border-color: #00adff transparent transparent transparent;
+  }
+  .kdiv{
+    width: 182px;
+    height: 227px;
+    background-color: transparent;
+    border-right:2px solid #000;
+    border-bottom: 2px solid #000;
+    position: absolute;
+    top: -5px;
+    right: -176px;
+  }
+  .kdiv::after{
+    content: " ";
+    display: block;
+    width: 0px;
+    height: 0px;
+    border-width: 10px;
+    position: absolute;
+    top: 217px;
+    left: -11px;
+    border-style: solid;
+    border-color: transparent #000 transparent transparent;
+  }
+  </style>
+  
+ </head>
+ <body>
+  <div>
+    <div class="flow">
+      <div class="begin"><span>开始</span>
+      <div class="line"></div></div>
+      <div class="gray"><span>信息告知其需要去sf提问</span>
+      <div class="line" style="left:80px;"></div></div>
+      <div class="green"><span>等待其去sf提出问题</span><div class="line" style="left:55px;"></div></div>
+      <div class="condition"><div class="trdiv"></div><span>提问结果？</span><div class="kdiv"></div><div class="line" style="left:55px;"></div><span class="cpan">没人回答</span><div class="hline"></div><div class="blueab"><span>提问失败</span></div></div>
+      <div class="blue"><span>大大回答问题</span><div class="line" style="left:55px"></div></div>
+      <div class="blue"><span>提问成功</span><div class="line" style="left:55px"></div></div>
+      <div class="end"><span>结束</span></div>
+    </div>
+  </div>
+ </body>
+</html>
