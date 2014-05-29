@@ -416,3 +416,87 @@ font-family: Arial, Helvetica;
 	-o-transform: rotate(31deg);
 	transform: rotate(31deg);
 }  
+  .eight-dia{
+    width: 200px;
+    height: 100px;
+    background-color: #fff;
+    border: 2px solid #000;
+    border-bottom: 102px solid #000; 
+    border-radius: 102px;
+    position: relative;
+    /* Chrome, Safari, Opera */
+      -webkit-animation-name: spinning;
+      -webkit-animation-duration: 3s;
+      -webkit-animation-delay: 0s;
+      -webkit-animation-timing-function: linear;
+      -webkit-animation-iteration-count: infinite;
+      /*-webkit-animation-direction: alternate;*/
+      -webkit-animation-play-state: running;
+
+      -moz-animation-name: spinning;
+      -moz-animation-duration: 4s;
+      -moz-animation-delay: 0s;
+      -moz-animation-timing-function: linear;
+      -moz-animation-iteration-count: infinite;
+      /*-webkit-animation-direction: alternate;*/
+      animation-play-state: running;
+      animation-name: spinning;
+      animation-duration: 4s;
+      animation-delay: 0s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      /*-webkit-animation-direction: alternate;*/
+      animation-play-state: running;
+
+     
+  }
+  .eight-dia::before{
+    content: "";
+    display: block;
+    width: 12px;
+    height: 12px;
+    border: 44px solid #000;
+    background-color: #fff;
+    border-radius: 50px;
+    position: absolute;
+    top: 50px;
+    left: 0px;
+  }
+  .eight-dia::after{
+    content: "";
+    display: block;
+    width: 12px;
+    height: 12px;
+    border: 44px solid #fff;
+    background-color: #000;
+    border-radius: 50px;
+    position: absolute;
+    top: 50px;
+    right: 0px;
+  }
+     
+    
+  @-webkit-keyframes spinning{
+      0%{
+        -webkit-transform: rotate(0deg);
+      }
+      100%{
+         -webkit-transform: rotate(360deg);
+      }
+  }
+   @-moz-keyframes spinning{
+      0%{
+        -moz-tranform:rotate(0deg);
+      }
+      100%{
+         -moz-tranform:rotate(360deg);
+      }
+  }
+   @keyframes spinning{
+      0%{
+        tranform:rotate(0deg);
+      }
+      100%{
+         tranform:rotate(360deg);
+      }
+  }
