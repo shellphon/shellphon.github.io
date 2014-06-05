@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+ <link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
+  <title>钟摆</title>
+<style type="text/css">
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  div{
+   margin:0 auto;
+   text-align:center;
+  }
+  .wrapper{
+    margin-top: 50px;
+    width: 400px;
+  }
+  .stick{
+    margin-right: 30px;
+    width: 10px;
+    height: 200px;
+    background-color: #00FFCC;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    float: left;
+    box-shadow:-2px 29px 7px 3px rgba(0, 0, 0, 0.31) inset;
+    -webkit-transform-origin: center top;
+  }
+  .stick::after{
+    display: block;
+    content: " ";
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #00FFCC;
+    position: absolute;
+    top: 200px;
+    left: -15px;
+    box-shadow:-5px -7px 10px 2px #000 inset;
+  }
+  #sA{
+     -webkit-animation-name: spinA;
+      -webkit-animation-duration: 4s;
+      -webkit-animation-delay: 0s;
+      -webkit-animation-timing-function: linear;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-play-state: running;
+  }
+   @-webkit-keyframes spinA{
+      0%{
+        -webkit-transform: rotate(0deg);
+      }
+      25%{
+        -webkit-transform: rotate(30deg);
+      }
+      50%{
+         -webkit-transform: rotate(0deg);
+      }
+      75%{
+        -webkit-transform: rotate(0deg);
+      };
+      100%{
+         -webkit-transform: rotate(0deg);
+      }
+  }
+  #sB{
+
+  }
+  #sC{
+      -webkit-animation-name: spinB;
+      -webkit-animation-duration: 4s;
+      -webkit-animation-delay: 2s;
+      -webkit-animation-timing-function: linear;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-play-state: running;
+  }
+   @-webkit-keyframes spinB{
+      0%{
+        -webkit-transform: rotate(0deg);
+      }
+      25%{
+        -webkit-transform: rotate(-30deg);
+      }
+      50%{
+         -webkit-transform: rotate(0deg);
+      }
+      75%{
+        -webkit-transform: rotate(0deg);
+      };
+      100%{
+         -webkit-transform: rotate(0deg);
+      }
+  }
+  
+  </style>
+  
+ </head>
+ <body>
+  <div class="wrapper">
+    <div class="stick" id="sA"></div>
+    <div class="stick" id="sB"></div>
+    <div class="stick" id="sC"></div>
+  </div>
+ </body>
+</html>
