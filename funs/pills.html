@@ -29,6 +29,22 @@
       -webkit-animation-iteration-count: 1;
       -webkit-animation-play-state: running;
 
+      -moz-transform-origin: 50% 100%;
+      -moz-animation-name: round;
+      -moz-animation-duration: 2s;
+      -moz-animation-delay: 0s;
+      -moz-animation-timing-function: linear;
+      -moz-animation-iteration-count: 1;
+      -moz-animation-play-state: running;
+      
+      transform-origin: 50% 100%;
+      animation-name: round;
+      animation-duration: 2s;
+      animation-delay: 0s;
+      animation-timing-function: linear;
+      animation-iteration-count: 1;
+      animation-play-state: running;
+
   }
   .pill::before{
     display: block;
@@ -56,6 +72,18 @@
       -webkit-animation-timing-function: ease;
       -webkit-animation-iteration-count: 1;
       -webkit-animation-play-state: running;
+      -moz-animation-name: appear;
+      -moz-animation-duration: 3s;
+      -moz-animation-delay: 0s;
+      -moz-animation-timing-function: ease;
+      -moz-animation-iteration-count: 1;
+      -moz-animation-play-state: running;
+      animation-name: appear;
+      animation-duration: 3s;
+      animation-delay: 0s;
+      animation-timing-function: ease;
+      animation-iteration-count: 1;
+      animation-play-state: running;
   }
   @-webkit-keyframes round{
       0%{
@@ -66,6 +94,44 @@
       }
   }
    @-webkit-keyframes appear{
+      0%{
+        opacity: 0;
+      }
+      75%{
+        opacity: 0;
+      }
+      100%{
+        opacity: 1;
+      }
+  }
+  @-moz-keyframes round{
+      0%{
+        -moz-transform: rotate(0deg);
+      }
+      100%{
+         -moz-transform: rotate(360deg);
+      }
+  }
+   @-moz-keyframes appear{
+      0%{
+        opacity: 0;
+      }
+      75%{
+        opacity: 0;
+      }
+      100%{
+        opacity: 1;
+      }
+  }
+  @keyframes round{
+      0%{
+        transform: rotate(0deg);
+      }
+      100%{
+         transform: rotate(360deg);
+      }
+  }
+   @keyframes appear{
       0%{
         opacity: 0;
       }
