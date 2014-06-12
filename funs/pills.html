@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <title>不要忘记吃药</title>
+<style type="text/css">
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  div.content{
+    width: 200px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .pill{
+    width: 50px;
+    height: 80px;
+    background-color: red;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px; 
+    position: relative;
+    box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.5)inset;
+     -webkit-transform-origin: 50% 100%;
+      -webkit-animation-name: round;
+      -webkit-animation-duration: 2s;
+      -webkit-animation-delay: 0s;
+      -webkit-animation-timing-function: linear;
+      -webkit-animation-iteration-count: 1;
+      -webkit-animation-play-state: running;
+
+  }
+  .pill::before{
+    display: block;
+    content: " ";
+    width: 50px;
+    height: 80px;
+    background-color: #fff;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px; 
+    position: absolute;
+    top: 80px;
+    left: 0px;
+    box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.5)inset;
+  }
+  .pill::after{
+    content: "你今天吃药了吗？";
+    display: block;
+    color: #ffcc99;
+    position: absolute;
+    top: 50px;
+    left: 100px;
+      -webkit-animation-name: appear;
+      -webkit-animation-duration: 3s;
+      -webkit-animation-delay: 0s;
+      -webkit-animation-timing-function: ease;
+      -webkit-animation-iteration-count: 1;
+      -webkit-animation-play-state: running;
+  }
+  @-webkit-keyframes round{
+      0%{
+        -webkit-transform: rotate(0deg);
+      }
+      100%{
+         -webkit-transform: rotate(360deg);
+      }
+  }
+   @-webkit-keyframes appear{
+      0%{
+        opacity: 0;
+      }
+      75%{
+        opacity: 0;
+      }
+      100%{
+        opacity: 1;
+      }
+  }
+  </style>
+  
+ </head>
+ <body>
+  <div class="content">
+    <div class="pill"></div>
+  </div>
+ </body>
+</html>
