@@ -253,7 +253,7 @@
         }
         var randTime = parseInt(votes.value);
         for(var i=0; i<randTime; i++){//rand vote
-          var randNum = Math.floor(Math.random()*10000);
+          var randNum = Math.floor(Math.random()*domRests.length);
           var temp = randNum%domRests.length;
           resturants[temp]["vote"]++;
          // console.log(resturants[temp]["name"]+" vote:"+resturants[temp]["vote"]);
