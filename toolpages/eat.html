@@ -74,7 +74,7 @@
     border-radius: 21px;
     cursor: pointer;
   }
-  #votesDesc{
+  #timesTips{
     position: absolute;
     top: 190px;
     width: 163px;
@@ -171,7 +171,7 @@
         <li>华润熟食</li>
       </ul>
       <input type="text" value="" id="inputContent" style="display:none;"/>
-      <div id="votesDesc" >
+      <div id="timesTips" >
         <span>抽奖次数，滚动修改</span>
       </div>
       <div id="voteDiv">
@@ -190,29 +190,38 @@
         </div>
       </div>
   <script type="text/javascript">
-      var resturants = [];
-      var resturantAll = document.getElementById("resturants");
-      var domRests = resturantAll.getElementsByTagName("li");
-      var alertWrap = document.getElementById("alertWrap");
-      var votesDesc = document.getElementById("votesDesc");
-      var votes = document.getElementById("votes");
-      var voteDiv = document.getElementById("voteDiv");
-      var inputContent = document.getElementById("inputContent");
-      var sortList = document.getElementById("sortList");
-      resturantAll.addEventListener("click", function(e){
+      var resturants = [],
+          resturantAll = document.getElementById("resturants"),//店wrapper
+          domRests = resturantAll.getElementsByTagName("li"),//店集合
+          alertWrap = document.getElementById("alertWrap"),//弹出框div
+          timesTips = document.getElementById("timesTips"),//提示信息
+          votes = document.getElementById("votes"),//
+          voteDiv = document.getElementById("voteDiv"),//
+          inputContent = document.getElementById("inputContent"),//可流动输入框
+          sortList = document.getElementById("sortList"), //排序列表div 展示排序结果
+          close = document.getElementById("close");
+       //默认显示   
+      timesTips.style.display="none";
+      alertWrap.style.display = "none";
+
+      close.addEventListener("click",function(){
+        alertWrap.style.display = "none";
+      });
+
+      resturantAll.addEventListener("click", function(e){//绑定点击事件，设置可编辑
         if(e.target.nodeName=="LI"){
           e.target.contentEditable = true;
         }
       });
-      voteDiv.addEventListener("mouseenter", function(e){
+      voteDiv.addEventListener("mouseenter", function(e){//提示信息显示
         //console.log("voe");
-        votesDesc.style.display = "";
+        timesTips.style.display = "";
       });
       voteDiv.addEventListener("mouseleave", function(e){
         // console.log("voeut");
-        votesDesc.style.display="none";
+        timesTips.style.display="none";
       });
-      voteDiv.addEventListener("mousewheel",function(e){
+      voteDiv.addEventListener("mousewheel",function(e){//滚动增减抽选次数
         // console.log("voewhell");
         var val = parseInt(votes.value);
         var delta = 10;
@@ -229,8 +238,6 @@
         }
           votes.value=val;
       });
-      votesDesc.style.display="none";
-      alertWrap.style.display = "none";
       function addRest(){
         if(domRests[domRests.length-1].innerHTML==""){
           alert("已增加店位，请输入店名");
@@ -271,10 +278,7 @@
         alertWrap.style.display = "";
         // console.log("----------end------------");
       }
-      var close = document.getElementById("close");
-      close.addEventListener("click",function(){
-        alertWrap.style.display = "none";
-      });
+      
       function sortBy(pname){
         return function(a, b){
           // console.log(a["name"]+a[pname]+" ? "+b["name"]+b[pname]+"   "+(b[pname]-a[pname]));
