@@ -26,6 +26,7 @@
   }
   span{
   }
+
   .div-title{
     min-width: 500px;
   }
@@ -699,4 +700,25 @@
         -moz-transform: rotate(31deg);
         -o-transform: rotate(31deg);
         transform: rotate(31deg);
+      }
+      #home-footer {
+        margin: 1em auto;
+        /*padding: 0.6em;*/
+        text-align: center;
+        border-top: 2px solid rgb(204, 204, 204);
+        width: 803px;
+      }
+      #home-footer p {
+        text-align: left;
+        line-height: 45px;
+      }
+      #home-footer p img {
+        float: right;
+        width: 90px;
+        height: 45px;
+      }
+      #home-footer p a{
+        color: #d25349;
+        text-decoration: none;
+        border-bottom: 1px dotted #a6a5a3;
       }
