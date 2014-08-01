@@ -2,6 +2,7 @@
 <html>
  <head>
   <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
   <title>Love</title>
 <style type="text/css">
   *{
@@ -14,9 +15,9 @@
   }
   .heartDiv{
       -webkit-animation-name: beat;
-      -webkit-animation-duration: 1.2s;
+      -webkit-animation-duration: 0.5s;
       -webkit-animation-delay: 1s;
-      -webkit-animation-timing-function: linear;
+      -webkit-animation-timing-function: ease-out;
       -webkit-animation-iteration-count: infinite;
       -webkit-animation-play-state: running;
   }
@@ -65,6 +66,9 @@
          -webkit-transform: scale(1.2);
       }
   }
+  #hideBeat{
+    display: none;
+  }
 </style>
   
  </head>
@@ -74,6 +78,9 @@
       <div class="heart"></div>
     </div>
     <marquee class="say">你造吗？我宣你很久了。</marquee>
+    <audio id="hideBeat" controls="controls" autoplay loop>
+        <source src="./beat.mp3" type="audio/mpeg">
+    </audio>
   </div>
  </body>
 </html>
