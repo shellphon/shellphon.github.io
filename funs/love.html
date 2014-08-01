@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <title>Love</title>
+<style type="text/css">
+  *{
+      margin: 0;
+      padding: 0;
+  }
+  div{
+     margin:0 auto;
+     text-align:center;
+  }
+  .heart{
+    width: 150px;
+    height: 100px;
+    background-color: #E76464;
+    /* border: 1px solid #000; */
+    transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    border-top-left-radius: 50px 50px;
+    border-bottom-left-radius: 50px 50px;
+    position: relative;
+    margin-top: 200px;
+  }
+  .heart::after{
+    transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 150px;
+    height: 100px;
+    background-color: #E76464;
+    /* border: 1px solid #000; */
+    border-top-right-radius: 50px 50px;
+    border-bottom-right-radius: 50px 50px;
+    top: -25px;
+    right: -25px;
+  }
+  .say{
+    margin-top: 45px;
+    width: 300px;
+    height: 25px;
+    color: #B42020;
+    background-color: #fff;
+    border: 2px solid #FFCCCC;
+  }
+</style>
+  
+ </head>
+ <body>
+  <div>
+    <div class="heart"></div>
+    <marquee class="say">你造吗？我宣你很久了。</marquee>
+  </div>
+ </body>
+</html>
