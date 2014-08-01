@@ -12,6 +12,14 @@
      margin:0 auto;
      text-align:center;
   }
+  .heartDiv{
+      -webkit-animation-name: beat;
+      -webkit-animation-duration: 1.2s;
+      -webkit-animation-delay: 1s;
+      -webkit-animation-timing-function: linear;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-play-state: running;
+  }
   .heart{
     width: 150px;
     height: 100px;
@@ -42,19 +50,29 @@
     right: -25px;
   }
   .say{
-    margin-top: 45px;
+    margin-top: 50px;
     width: 300px;
     height: 25px;
     color: #B42020;
     background-color: #fff;
     border: 2px solid #FFCCCC;
   }
+  @-webkit-keyframes beat{
+      0%{
+        -webkit-transform: scale(1);
+      }
+      50%{
+         -webkit-transform: scale(1.2);
+      }
+  }
 </style>
   
  </head>
  <body>
   <div>
-    <div class="heart"></div>
+    <div class="heartDiv">
+      <div class="heart"></div>
+    </div>
     <marquee class="say">你造吗？我宣你很久了。</marquee>
   </div>
  </body>
