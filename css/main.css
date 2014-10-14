@@ -77,6 +77,7 @@
     clear: both;
     margin-top: 5%;
     text-align: center;
+    position: relative;
   }
   .div-tab>span{
     float: center;
@@ -134,11 +135,11 @@
       border-radius: 10px;
       border-color: #CCCC33;
       background-color: #FFFFFF;
-      position: relative;
+      position: absolute;
       /* position for real */
       margin: 0;
       padding:30px;
-      top: -200px;
+      top: 0px;
       left: 320px;
     }
     .div-diabox .arrow-bottom-out{
@@ -177,7 +178,7 @@
     /*other-page-guide*/
      .div-page-url{
         width: 200px;
-        height: 200px;
+        height: auto;
         border-style: solid;
         border-width: 1px;
         border-radius: 10px;

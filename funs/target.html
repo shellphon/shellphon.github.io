@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+   <link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
+  <title>靶子</title>
+<style type="text/css">
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  div.content{
+   width: 125px;
+   margin:15% auto;
+   text-align:center;
+  }
+  .shot-target-out{
+    width: 120px;
+    height: 120px;
+    background-color: #7D85F3;
+    border-radius: 60px;
+    position: relative;
+  }
+  .shot-target-in{
+    width: 80px;
+    height: 80px;
+    background-color: #F06C63;
+    border-radius: 40px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+  .shot-target-in::after{
+    content:" ";
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: #ECEC55;
+    border-radius: 20px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+</style>
+  
+ </head>
+ <body>
+  <div class="content">
+    <div class="shot-target-out">
+      <div class="shot-target-in"></div>
+    </div>
+  </div>
+ </body>
+</html>
