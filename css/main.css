@@ -1,4 +1,4 @@
-  *{
+﻿  *{
     margin:0;
     padding: 0;
     font-family:  Microsoft Yahei, Arial, Helvetica;
@@ -75,7 +75,7 @@
   .div-tab{
     float: center;
     clear: both;
-    margin-top: 5%;
+    margin-top: 0.5em;
     text-align: center;
     position: relative;
   }
