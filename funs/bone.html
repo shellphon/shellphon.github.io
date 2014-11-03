@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
+  <title>Hello ,way</title>
+<style type="text/css">
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  body{
+    background-color: #000;
+  }
+  div.content{
+   width: 600px;
+   margin:0 auto;
+   text-align:center;
+   position: relative;
+   margin-top: 100px;
+  }
+
+  .head{
+    margin: 0 auto;
+    width:250px;
+    height: 194px;
+    border-top-left-radius: 125px;
+    border-top-right-radius: 125px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius:50px;
+    background-color: #fff;
+    position: relative;
+  }
+
+  .head::before{
+    content: " ";
+    display: block;
+    width: 50px;
+    height: 80px;
+    border-radius: 50px;
+    background-color: #000;
+    position: absolute;
+    top: 70px;
+    left: 50px;
+  }
+
+  .head::after{
+    content: " ";
+    display: block;
+    width: 50px;
+    height: 80px;
+    border-radius: 50px;
+    background-color: #000;
+    position: absolute;
+    top: 70px;
+    right: 50px;
+  }
+
+  .mouth{
+    width:150px;
+    height: 70px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius:50px;
+    background-color: #fff;
+    position: absolute;
+    bottom: -70px;
+    left: 50px;
+  }
+
+  .lip{
+    width:100px;
+    height: 2px;
+    background-color: #000;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+  }
+
+  .tooth1{
+    width:0px;
+    height: 0px;
+    position: absolute;
+    top: 0px;
+    left: 20px;
+  }
+
+  .tooth1:before{
+    content: " ";
+    display: block;
+    width: 2px;
+    height: 20px;
+    background-color: #000;
+    position: absolute;
+    top: -8px;
+    left: 0px;
+  }
+  
+  .tooth1:after{
+    content: " ";
+    display: block;
+    width: 2px;
+    height: 20px;
+    background-color: #000;
+    position: absolute;
+    top: -8px;
+    right: -20px;
+  }
+
+  .tooth2{
+    width:0px;
+    height: 0px;
+    position: absolute;
+    top: 0px;
+    right: 22px;
+  }
+
+  .tooth2:before{
+    content: " ";
+    display: block;
+    width: 2px;
+    height: 20px;
+    background-color: #000;
+    position: absolute;
+    top: -8px;
+    left: 0px;
+  }
+  
+  .tooth2:after{
+    content: " ";
+    display: block;
+    width: 2px;
+    height: 20px;
+    background-color: #000;
+    position: absolute;
+    top: -8px;
+    left: -20px;
+  }
+
+  .noose{
+    width: 10px;
+    height: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent #000 transparent #000;
+    background-color: #fff;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 15px;
+    left: 118px;
+  }
+
+  .bone1{
+    width:400px;
+    height: 40px;
+    background-color: #fff;
+    position: absolute;
+    top:300px;
+    left:-70px;
+    transform:rotate(30deg);
+  }
+
+  .bone2{
+      width:400px;
+      height: 40px;
+      background-color: #fff;
+      position: absolute;
+      top:300px;
+      left:-70px;
+      transform:rotate(-30deg);
+  }
+
+  .boneTop{
+    width: 30px;
+    height: 50px;
+    border-radius: 25px 25px 0px 0px;
+    background-color: #fff;
+    position: absolute;
+    top: -14px;
+    left: -28px;
+    transform: rotate(-70deg);
+  }
+  .boneTop:before{
+    content: " ";
+    display: block;
+    width: 30px;
+    height: 50px;
+    border-radius: 25px 25px 0px 0px;
+    background-color: #fff;
+    position: absolute;
+    top: 6px;
+    left: -16px;
+    transform: rotate(-37deg);
+  }
+
+  .boneBottom{
+    width: 30px;
+    height: 50px;
+    border-radius: 25px 25px 0px 0px;
+    background-color: #fff;
+    position: absolute;
+    top: -14px;
+    right: -17px;
+    transform: rotate(70deg);
+  }
+  .boneBottom::before{
+    content: " ";
+    display: block;
+    width: 30px;
+    height: 50px;
+    border-radius: 25px 25px 0px 0px;
+    background-color: #fff;
+    position: absolute;
+    top: 6px;
+    left: 16px;
+    transform: rotate(38deg);
+  }
+</style>
+  
+ </head>
+ <body>
+  <div class="content">
+    <div class="head">
+      <div class="noose"></div>
+      <div class="mouth">
+        <div class="lip">
+          <div class="tooth1"></div>
+          <div class="tooth2"></div>
+        </div>
+      </div>
+      <div class="bone1">
+        <div class="boneTop"></div>
+        <div class="boneBottom"></div>
+      </div>
+      <div class="bone2">
+        <div class="boneTop"></div>
+        <div class="boneBottom"></div>
+      </div>
+    </div>
+  </div>
+ </body>
+</html>
