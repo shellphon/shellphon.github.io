@@ -152,20 +152,26 @@
   .bone1{
     width:400px;
     height: 40px;
-    background-color: #fff;
+    background-color: #f2f1f1;
     position: absolute;
-    top:300px;
+    z-index: -1;
+    top:170px;
     left:-70px;
+    -webkit-transform:rotate(30deg);
+    -moz-transform:rotate(30deg);
     transform:rotate(30deg);
   }
 
   .bone2{
       width:400px;
       height: 40px;
-      background-color: #fff;
+      background-color: #f2f1f1;
       position: absolute;
-      top:300px;
+      z-index: -1;
+      top:170px;
       left:-70px;
+      -webkit-transform:rotate(-30deg);
+      -moz-transform:rotate(-30deg);
       transform:rotate(-30deg);
   }
 
@@ -173,10 +179,13 @@
     width: 30px;
     height: 50px;
     border-radius: 25px 25px 0px 0px;
-    background-color: #fff;
+    background-color: #f2f1f1;
     position: absolute;
+    z-index:-1;
     top: -14px;
     left: -28px;
+    -webkit-transform: rotate(-70deg);
+    -moz-transform: rotate(-70deg);
     transform: rotate(-70deg);
   }
   .boneTop:before{
@@ -185,10 +194,13 @@
     width: 30px;
     height: 50px;
     border-radius: 25px 25px 0px 0px;
-    background-color: #fff;
+    background-color: #f2f1f1;
     position: absolute;
+    z-index: -1;
     top: 6px;
     left: -16px;
+    -webkit-transform: rotate(-37deg);
+    -moz-transform: rotate(-37deg);
     transform: rotate(-37deg);
   }
 
@@ -196,10 +208,13 @@
     width: 30px;
     height: 50px;
     border-radius: 25px 25px 0px 0px;
-    background-color: #fff;
+    background-color: #f2f1f1;
     position: absolute;
+    z-index: -1;
     top: -14px;
     right: -17px;
+    -webkit-transform: rotate(70deg);
+    -moz-transform: rotate(70deg);
     transform: rotate(70deg);
   }
   .boneBottom::before{
@@ -208,10 +223,13 @@
     width: 30px;
     height: 50px;
     border-radius: 25px 25px 0px 0px;
-    background-color: #fff;
+    background-color: #f2f1f1;
     position: absolute;
+    z-index: -1;
     top: 6px;
     left: 16px;
+    -webkit-transform: rotate(38deg);
+    -moz-transform: rotate(38deg);
     transform: rotate(38deg);
   }
 </style>
