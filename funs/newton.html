@@ -28,6 +28,8 @@
     float: left;
     box-shadow:-2px 29px 7px 3px rgba(0, 0, 0, 0.31) inset;
     -webkit-transform-origin: center top;
+    -moz-transform-origin: center top;
+    transform-origin: center top;
   }
   .stick::after{
     display: block;
@@ -48,6 +50,18 @@
       -webkit-animation-timing-function: linear;
       -webkit-animation-iteration-count: infinite;
       -webkit-animation-play-state: running;
+      -moz-animation-name: spinA;
+      -moz-animation-duration: 4s;
+      -moz-animation-delay: 0s;
+      -moz-animation-timing-function: linear;
+      -moz-animation-iteration-count: infinite;
+      -moz-animation-play-state: running;
+      animation-name: spinA;
+      animation-duration: 4s;
+      animation-delay: 0s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-play-state: running;
   }
    @-webkit-keyframes spinA{
       0%{
@@ -66,6 +80,40 @@
          -webkit-transform: rotate(0deg);
       }
   }
+  @-moz-keyframes spinA{
+      0%{
+        -moz-transform: rotate(0deg);
+      }
+      25%{
+        -moz-transform: rotate(30deg);
+      }
+      50%{
+         -moz-transform: rotate(0deg);
+      }
+      75%{
+        -moz-transform: rotate(0deg);
+      };
+      100%{
+         -moz-transform: rotate(0deg);
+      }
+  }
+  @keyframes spinA{
+      0%{
+        transform: rotate(0deg);
+      }
+      25%{
+        transform: rotate(30deg);
+      }
+      50%{
+         transform: rotate(0deg);
+      }
+      75%{
+        transform: rotate(0deg);
+      };
+      100%{
+         transform: rotate(0deg);
+      }
+  }
   #sB{
 
   }
@@ -76,6 +124,18 @@
       -webkit-animation-timing-function: linear;
       -webkit-animation-iteration-count: infinite;
       -webkit-animation-play-state: running;
+      -moz-animation-name: spinB;
+      -moz-animation-duration: 4s;
+      -moz-animation-delay: 2s;
+      -moz-animation-timing-function: linear;
+      -moz-animation-iteration-count: infinite;
+      -moz-animation-play-state: running;
+      animation-name: spinB;
+      animation-duration: 4s;
+      animation-delay: 2s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-play-state: running;
   }
    @-webkit-keyframes spinB{
       0%{
@@ -92,6 +152,40 @@
       };
       100%{
          -webkit-transform: rotate(0deg);
+      }
+  }
+   @-moz-keyframes spinB{
+      0%{
+        -moz-transform: rotate(0deg);
+      }
+      25%{
+        -moz-transform: rotate(-30deg);
+      }
+      50%{
+         -moz-transform: rotate(0deg);
+      }
+      75%{
+        -moz-transform: rotate(0deg);
+      };
+      100%{
+         -moz-transform: rotate(0deg);
+      }
+  }
+   @keyframes spinB{
+      0%{
+        transform: rotate(0deg);
+      }
+      25%{
+        transform: rotate(-30deg);
+      }
+      50%{
+         transform: rotate(0deg);
+      }
+      75%{
+        transform: rotate(0deg);
+      };
+      100%{
+         transform: rotate(0deg);
       }
   }
   
