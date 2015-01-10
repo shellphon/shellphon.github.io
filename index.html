@@ -12,23 +12,23 @@
      <h3>Welcome! This is Dont</h3>
    </div>
    <div class="div-guide">
-      <ul class="ul-guide">
-        <li >
-          <a href="#" onclick="showTab(0);">首页</a>
+      <ul id="ul_guide" class="ul-guide">
+        <li class="active">
+          <a href="#" data-tabid="tab_home">首页</a>
         </li>
         <li >
-          <a href="#" onclick="showTab(1)">关于我</a>
+          <a href="#" data-tabid="tab_about">关于我</a>
         </li>
         <li >
-          <a href="#" onclick="showTab(2)">SNS</a>
+          <a href="#" data-tabid="tab_sns">SNS</a>
         </li>
         <li class="last">
-          <a href="#" onclick="showTab(3)">其他</a>
+          <a href="#" data-tabid="tab_other">其他</a>
         </li>
       </ul>
    </div>
    <div id="tab_content">
-     <div id="div_home" class="div-tab">
+     <div id="tab_home" class="div-tab tab-home active">
        <p>
         “世界是一面镜子，你对她笑，她就对着你笑.”
        </p>
@@ -82,7 +82,7 @@
         </span>
        </div>
      </div>
-     <div id="div_about" class="div-tab" style="display:none;">
+     <div id="tab_about" class="div-tab tab-about">
           <div class="div-skill">
             <p style="padding:10px;">技能表</p>
             <ul class="skill-title">
@@ -137,7 +137,7 @@
             </ul>
           </div>
      </div>
-     <div id="div_sns" class="div-tab" style="display:none;">
+     <div id="tab_sns" class="div-tab tab-sns">
        <div class="div-namecard">
         <div>
            <p>
@@ -156,7 +156,7 @@
         <img class="img-sns" src="images/bear.png" />
       </div>
      </div>
-     <div id="div_other" class="div-tab" style="display:none;">
+     <div id="tab_other" class="div-tab tab-other">
       <div class="div-page-url">
         <ul>
           <li><a href="./toolpages/tomatto.html" target="_blank">番茄</a></li>
@@ -187,18 +187,8 @@
    <div id="home-footer">
       <p>Dont <a href="http://shellphon.github.io/githublog/">Blog</a>~ <a href="https://www.upyun.com/"><img src="images/upyun.png" /></a></p>
    </div>
-<script type="text/javascript">
-  var tabs = document.getElementById("tab_content").getElementsByTagName("div");
-  var displayTab = tabs["div_home"];
-  var arrTab = ["div_home","div_about","div_sns","div_other"];
-  function showTab(index, oriObj){
-    displayTab.style.display="none";
-    //console.log(index + ","+arrTab[index] + ","+tabs[arrTab[index]]+","+tabs[arrTab[index]].style.display);
-    //console.dir(tabs[arrTab[index]]);
-   tabs[arrTab[index]].style.display="";
-    //console.log(index + ","+arrTab[index] + ","+tabs[arrTab[index]]+","+tabs[arrTab[index]].style.display);
-   displayTab = tabs[arrTab[index]];
-  }
+<script src="http://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="js/main.js">
 </script>
  </body>
 </html>
