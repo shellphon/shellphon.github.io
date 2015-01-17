@@ -60,7 +60,7 @@ h3{
   right: 5px;
   top: -3px;
 }
-.ul-guide>li:hover,.ul-guide>li.active{
+.ul-guide>li.active{
   background-color: #66CC99;
 }
 
@@ -220,179 +220,178 @@ h3{
 
 }
 .div-skill ul.skill-title{
-font-weight:bold;
+  font-weight:bold;
 }
 .div-skill ul.skill-title>li{
-border-top: 1px solid #CC9966;
+  border-top: 1px solid #CC9966;
 }
 
 .div-skill li{
-list-style-type: none;
+  list-style-type: none;
   background-color: #FFFFFF;
   width: 150px;
   height:30px;
   float: left;
-border-left: 1px solid #CC9966;
-border-bottom: 1px solid #CC9966;
+  border-left: 1px solid #CC9966;
+  border-bottom: 1px solid #CC9966;
   padding-top: 8px;
-
 }
 .div-skill li.last{
-border-right: 1px solid #CC9966;
+  border-right: 1px solid #CC9966;
 }
 .div-degree{
-width:150px;
-height: 30px;
-position: relative;
+  width:150px;
+  height: 30px;
+  position: relative;
 }
 .div-degree .degree-out{
-width: 100px;
-height: 8px;
-border: 1px solid #000;
-position: absolute;
-top: 6px;
-left:20px;
+  width: 100px;
+  height: 8px;
+  border: 1px solid #000;
+  position: absolute;
+  top: 6px;
+  left:20px;
 }
 .div-degree .degree-in{
-width: 100px;
-height: 8px;
-position: absolute;
-top: 7px;
-left:21px;
-background-color: #0000ff;
+  width: 100px;
+  height: 8px;
+  position: absolute;
+  top: 7px;
+  left:21px;
+  background-color: #0000ff;
 }
 .div-degree .degree-in5{
-width: 100px;
-height: 8px;
-position: absolute;
-top: 7px;
-left:21px;
-background-color: #0000ff;
+  width: 100px;
+  height: 8px;
+  position: absolute;
+  top: 7px;
+  left:21px;
+  background-color: #0000ff;
 }
 .div-degree .degree-in4{
-width: 80px;
-height: 8px;
-position: absolute;
-top: 7px;
-left:21px;
-background-color: #00ff00;
+  width: 80px;
+  height: 8px;
+  position: absolute;
+  top: 7px;
+  left:21px;
+  background-color: #00ff00;
 }
 .div-degree .degree-in3{
-width: 60px;
-height: 8px;
-position: absolute;
-top: 7px;
-left:21px;
-background-color: #00ff00;
+  width: 60px;
+  height: 8px;
+  position: absolute;
+  top: 7px;
+  left:21px;
+  background-color: #00ff00;
 }
 .div-degree .degree-in2{
-width: 40px;
-height: 8px;
-position: absolute;
-top: 7px;
-left:21px;
-background-color: #ff0000;
+  width: 40px;
+  height: 8px;
+  position: absolute;
+  top: 7px;
+  left:21px;
+  background-color: #ff0000;
 
-/* Chrome, Safari, Opera */
--webkit-animation-name: move;
--webkit-animation-duration: 4s;
--webkit-animation-timing-function: ease-in;
--webkit-animation-delay: 2s;
--webkit-animation-iteration-count: infinite;
--webkit-animation-direction: alternate;
--webkit-animation-play-state: running;
+  /* Chrome, Safari, Opera */
+  -webkit-animation-name: move;
+  -webkit-animation-duration: 4s;
+  -webkit-animation-timing-function: ease-in;
+  -webkit-animation-delay: 2s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-play-state: running;
 
--moz-animation-name: move;
--moz-animation-duration: 4s;
--moz-animation-timing-function: ease-in;
--moz-animation-delay: 2s;
--moz-animation-iteration-count: infinite;
--moz-animation-direction: alternate;
--moz-animation-play-state: running;
-/* Standard syntax */
-animation-name: move;
-animation-duration: 4s;
-animation-timing-function: ease-in;
-animation-delay: 2s;
-animation-iteration-count: infinite;
-animation-direction: alternate;
-animation-play-state: running;
+  -moz-animation-name: move;
+  -moz-animation-duration: 4s;
+  -moz-animation-timing-function: ease-in;
+  -moz-animation-delay: 2s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-direction: alternate;
+  -moz-animation-play-state: running;
+  /* Standard syntax */
+  animation-name: move;
+  animation-duration: 4s;
+  animation-timing-function: ease-in;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-play-state: running;
 }
 @-webkit-keyframes move{
-0%{
-  width:40px;
-  background-color: #ff0000;
-}
+  0%{
+    width:40px;
+    background-color: #ff0000;
+  }
 
-25%{
-  width:60px;
-  background-color: #00ff00;
-}
+  25%{
+    width:60px;
+    background-color: #00ff00;
+  }
 
-50%{
-  width:80px;
-  background-color: #00ff00;
-}
-100%{
-  width:100px;
-  background-color: #0000ff;
-}
+  50%{
+    width:80px;
+    background-color: #00ff00;
+  }
+  100%{
+    width:100px;
+    background-color: #0000ff;
+  }
 }
 @-moz-keyframes move{
-0%{
-  width:40px;
-  background-color: #ff0000;
-}
+  0%{
+    width:40px;
+    background-color: #ff0000;
+  }
 
-25%{
-  width:60px;
-  background-color: #00ff00;
-}
+  25%{
+    width:60px;
+    background-color: #00ff00;
+  }
 
-50%{
-  width:80px;
-  background-color: #00ff00;
-}
-100%{
-  width:100px;
-  background-color: #0000ff;
-}
+  50%{
+    width:80px;
+    background-color: #00ff00;
+  }
+  100%{
+    width:100px;
+    background-color: #0000ff;
+  }
 }
 @keyframes move{
-0%{
-  width:40px;
-  background-color: #ff0000;
-}
+  0%{
+    width:40px;
+    background-color: #ff0000;
+  }
 
-25%{
-  width:60px;
-  background-color: #00ff00;
-}
+  25%{
+    width:60px;
+    background-color: #00ff00;
+  }
 
-50%{
-  width:80px;
-  background-color: #00ff00;
-}
-100%{
-  width:100px;
-  background-color: #0000ff;
-}
+  50%{
+    width:80px;
+    background-color: #00ff00;
+  }
+  100%{
+    width:100px;
+    background-color: #0000ff;
+  }
 }
 .div-degree .degree-in1{
-width: 20px;
-height: 8px;
-position: absolute;
-top: 7px;
-left:21px;
-background-color: #ff0000;
+  width: 20px;
+  height: 8px;
+  position: absolute;
+  top: 7px;
+  left:21px;
+  background-color: #ff0000;
 }
 .div-degree .degree-in0{
-width: 0px;
-height: 8px;
-position: absolute;
-top: 7px;
-left:21px;
-background-color: #ff0000;
+  width: 0px;
+  height: 8px;
+  position: absolute;
+  top: 7px;
+  left:21px;
+  background-color: #ff0000;
 }
 
 /* new css for ukulele */
@@ -415,9 +414,9 @@ background-color: #ff0000;
   transform: rotate(60deg);
 
   }
-  .ukubox *{
-    position: absolute;
-  }
+.ukubox *{
+  position: absolute;
+}
 .ukubox .ukuhead{
   width: 34px;
   height: 46px;
