@@ -17,9 +17,7 @@
   #resturants{
     padding: 20px;
     width: 400px;
-    /*height: 300px;*/
     border-radius: 20px;
-    /* border: 2px solid rgba(0, 0, 0, 0); */
     background-color: rgba(255, 204, 51, 0.59);
     box-shadow: 0px 4px 16px 1px rgba(0, 0, 0, 0.79);
     position: relative;
@@ -34,14 +32,6 @@
   #resturants ul li{
     color: #23C75E;
     padding: 3px;
-   /*  border-bottom: 1px solid #fff;
-   border-right: 1px solid #fff;
-   border-left: 1px solid #fff; 
-   background-color: #99CC33;
-   border-radius: 2px; */
-  }
-  #resturants ul li.first{
-   /*border-top: 1px solid #fff;*/
   }
 
   #btn{
@@ -63,11 +53,6 @@
     height: 37px;
   }
   #votes{
-    /*position: absolute;
-    bottom: 40px;
-    width: 100px;
-    right: -120px;
-    height: 37px;*/
     color: #000;
     background-color: transparent;
     border: 0px;
@@ -133,7 +118,6 @@
   #floater{
     float:left; 
     height:30%; 
-    /*margin-bottom:-120px;*/
   }
   #close{
     position: absolute;
@@ -160,8 +144,8 @@
     <div id="resturants">
       <h3>中午去哪吃随机V1.0</h3>
       <hr />
-      <ul>
-        <li class="first">家乐缘</li>
+      <ul id="rest_ul">
+        <li>家乐缘</li>
         <li>都城快餐</li>
         <li>筒骨粉</li>
         <li>潮汕卤味</li>
@@ -177,8 +161,8 @@
       <div id="voteDiv">
         <input type="text" id="votes" value="11" disabled />
       </div>
-      <input type="button" id="btn" value="开始随机" onclick="where2Eat();" />
-      <input type="button" id="addBtn" value="添加店" onclick="addRest();" />
+      <input type="button" id="btn" value="开始随机"  />
+      <input type="button" id="addBtn" value="添加店" />
     </div>
   </div>
       <div id="alertWrap">
@@ -189,107 +173,109 @@
           <span id="close">X</span>
         </div>
       </div>
+  <script type="text/javascript" src="var-eat.js"></script>
   <script type="text/javascript">
-      var resturants = [],
-          resturantAll = document.getElementById("resturants"),//店wrapper
-          domRests = resturantAll.getElementsByTagName("li"),//店集合
-          alertWrap = document.getElementById("alertWrap"),//弹出框div
-          timesTips = document.getElementById("timesTips"),//提示信息
-          votes = document.getElementById("votes"),//
-          voteDiv = document.getElementById("voteDiv"),//
-          inputContent = document.getElementById("inputContent"),//可流动输入框
-          sortList = document.getElementById("sortList"), //排序列表div 展示排序结果
-          close = document.getElementById("close");
-       //默认显示   
-      timesTips.style.display="none";
-      alertWrap.style.display = "none";
-
-      close.addEventListener("click",function(){
-        alertWrap.style.display = "none";
-      });
-
-      resturantAll.addEventListener("click", function(e){//绑定点击事件，设置可编辑
-        if(e.target.nodeName=="LI"){
-          e.target.contentEditable = true;
-        }
-      });
-      voteDiv.addEventListener("mouseenter", function(e){//提示信息显示
-        //console.log("voe");
-        timesTips.style.display = "";
-      });
-      voteDiv.addEventListener("mouseleave", function(e){
-        // console.log("voeut");
+      (function(){
+          var resturants = [],
+            resturantAll = document.getElementById("resturants"),//店wrapper
+            domRests = resturantAll.getElementsByTagName("li"),//店集合
+            alertWrap = document.getElementById("alertWrap"),//弹出框div
+            timesTips = document.getElementById("timesTips"),//提示信息
+            votes = document.getElementById("votes"),//
+            voteDiv = document.getElementById("voteDiv"),//
+            inputContent = document.getElementById("inputContent"),//可流动输入框
+            sortList = document.getElementById("sortList"), //排序列表div 展示排序结果
+            close = document.getElementById("close");
+         //默认显示   
         timesTips.style.display="none";
-      });
-      voteDiv.addEventListener("mousewheel",function(e){//滚动增减抽选次数
-        // console.log("voewhell");
-        var val = parseInt(votes.value);
-        var delta = 10;
-        if(e.wheelDelta<0){
-          if(val+delta>1001){
-            return;
+        alertWrap.style.display = "none";
+
+        close.addEventListener("click",function(){
+          alertWrap.style.display = "none";
+        });
+        document.getElementById('btn').addEventListener("click",function(){
+          where2Eat();
+        });
+        document.getElementById('addBtn').addEventListener("click",function(){
+          addRest();
+        });
+
+        resturantAll.addEventListener("click", function(e){//绑定点击事件，设置可编辑
+          if(e.target.nodeName=="LI"){
+            e.target.contentEditable = true;
           }
-          val+=delta;
-        }else{
-          if(val-delta<1){
-            return;
-          }
-          val-=delta;
-        }
-          votes.value=val;
-      });
-      function addRest(){
-        if(domRests[domRests.length-1].innerHTML==""){
-          alert("已增加店位，请输入店名");
-          domRests[domRests.length-1].focus();
-          return;
-        }
-        domRests[domRests.length-1].insertAdjacentHTML("afterend", "<li></li>");
-        domRests[domRests.length-1].contentEditable=true;
-        domRests[domRests.length-1].focus();
-      }
-      function where2Eat(){
-        if(domRests[domRests.length-1].innerHTML==""){
-          alert("已增加店位，请输入店名");
-          domRests[domRests.length-1].focus();
-          return;
-        }
-        resturants= [];
-        for(var j=0; j<domRests.length; j++){//init from dom
-          resturants.push({name:domRests[j].innerHTML,vote:0});
-        }
-        var randTime = parseInt(votes.value);
-        for(var i=0; i<randTime; i++){//rand vote
-          var randNum = Math.floor(Math.random()*domRests.length);
-          var temp = randNum%domRests.length;
-          resturants[temp]["vote"]++;
-         // console.log(resturants[temp]["name"]+" vote:"+resturants[temp]["vote"]);
-        }
-        // console.log("----------result------------");
-        // console.log(resturants.sort(sortBy("vote")));
-        // console.log(resturants[0]["vote"]+"  "+resturants[0]["name"]);
-        resturants.sort(sortBy("vote"));
-        alertWrap.getElementsByTagName("span")[0].innerHTML=votes.value+"次中，抽到"+resturants[0]["vote"]+"次"+ " : <br/>"+resturants[0]["name"];
-        var list = "";
-        for(var k=0;k<resturants.length;k++){
-          list+="("+resturants[k]["vote"]+")"+resturants[k]["name"]+"<br />";
-        }
-        sortList.innerHTML = list;
-        alertWrap.style.display = "";
-        // console.log("----------end------------");
-      }
-      
-      function sortBy(pname){
-        return function(a, b){
-          // console.log(a["name"]+a[pname]+" ? "+b["name"]+b[pname]+"   "+(b[pname]-a[pname]));
-          if(a&&b&&a[pname]!=undefined&&b[pname]!=undefined){//这里坑了，囧
-            return b[pname]-a[pname];
+        });
+        voteDiv.addEventListener("mouseenter", function(e){//提示信息显示
+          //console.log("voe");
+          timesTips.style.display = "";
+        });
+        voteDiv.addEventListener("mouseleave", function(e){
+          // console.log("voeut");
+          timesTips.style.display="none";
+        });
+        voteDiv.addEventListener("mousewheel",function(e){//滚动增减抽选次数
+          // console.log("voewhell");
+          var val = parseInt(votes.value);
+          var delta = 10;
+          if(e.wheelDelta<0){
+            if(val+delta>1001){
+              return;
+            }
+            val+=delta;
           }else{
-            throw "error";
+            if(val-delta<1){
+              return;
+            }
+            val-=delta;
           }
-        };
-      }
-      // var testDemo = [{name:"A",vote:0},{name:"B",vote:0},{name:"C",vote:2},{name:"D",vote:2},{name:"E",vote:2},{name:"F",vote:0},{name:"G",vote:2},{name:"H",vote:2},{name:"I",vote:0}];
+            votes.value=val;
+        });
+        function addRest(){
+          if(domRests[domRests.length-1].innerHTML==""){
+            alert("已增加店位，请输入店名");
+            domRests[domRests.length-1].focus();
+            return;
+          }
+          domRests[domRests.length-1].insertAdjacentHTML("afterend", "<li></li>");
+          domRests[domRests.length-1].contentEditable=true;
+          domRests[domRests.length-1].focus();
+        }
+        function where2Eat(){
+          if(domRests[domRests.length-1].innerHTML==""){
+            alert("已增加店位，请输入店名");
+            domRests[domRests.length-1].focus();
+            return;
+          }
+          resturants= [];
+          for(var j=0; j<domRests.length; j++){//init from dom
+            resturants.push({name:domRests[j].innerHTML,vote:0});
+          }
+          var randTime = parseInt(votes.value);
+          for(var i=0; i<randTime; i++){//rand vote
+            var randNum = Math.floor(Math.random()*domRests.length);
+            var temp = randNum%domRests.length;
+            resturants[temp]["vote"]++;
+          }
+          resturants.sort(sortBy("vote"));
+          alertWrap.getElementsByTagName("span")[0].innerHTML=votes.value+"次中，抽到"+resturants[0]["vote"]+"次"+ " : <br/>"+resturants[0]["name"];
+          var list = "";
+          for(var k=0;k<resturants.length;k++){
+            list+="("+resturants[k]["vote"]+")"+resturants[k]["name"]+"<br />";
+          }
+          sortList.innerHTML = list;
+          alertWrap.style.display = "";
+        }
+        
+        function sortBy(pname){
+          return function(a, b){
+            if(a&&b&&a[pname]!=undefined&&b[pname]!=undefined){//这里坑了，囧
+              return b[pname]-a[pname];
+            }else{
+              throw "error";
+            }
+          };
+        }
+      })();
   </script>
  </body>
 
