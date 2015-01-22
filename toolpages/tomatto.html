@@ -9,7 +9,6 @@
    margin:0 auto;
    text-align:center;
   }
-  /*  #FFE4B5 */
    .circular-wrap{
     padding:10px 0 10px 0;
     width:400px;
@@ -30,68 +29,10 @@
   	background:transparent;
   }
 </style>
-  <script type="text/javascript">
-   var 
-     time=leftTime = 1500000,//25 min
-     status = 0,// 0 开始; 1 计时; 2 暂停;
-     clockInstance=null;
-   function clockin(){
-    //console.log("每秒运行一次，剩余时间："+leftTime);
-    var leftMin = document.getElementById("left_min").innerHTML;
-    var leftSec = document.getElementById("left_second").innerHTML;
-    leftTime -= 1000;
-    if(leftTime==0){
-     clearInterval(clockInstance);
-     var textAlert = document.getElementById("text_miss").value;
-     alert("时间到了！！！  "+ textAlert);
-     document.getElementById("run").value="开始";
-     status = 0;
-     leftTime=time;
-     startView();
-    }else{
-     if(leftSec==0){
-      document.getElementById("left_second").innerHTML=59;
-      document.getElementById("left_min").innerHTML-=1;
-      if(document.getElementById("left_min").innerHTML<10){
-       document.getElementById("left_min").innerHTML="0" + document.getElementById("left_min").innerHTML;
-      }
-     }else{
-      document.getElementById("left_second").innerHTML-=1;
-      if(document.getElementById("left_second").innerHTML<10){
-       document.getElementById("left_second").innerHTML="0" + document.getElementById("left_second").innerHTML;
-      }
-     }
-    }
-   }
-   function run(){
-    if(status==0||status==2){
-     document.getElementById("run").value="暂停";
-     status = 1;
-     clockInstance = setInterval("clockin()",1000);
-    }else if(status==1){
-     document.getElementById("run").value="继续";
-     status = 2;
-     clearInterval(clockInstance);
-    }
-   }
-   function reset(){
-    time = 1500000;//25 min
-     leftTime = time;
-    status = 0;// 0 开始; 1 计时; 2 暂停;
-    clearInterval(clockInstance);
-    clockInstance=null;
-    document.getElementById("run").value="开始";
-    startView();
-   }
-   function startView(){
-    document.getElementById("left_second").innerHTML = "00";
-    document.getElementById("left_min").innerHTML = 25;
-   }
-  </script>
  </head>
  <body>
    <div>
-   	<h1>Welcome to dont github home!</h1>
+   	<h1>简单番茄</h1>
    </div>
   <!--
    开始界面：开始按钮，剩下时间（25分钟）
@@ -117,12 +58,78 @@
       <input type="text" id="text_miss" value="" />
     </div>
     <div class="div-btn">
-     <input type="button" class="input-btn" id="run" value="开始" onclick="run();"/>
-     <input type="button" class="input-btn" id="reset" value="重置" onclick="reset();"/>
+     <input type="button" class="input-btn" id="run" value="开始" />
+     <input type="button" class="input-btn" id="reset" value="重置"/>
     </div>
   </div>
+<script type="text/javascript">
+   (function(){
+     var toma = 25,
+         time=leftTime = toma*60000,//25 min
+         status = 0,// 0 开始; 1 计时; 2 暂停;
+         clockInstance=null,
+         oLeftMin = document.getElementById("left_min"),
+         oLeftSec = document.getElementById("left_second"),
+         oRun = document.getElementById("run");
+     function clockin(){
+      var leftMin = oLeftMin.innerHTML,
+          leftSec = oLeftSec.innerHTML,
+          textAlert = '';
+      leftTime -= 1000;
+      if(leftTime==0){
+       clearInterval(clockInstance);
+       textAlert = document.getElementById("text_miss").value;
+       alert("时间到了！！！  "+ textAlert);
+       oRun.value="开始";
+       status = 0;
+       leftTime=time;
+       startView();
+      }else{
+       if(leftSec==0){
+        oLeftSec.innerHTML=59;
+        oLeftMin.innerHTML-=1;
+        if(oLeftMin.innerHTML<10){
+         oLeftMin.innerHTML="0" + oLeftMin.innerHTML;
+        }
+       }else{
+        oLeftSec.innerHTML-=1;
+        if(oLeftSec.innerHTML<10){
+         oLeftSec.innerHTML="0" + oLeftSec.innerHTML;
+        }
+       }
+      }
+     }
+     function run(){
+      if(status==0||status==2){
+       oRun.value="暂停";
+       status = 1;
+       clockInstance = setInterval(clockin,1000);
+      }else if(status==1){
+       oRun.value="继续";
+       status = 2;
+       clearInterval(clockInstance);
+      }
+     }
+     function reset(){
+       leftTime = time;
+       status = 0;// 0 开始; 1 计时; 2 暂停;
+       clearInterval(clockInstance);
+       clockInstance=null;
+       oRun.value="开始";
+       startView();
+     }
+     function startView(){
+       oLeftSec.innerHTML = "00";
+       oLeftMin.innerHTML = toma;
+     }
+     oRun.onclick = function(){
+        run();
+     };
+     document.getElementById('reset').onclick = function(){
+        reset();
+     };
+    startView();
+   })();
+  </script>
  </body>
- <script type="text/javascript">
-  startView();
- </script>
 </html>
