@@ -13,7 +13,13 @@
   }
   .container-wrap{
     width: 400px;
-    margin: 60px auto;
+    margin: 20px auto;
+  }
+  #extra_div{
+    width: 200px;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
   }
   .container-wrap h2{
     text-align: center;
@@ -22,12 +28,36 @@
     position: fixed;
     right: 250px;
     top: 250px;
+    width: 100px;
+  }
+  #rich{
+    position: fixed;
+    right: 250px;
+    top: 300px;
+    width: 100px; 
   }
   .lucky-name{color:#265a88;}
   .lucky-price{color:#ee2e44;}
   </style>
  </head>
  <body>
+  <div id="extra_div">
+    <h3>配菜</h3>
+    <table class="table table-hover">
+      <tr>
+          <th>#</th>
+          <th>配菜</th>
+          <th>￥</th>
+        </tr>
+        <tbody id="extra">
+          <tr>
+            <td>0</td>
+            <td class="name">金牌猪肚饭</td>
+            <td class="price">12元</td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
   <div class="container-wrap">
     <h2>餐单</h2>
     <table class="table table-hover">
@@ -46,6 +76,7 @@
     </table>
   </div>
   <button id="lucky" class="btn btn-success">随机一下？</button>
+  <button id="rich" class="btn btn-info">有钱任性</button>
   <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
   <script src="http://cdn.bootcss.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
   <script src="http://cdn.bootcss.com/bootbox.js/4.3.0/bootbox.min.js"></script>
@@ -59,6 +90,13 @@
              ids = oMenu.find('.dish-id'),
              rand = Math.ceil(Math.random()*names.length);
              bootbox.alert('不如试下：【'+ids.eq(rand).text()+'】<span class="lucky-name">'+names.eq(rand).text()+'</span>? <span class="lucky-price">'+ prices.eq(rand).text() + '</span>元');
+      });
+      $('#rich').click(function(){
+         var names = oMenu.find('.name'),
+             prices = oMenu.find('.price'),
+             ids = oMenu.find('.dish-id'),
+             rand = names.length-Math.ceil(Math.random()*5);
+             bootbox.alert('本期豪华大礼包：【'+ids.eq(rand).text()+'】<span class="lucky-name">'+names.eq(rand).text()+'</span>? <span class="lucky-price">'+ prices.eq(rand).text() + '</span>元<br/>不够？加几个配菜。←');
       }); 
   })(jQuery);
   </script>
