@@ -88,14 +88,14 @@
          var names = oMenu.find('.name'),
              prices = oMenu.find('.price'),
              ids = oMenu.find('.dish-id'),
-             rand = Math.ceil(Math.random()*names.length);
+             rand = Math.floor(Math.random()*names.length);
              bootbox.alert('不如试下：【'+ids.eq(rand).text()+'】<span class="lucky-name">'+names.eq(rand).text()+'</span>? <span class="lucky-price">'+ prices.eq(rand).text() + '</span>元');
       });
       $('#rich').click(function(){
          var names = oMenu.find('.name'),
              prices = oMenu.find('.price'),
              ids = oMenu.find('.dish-id'),
-             rand = names.length-Math.ceil(Math.random()*5);
+             rand = names.length-Math.floor(Math.random()*5);
              bootbox.alert('本期豪华大礼包：【'+ids.eq(rand).text()+'】<span class="lucky-name">'+names.eq(rand).text()+'</span>? <span class="lucky-price">'+ prices.eq(rand).text() + '</span>元<br/>不够？加几个配菜。←');
       }); 
   })(jQuery);
