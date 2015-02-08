@@ -39,16 +39,16 @@ h3{
   height:54px;
   line-height: 54px;
   float: left;
-  border-right: 1px solid #e4e4e4; 
+  border-bottom: 4px solid #FFF;
   font-size: 18px;
   text-align: center;
 }
 .ul-guide>li.last{
-  border:none;
+  /*border:none;*/
   position: relative;
 }
 .ul-guide>li.last::after{
-  content: "";
+  content: "2";
   line-height: 12px;
   display: block;
   width: 12px;
@@ -57,11 +57,18 @@ h3{
   border-radius: 12px;
   background: #fb0000;
   position: absolute;
+  font-size: 12px;
   right: 5px;
+  color: #fff;
   top: -3px;
 }
+.ul-guide>li.last.active::after{
+  display: none;
+}
 .ul-guide>li.active{
-  background-color: #66CC99;
+  border-bottom-color: #6c9;
+  background-color: rgba(102, 204, 153, 0.31);
+  border-radius: 0 0 4px 4px;
 }
 
 .ul-guide>li>a{
