@@ -9,4 +9,7 @@
               tabParent.find('.active').eq(0).removeClass('active');
               $('#'+_this.attr('data-tabid')).addClass('active');
         });
+    $('.show-ds').click(function(){
+      $('.ds-thread').slideToggle();
+    });
   })(jQuery);
