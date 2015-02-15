@@ -1,10 +1,4 @@
 (function($){
-        function clone(obj){
-            var F = function(){};
-            F.prototype = obj;
-            var f = new F();
-            return f;
-        }
         var Util = {
             order: {
                 datas:{
@@ -14,9 +8,9 @@
                     author_name:'dont',
                     message:''
                 },
-                url:'http://duoshuo.com/api/posts/create.json',
+                url:'http://api.duoshuo.com/posts/create.json',
                 post:function(dataObj, method){
-                    var result = clone(this.datas);
+                    var result = this.datas;
                     result.message = JSON.stringify(dataObj);
                     Util.postIframe(this.url, method, result); 
                 }
@@ -68,12 +62,27 @@
                     rtn = {};
                  bootbox.confirm('确定点这个？--'+name+'(￥'+price+')', function(res){
                     if(res){
-                        console.log("TA点了"+name+' ￥'+price);
-                        rtn.name = name;
-                        rtn.price= price;
-                        Util.order.post(rtn,'POST');
+                        if(window.localStorage&&localStorage['whoOrder']){
+                            rtn.who = localStorage['whoOrder'];
+                            console&&console.log(localStorage['whoOrder']+"点了"+name+' ￥'+price);
+                            rtn.name = name;
+                            rtn.price= price;
+                            Util.order.post(rtn,'POST');
+                            that.removeClass('info').addClass('danger').unbind();
+                        }else{
+                            bootbox.prompt('请输入昵称方便对照：',function(answer){
+                                if(answer){
+                                    window.localStorage&&localStorage.setItem('whoOrder', answer);
 
-                        that.removeClass('info').addClass('danger').unbind();
+                                    rtn.who = answer;
+                                    console&&console.log(answer+"点了"+name+' ￥'+price);
+                                    rtn.name = name;
+                                    rtn.price= price;
+                                    Util.order.post(rtn,'POST');
+                                    that.removeClass('info').addClass('danger').unbind();
+                                }
+                            });
+                        }
                     }
                  });
              });
