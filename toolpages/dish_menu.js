@@ -5,7 +5,7 @@
                     short_name:'shellphon',
                     thread_key:'dish0214',
                     secret:'980060bdb2bb38f1bdf5d73b37382696',
-                    author_name:'dont',
+                    author_name:'dish_menu',
                     message:''
                 },
                 url:'http://api.duoshuo.com/posts/create.json',
@@ -41,17 +41,73 @@
       var oMenu = $('#menu');
       $('#lucky').click(function(){
          var names = oMenu.find('.name'),
+             trs = oMenu.find('tr'),
              prices = oMenu.find('.price'),
              ids = oMenu.find('.dish-id'),
-             rand = Math.floor(Math.random()*names.length);
-             bootbox.alert('不如试下：【'+ids.eq(rand).text()+'】<span class="lucky-name">'+names.eq(rand).text()+'</span>? <span class="lucky-price">'+ prices.eq(rand).text() + '</span>元');
+             rand = Math.floor(Math.random()*names.length),
+             dishName = names.eq(rand).text(),
+             dishPrice = prices.eq(rand).text(),
+             rtn = {};
+             bootbox.confirm('不如试下：【'+ids.eq(rand).text()+'】<span class="lucky-name">'+dishName+'</span>? <span class="lucky-price">'+ dishPrice + '</span>元',function(res){
+                if(res){
+                    if(window.localStorage&&localStorage['whoOrder']){
+                            rtn.who = localStorage['whoOrder']+'随机了一下';
+                            console&&console.log(localStorage['whoOrder']+"点了"+dishName+' ￥'+dishPrice);
+                            rtn.name = dishName;
+                            rtn.price= dishPrice;
+                            Util.order.post(rtn,'POST');
+                            trs.eq(rand).removeClass('info').addClass('danger').unbind();
+                        }else{
+                            bootbox.prompt('请输入昵称方便对照：',function(answer){
+                                if(answer){
+                                    window.localStorage&&localStorage.setItem('whoOrder', answer);
+
+                                    rtn.who = answer+'随机了一下';
+                                    console&&console.log(answer+"点了"+dishName+' ￥'+dishPrice);
+                                    rtn.name = dishName;
+                                    rtn.price= dishPrice;
+                                    Util.order.post(rtn,'POST');
+                                    trs.eq(rand).removeClass('info').addClass('danger').unbind();
+                                }
+                            });
+                        }
+                }
+             });
       });
       $('#rich').click(function(){
          var names = oMenu.find('.name'),
+             trs = oMenu.find('tr'),
              prices = oMenu.find('.price'),
              ids = oMenu.find('.dish-id'),
-             rand = names.length-Math.floor(Math.random()*5)-1;
-             bootbox.alert('本期豪华大礼包：【'+ids.eq(rand).text()+'】<span class="lucky-name">'+names.eq(rand).text()+'</span>? <span class="lucky-price">'+ prices.eq(rand).text() + '</span>元<br/>不够？加几个配菜。←');
+             rand = names.length-Math.floor(Math.random()*5)-1,
+             dishName = names.eq(rand).text(),
+             dishPrice = prices.eq(rand).text(),
+             rtn = {};
+             bootbox.confirm('本期豪华大礼包：【'+ids.eq(rand).text()+'】<span class="lucky-name">'+dishName+'</span>? <span class="lucky-price">'+ dishPrice + '</span>元<br/>不够？加几个配菜。←',function(res){
+                if(res){
+                     if(window.localStorage&&localStorage['whoOrder']){
+                            rtn.who = localStorage['whoOrder']+'任性了一下';
+                            console&&console.log(localStorage['whoOrder']+"点了"+dishName+' ￥'+dishPrice);
+                            rtn.name = dishName;
+                            rtn.price= dishPrice;
+                            Util.order.post(rtn,'POST');
+                            trs.eq(rand).removeClass('info').addClass('danger').unbind();
+                        }else{
+                            bootbox.prompt('请输入昵称方便对照：',function(answer){
+                                if(answer){
+                                    window.localStorage&&localStorage.setItem('whoOrder', answer);
+
+                                    rtn.who = answer+'任性了一下';
+                                    console&&console.log(answer+"点了"+dishName+' ￥'+dishPrice);
+                                    rtn.name = dishName;
+                                    rtn.price= dishPrice;
+                                    Util.order.post(rtn,'POST');
+                                    trs.eq(rand).removeClass('info').addClass('danger').unbind();
+                                }
+                            });
+                        }
+                }
+             });
       }); 
       oMenu.find('tr').each(function(){
          var self = $(this),
