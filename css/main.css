@@ -17,12 +17,12 @@
   display: block;
   visibility: hidden;
 }
-h3{
-  display: inline;
-}
 .div-title{
   width: 500px;
   margin: 0 auto;
+}
+.div-title h3{
+  display: inline;
 }
 /*  navigator */
 .div-guide{
@@ -61,7 +61,7 @@ h3{
   color: #fff;
   top: -8px;
 }
-.ul-guide>li:hover{
+.ul-guide>li a:hover{
   border: none;
   -webkit-animation-name: swing;
   animation-name: swing;
@@ -237,6 +237,11 @@ h3{
 }
 .div-page-url ul li a{
   text-decoration: none;
+  color: #848484;
+}
+.div-page-url ul li a:hover{
+  text-decoration: underline;
+  color: #69c;
 }
 .active{
   display: block;
