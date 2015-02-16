@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
+  <title>风中有朵雨做的云~</title>
+<style type="text/css">
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  body{
+    background-color: #0bf;
+  }
+  div.content{
+  }
+
+  .cloud{
+    width: 400px;
+    height: 225px;
+    margin:50px auto;
+    position: relative;
+  }
+  .cloud .cl{
+    background-color: #fff;
+  }
+  .cloud .cl1{
+    width: 150px;
+    height: 150px;
+    border-radius: 120px;
+    position: absolute;
+    top: 75px;
+    left: 0px;
+  }
+  .cloud .cl2{
+    width: 160px;
+    height: 160px;
+    border-radius: 160px;
+    position: absolute;
+    top: 0px;
+    left: 64px;
+  }
+  .cloud .cl3{
+    width: 180px;
+    height: 180px;
+    border-radius: 200px;
+    position: absolute;
+    top: 45px;
+    left: 120px;
+  }
+  .cloud .clb{
+    width: 140px;
+    height: 50px;
+    position: absolute;
+    bottom: 0px;
+    left: 71px;
+  }
+  .cloud .drop{
+    background-color: #fff;
+    width: 2px;
+    height: 50px;
+    position: absolute;
+    bottom: -80px;
+    -webkit-animation-name: drop;
+    animation-name: drop;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+  }
+  .cloud .dr1{
+    left: 100px;
+  }
+  .cloud .dr2{
+    left: 150px;
+  }
+  .cloud .dr3{
+    left: 200px;
+  }
+  @-webkit-keyframes drop {
+     0% { height:0px;bottom:0px;}
+    40% { height:20px;bottom:-20px;}
+    80% { height:50px;bottom:-80px;}
+  }
+  @keyframes drop {
+     0% { height:0px;bottom:0px;}
+    40% { height:20px;bottom:-20px;}
+    80% { height:50px;bottom:-80px;}
+  }
+  
+</style>
+  
+ </head>
+ <body>
+  <div class="content">
+    <div class="cloud">
+      <div class="cl cl1"></div>
+      <div class="cl cl2"></div>
+      <div class="cl cl3"></div>
+      <div class="cl clb"></div>
+      <div class="drop dr1"></div>
+      <div class="drop dr2"></div>
+      <div class="drop dr3"></div>
+    </div>
+  </div>
+ </body>
+</html>

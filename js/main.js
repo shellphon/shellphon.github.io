@@ -20,7 +20,7 @@
       function write(pos){
         var letter = txt.substr(pos,1);
         if(pos<len){
-          console.log(pos,len,letter,txt)
+         // console.log(pos,len,letter,txt)
           _obj.append(letter);
           pos++;
           setTimeout(function(){
