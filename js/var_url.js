@@ -15,7 +15,8 @@
           {url:"./funs/moondog.html",desc:'月亮哟'},
           {url:"./funs/bone.html",desc:'骷髅'},
           {url:"./funs/country.html",desc:'101'},
-          {url:"./funs/cloud.html",desc:'云朵'}
+          {url:"./funs/cloud.html",desc:'云朵'},
+          {url:"./funs/matches.html",desc:'游戏-匹配'}
         ];
       
     $('#urls').append(urls.map(function(e){
