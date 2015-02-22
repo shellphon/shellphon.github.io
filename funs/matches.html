@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
+  <title>匹配</title>
+<style type="text/css">
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  body{
+  }
+  .map{
+    width: 400px;
+    margin: 20px auto;
+  }
+  .map .item{
+    float: left;
+    width: 90px;
+    height: 90px;
+    margin: 5px;
+    border-radius: 50px;
+    background-color: #7BDDA8;
+    cursor: pointer;
+    position: relative;
+    transition:all 500ms;
+    backface-visibility: hidden;
+    text-align: center;
+  }
+  .map .item:hover{
+    /*transform: rotateY(180deg);*/
+  }
+  .map .un{
+
+  }
+  .map .un::after{
+    content:'';
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    background-color: #89EA89;
+    position: absolute;
+    top: 30px;
+    left: 30px; 
+  }
+  .map .item span{
+    /*backface-visibility:hidden;*/
+    transform:rotateY(180deg);
+    height: 30px;
+    line-height: 30px;
+    font-size: 28px;
+    display: inline-block;
+    margin: 25px;
+    transition:all 550ms;
+  }
+  .map .show{
+    transform:rotateY(180deg);
+  }
+  .map .show span{
+    /*transform:rotateY(180deg);*/
+  }
+  .map .match{
+    visibility: hidden;
+    transition:none;
+  }
+</style>
+ </head>
+ <body>
+  <div id="map" class="map">
+    <div class="item"></div>
+    <div class="item un"></div>
+    <div class="item match"></div>
+    <div class="item"><span>A</span></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+  </div>
+  <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+  <!-- <script src="../js/lib/jquery-1.11.1.js"></script> -->
+  <script>
+  (function($){
+    //游戏规则：游戏布局 4*4，有8个不同的item（每个item有两个实体），全部覆盖着
+    //只有点击的时候翻转看实体内容，当连续翻开的两个相同时，销去。
+    //当不同时盖上。且盖上的图有所标识,当布局不再有盖着的item时，过关
+    /*
+      状态： 全新覆盖
+             翻转
+             覆盖但标识翻过
+             消除
+    */
+    //map item个数
+    //标识是否揭开一个：oneShow
+    //数组：元素是一对 item/2个数的随机字符（不重复）
+    //一个字符池（不重复，个数尽量多）：作为随机字符的来源
+    //已匹配对数，当不小于item/2时表示游戏结束
+    function ran(d){return Math.floor(Math.random()*d);}
+    function randStr(src,len){
+        var len,
+            i,
+            res = [],
+            temp,
+            a = src.split('');
+        if(len>a.length){
+          len = a.length;
+        }
+        l = a.length;
+        for(i=0;i<len;i++){
+          temp = ran(l--);
+          res.push(a[temp]);
+          a.splice(temp,1);
+        }
+        return res.join('');
+    }
+    function dbRandArr(str){
+      var a = str.split(''),
+          len = a.length*2,
+          l = len,
+          t,i,res=[];
+          a = a.concat(a);
+          for(i=0;i<len;i++){
+            t = ran(l--);
+            res.push(a[t]);
+            a.splice(t,1);
+          }
+      return res;
+    }
+    var Game = {
+      row:4,
+      pair:0,
+      num:16,
+      oneShow:false,
+      initParam:function(row){
+        row&&(this.row = row);
+        this.num = this.row*this.row;
+        this.pair = 0;
+        oneShow = false;
+        $('#map').css('width',(this.row*100)+'px')
+      },
+      start:function(row){
+        this.initParam(row);
+        var iTmpl = '<div class="item un" data-no="{index}"><span></span></div>',
+            htmlStr='',
+            src = 'ABCDEFGHI☆J❤KLMNOPQRSTUVWXYZ123456789',
+            datas = [];
+        for(var i=0; i<Game.num;i++){
+            htmlStr+=iTmpl.replace(/{index}/g,i);
+        }
+        $('#map').html(htmlStr);
+        datas = dbRandArr(randStr(src,Game.num/2));
+        $('#map').unbind().on('click','.item',function(){
+          var that = $(this),
+              showing = $('.show');
+          if(that.hasClass('match')||that.hasClass('show')){
+            return;
+          }
+          that.hasClass('un')&&that.removeClass('un');
+          that.addClass('show').find('span').text(datas[that.data('no')]);
+          if(Game.oneShow){
+            Game.oneShow = false;
+             if(showing.find('span').text()==datas[that.data('no')]){
+               Game.pair++;
+               if(Game.pair==Game.num/2){
+                alert('Game Over');
+                Game.start(Game.row+2);
+                return;
+               }
+               setTimeout(function(){
+                 showing.removeClass('show').addClass('match');
+                 that.removeClass('show').addClass('match');
+               },1000);
+             }
+          }else{//未有展示，则将其他已经展示的移除
+            showing.removeClass('show').find('span').text('');
+            Game.oneShow = true;
+          }
+        });
+      }
+    };
+
+    Game.start(2);
+  })(jQuery);
+  </script>
+ </body>
+</html>
