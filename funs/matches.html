@@ -10,6 +10,7 @@
     padding: 0;
   }
   body{
+    font-family: "Microsoft Yahei", Arial;
   }
   .map{
     width: 400px;
@@ -24,12 +25,13 @@
     background-color: #7BDDA8;
     cursor: pointer;
     position: relative;
+    -webkit-transition:all 500ms;
+    -moz-transition:all 500ms;
     transition:all 500ms;
     backface-visibility: hidden;
     text-align: center;
   }
   .map .item:hover{
-    /*transform: rotateY(180deg);*/
   }
   .map .un{
 
@@ -47,27 +49,90 @@
   }
   .map .item span{
     /*backface-visibility:hidden;*/
+    -webkit-transform:rotateY(180deg);
+    -moz-transform:rotateY(180deg);
     transform:rotateY(180deg);
     height: 30px;
     line-height: 30px;
     font-size: 28px;
     display: inline-block;
     margin: 25px;
+    -webkit-transition:all 550ms;
+    -moz-transition:all 550ms;
     transition:all 550ms;
   }
   .map .show{
+    -webkit-transform:rotateY(180deg);
+    -moz-transform:rotateY(180deg);
     transform:rotateY(180deg);
+
+    -moz-backface-visibility: visible;
+    background-color: transparent;
   }
   .map .show span{
     /*transform:rotateY(180deg);*/
   }
   .map .match{
     visibility: hidden;
+    -webkit-transition:none;
+    -moz-transition:none;
     transition:none;
   }
+  .fixed-info{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+  }
+  .fixed-info p{
+    font-size: 22px;
+  }
+  .fixed-info span{
+    color: #efef24;
+  }
+  .level-info{
+    list-style-type: none;
+    margin-top: 20px;
+  }
+  .level-info li{
+    line-height: 1.5;
+  }
+  .fixed-range{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+  }
+  
 </style>
+<link href="http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
  </head>
  <body>
+  <div class="fixed-info">
+    <p>步数：<span id="steps">0</span><br />
+    时间：<span id="time_min">00</span>:<span id="time_sec">00</span>
+    </p>
+    <ul id="level_pass" class="level-info">
+    </ul>
+  </div>
+  <div class="fixed-range">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>ID</th>
+          <th>Step</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody id="range">
+        <tr>
+          <td>1</td>
+          <td>Dont</td>
+          <td>1</td>
+          <td>00:01</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   <div id="map" class="map">
     <div class="item"></div>
     <div class="item un"></div>
@@ -87,109 +152,8 @@
     <div class="item"></div>
   </div>
   <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-  <!-- <script src="../js/lib/jquery-1.11.1.js"></script> -->
-  <script>
-  (function($){
-    //游戏规则：游戏布局 4*4，有8个不同的item（每个item有两个实体），全部覆盖着
-    //只有点击的时候翻转看实体内容，当连续翻开的两个相同时，销去。
-    //当不同时盖上。且盖上的图有所标识,当布局不再有盖着的item时，过关
-    /*
-      状态： 全新覆盖
-             翻转
-             覆盖但标识翻过
-             消除
-    */
-    //map item个数
-    //标识是否揭开一个：oneShow
-    //数组：元素是一对 item/2个数的随机字符（不重复）
-    //一个字符池（不重复，个数尽量多）：作为随机字符的来源
-    //已匹配对数，当不小于item/2时表示游戏结束
-    function ran(d){return Math.floor(Math.random()*d);}
-    function randStr(src,len){
-        var len,
-            i,
-            res = [],
-            temp,
-            a = src.split('');
-        if(len>a.length){
-          len = a.length;
-        }
-        l = a.length;
-        for(i=0;i<len;i++){
-          temp = ran(l--);
-          res.push(a[temp]);
-          a.splice(temp,1);
-        }
-        return res.join('');
-    }
-    function dbRandArr(str){
-      var a = str.split(''),
-          len = a.length*2,
-          l = len,
-          t,i,res=[];
-          a = a.concat(a);
-          for(i=0;i<len;i++){
-            t = ran(l--);
-            res.push(a[t]);
-            a.splice(t,1);
-          }
-      return res;
-    }
-    var Game = {
-      row:4,
-      pair:0,
-      num:16,
-      oneShow:false,
-      initParam:function(row){
-        row&&(this.row = row);
-        this.num = this.row*this.row;
-        this.pair = 0;
-        oneShow = false;
-        $('#map').css('width',(this.row*100)+'px')
-      },
-      start:function(row){
-        this.initParam(row);
-        var iTmpl = '<div class="item un" data-no="{index}"><span></span></div>',
-            htmlStr='',
-            src = 'ABCDEFGHI☆J❤KLMNOPQRSTUVWXYZ123456789',
-            datas = [];
-        for(var i=0; i<Game.num;i++){
-            htmlStr+=iTmpl.replace(/{index}/g,i);
-        }
-        $('#map').html(htmlStr);
-        datas = dbRandArr(randStr(src,Game.num/2));
-        $('#map').unbind().on('click','.item',function(){
-          var that = $(this),
-              showing = $('.show');
-          if(that.hasClass('match')||that.hasClass('show')){
-            return;
-          }
-          that.hasClass('un')&&that.removeClass('un');
-          that.addClass('show').find('span').text(datas[that.data('no')]);
-          if(Game.oneShow){
-            Game.oneShow = false;
-             if(showing.find('span').text()==datas[that.data('no')]){
-               Game.pair++;
-               if(Game.pair==Game.num/2){
-                alert('Game Over');
-                Game.start(Game.row+2);
-                return;
-               }
-               setTimeout(function(){
-                 showing.removeClass('show').addClass('match');
-                 that.removeClass('show').addClass('match');
-               },1000);
-             }
-          }else{//未有展示，则将其他已经展示的移除
-            showing.removeClass('show').find('span').text('');
-            Game.oneShow = true;
-          }
-        });
-      }
-    };
-
-    Game.start(2);
-  })(jQuery);
-  </script>
+  <script src="http://cdn.bootcss.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script src="http://cdn.bootcss.com/bootbox.js/4.3.0/bootbox.min.js"></script>
+  <script src="matches.js"></script>
  </body>
 </html>
