@@ -74,7 +74,7 @@
         this.initParam(row);
         var iTmpl = '<div class="item un" data-no="{index}"><span></span></div>',
             htmlStr='',
-            src = 'ABCDEFGHI☆J❤KLMNOPQRSTUVWXYZ123456789★△▽囧你我他龙',
+            src = 'ABCDEFGHI☆J❤KLMNOPQRSTUVWXYZ☺☻☼♂♀♠♣★△▽囧你我他',
             datas = [];
         for(var i=0; i<Game.num;i++){
             htmlStr+=iTmpl.replace(/{index}/g,i);
@@ -99,33 +99,41 @@
              if(showing.find('span').text()==datas[that.data('no')]){
                Game.pair++;
                if(Game.pair==Game.num/2){
-                  bootbox.alert('过关~继续闯关吧~~',function(){
-                      console.log($('#time_min').text()+'分'+$('#time_sec').text()+'秒');
-                      $('#level_pass').append('<li>Level '+(Game.row-1)+': 用了<span>'+Game.step+'</span>步'+'| 耗时：<span>'+$('#time_min').text()+'</span>分<span>'+$('#time_sec').text()+'</span>秒</li>');
-                      Game.tcount&&clearInterval(Game.tcount);
-                      if(Game.row==Max){
-                        allStep = Game.summary();
-                        if(RangeNet.isBreakRange(allStep)){
-                          bootbox.prompt('少侠，您的凌波微步学得不错，敢问阁下高姓大名？', function(res){
-                            if(res){
-                              postObj.step = allStep;
-                              postObj.id = res;
-                              allTime = Game.countTime();
-                              postObj.min = allTime.min;
-                              postObj.sec = allTime.sec;
-                              PostScore.upload(postObj,'POST');
-                            }
+                     // console.log($('#time_min').text()+'分'+$('#time_sec').text()+'秒');
+                  $('#level_pass').append('<li>Level '+(Game.row-1)+': 用了<span>'+Game.step+'</span>步'+'| 耗时：<span>'+$('#time_min').text()+'</span>分<span>'+$('#time_sec').text()+'</span>秒</li>');
+                  Game.tcount&&clearInterval(Game.tcount);
+                  if(Game.row==Max){
+                    allStep = Game.summary();
+                    if(RangeNet.isBreakRange(allStep)){
+                      bootbox.prompt('通关，敢问阁下高姓大名？', function(res){
+                        if(res){
+                          postObj.step = allStep;
+                          postObj.id = res;
+                          allTime = Game.countTime();
+                          postObj.min = allTime.min;
+                          postObj.sec = allTime.sec;
+                          PostScore.upload(postObj,'POST');
+                        }
+                        bootbox.alert('Game Over。好腻害啊',function(){
                             setTimeout(function(){
                                 location = location;
                             },1500);
-                          });
-                        }
-
+                        });
+                      });
+                    }else{
+                         bootbox.alert('Game Over,加油哦~',function(){
+                            setTimeout(function(){
+                                location = location;
+                            },1500);
+                        });
+                    }
+                    return;
+                  }else{
+                    bootbox.alert('过关~继续闯关吧~~',function(){
+                        Game.start(++Game.row);
                         return;
-                      }
-                      Game.start(++Game.row);
-                      return;
-                  });
+                    });
+                  }
                }
                setTimeout(function(){
                  showing.removeClass('show').addClass('match');
