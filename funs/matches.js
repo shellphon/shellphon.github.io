@@ -90,7 +90,7 @@
           if(that.hasClass('match')||that.hasClass('show')){
             return;
           }
-          that.hasClass('un')&&that.removeClass('un');
+            that.hasClass('un')&&that.removeClass('un');
           that.addClass('show').find('span').text(datas[that.data('no')]);
           if(Game.oneShow){
             Game.step++;
@@ -136,8 +136,8 @@
                   }
                }
                setTimeout(function(){
-                 showing.removeClass('show').addClass('match');
-                 that.removeClass('show').addClass('match');
+                 showing.addClass('match').removeClass('show');
+                 that.addClass('match').removeClass('show');
                },500);
              }
           }else{//未有展示，则将其他已经展示的移除
