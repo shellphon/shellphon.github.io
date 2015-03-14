@@ -72,7 +72,7 @@
       },
       start:function(row){
         this.initParam(row);
-        var iTmpl = '<div class="item un" data-no="{index}"><span></span></div>',
+        var iTmpl = '<div class="item un" data-no="{index}"><div class="back"><span></span></div><div class="front"></div></div>',
             htmlStr='',
             src = 'ABCDEFGHI☆J❤KLMNOPQRSTUVWXYZ☺☻☼♂♀♠♣★△▽囧你我他',
             datas = [];
