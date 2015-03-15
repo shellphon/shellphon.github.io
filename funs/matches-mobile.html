@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    
+    <!-- Sets initial viewport load and disables zooming  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- Include the CSS 
+    <link rel="stylesheet" href="../css/vip_rights.css"/>
+    -->
+
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
+  <title>匹配</title>
+<style type="text/css">
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  body{
+    font-family: "Microsoft Yahei", Arial;
+  }
+  @font-face{
+    font-family: icofont;
+    src: url('../images/fonts/funmatches/fontawesome.eot');
+    src: url('../images/fonts/funmatches/fontawesome.eot?#iefix') format('embedded-opentype'),
+         url('../images/fonts/funmatches/fontawesome.woff') format('woff'),
+         url('../images/fonts/funmatches/fontawesome.ttf') format('truetype'),
+         url('../images/fonts/funmatches/fontawesome.svg#fontawesome') format('svg');
+  }
+  .map{
+    width: 320px;
+    margin: 2em auto;
+  }
+  .map .item{
+    float: left;
+    width: 76px;
+    height: 76px;
+    margin: 2px;
+    position: relative;
+    cursor: pointer;
+  }
+  .map .item>div{
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0px;
+    left: 0px;
+    -webkit-transition:all 500ms;
+    transition:all 500ms;
+    text-align: center;
+    backface-visibility: hidden;
+  }
+  .map .item .front{
+    background-color: #7BDDA8;
+  }
+  .map .item .back{
+    -webkit-transform:rotateY(180deg);
+    transform:rotateY(180deg);
+  }
+
+  .map .un .front::after{
+    content:'';
+    display: block;
+    width: 40%;
+    height: 40%;
+    border-radius: 100%;
+    background-color: #89EA89;
+    position: absolute;
+    top: 30%;
+    left: 30%; 
+  }
+  
+  .map .item .back span{
+    font-family: icofont,'Microsoft Yahei',Arial;
+    font-size: 1.5em;
+    display: inline-block;
+    margin: 30%;
+  }
+  .map .show .front{
+    -webkit-transform:rotateY(180deg);
+    transform:rotateY(180deg);
+  }
+  .map .show .back{
+    -webkit-transform:rotateY(0deg);
+    transform:rotateY(0deg);
+  }
+  .map .match{
+    visibility: hidden;
+  }
+  .map .match>div{
+    -webkit-transition:none;
+    transition:none;
+  }
+  .msg{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .msg .txt{
+    width: 160px;
+    position: absolute;
+    left: 50%;
+    top: 100px;
+    margin-left: -80px;
+    background-color: #fff;
+    border: 1px solid #f00;
+    border-radius: 5px;
+    padding: 50px 20px;
+  }
+  .title{
+    text-align: center;
+    font-size: 1.5em;
+    margin:20px;
+  }
+  .container{
+    position: relative;
+  }
+  
+</style>
+ </head>
+ <body>
+ <div class="container">
+  <p class="title">小游戏：配对</p>
+  <div id="map" class="map">
+    <div class="item"><div class="back"><span>A</span></div><div class="front"></div></div>
+    <div class="item un"><div class="back"><span>A</span></div><div class="front"></div></div>
+    <div class="item match"><div class="back"><span>A</span></div><div class="front"></div></div>
+    <div class="item show"><div class="back"><span>A</span></div><div class="front"></div></div>
+    <div class="item"><div class="back"><span>A</span></div><div class="front"></div></div>
+    <div class="item"><div class="back"><span>A</span></div><div class="front"></div></div>
+    <div class="item"><div class="back"><span>A</span></div><div class="front"></div></div>
+    <div class="item"><div class="back"><span>A</span></div><div class="front"></div></div>
+    <div class="item"><div class="back"><span>A</span></div><div class="front"></div></div>
+    <div class="item"><div class="back"><span>A</span></div><div class="front"></div></div>
+    <div class="item"><div class="back"><span>A</span></div><div class="front"></div></div>
+    <div class="item"><div class="back"><span>A</span></div><div class="front"></div></div>
+    <div class="item"><div class="back"><span>A</span></div><div class="front"></div></div>
+    <div class="item"><div class="back"><span>A</span></div><div class="front"></div></div>
+    <div class="item"><div class="back"><span>A</span></div><div class="front"></div></div>
+    <div class="item"><div class="back"><span>A</span></div><div class="front"></div></div>
+  </div>
+  <div class="msg" style="display:none;">
+    <p class="txt">
+    </p>
+  </div>
+ </div>
+  <script src="http://cdn.bootcss.com/zepto/1.1.4/zepto.min.js"></script>
+  <script src="../js/lib/zeptolib/touch.js"></script>
+  <script src="matches-m.js"></script>
+ </body>
+</html>
