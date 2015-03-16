@@ -46,12 +46,25 @@
     }
     function msgTip(text,sec,cbk){
       var msgDiv = $('.msg');
-      msgDiv.find('.txt').html(text);
+      msgDiv.find('.txt p').html(text);
       msgDiv.show();
       setTimeout(function(){
         msgDiv.hide();
         cbk&&cbk();
       },sec);
+    }
+    function msgPrompt(text,cbk){
+       var msgDiv = $('.msg'),
+       askDiv = msgDiv.find('.ask');
+      msgDiv.find('.txt p').html(text);
+      askDiv.show();
+      msgDiv.find('.assure').unbind().on('click',function(){
+        var name = $('#nickname').val();
+        cbk&&cbk(name);
+        askDiv.hide();
+        msgDiv.hide();
+      });
+      msgDiv.show();
     }
     var Max = 8;
     var Game = {
@@ -74,10 +87,6 @@
         $('#time_min').text('00');
         $('#time_sec').text('00');
         oneShow = false;
-       /* $('#map').css('width',(this.row*100)+'px')
-        if(this.row>6){
-          $('#map').css({'transform':'scale(0.8)'});
-        }*/
       },
       start:function(row){
         this.initParam(row);
@@ -117,7 +126,7 @@
                   if(Game.row==Max){
                     allStep = Game.summary();
                     if(RangeNet.isBreakRange(allStep)){
-                      /*bootbox.prompt('通关，敢问阁下高姓大名？', function(res){
+                     msgPrompt('通关，敢问阁下高姓大名？', function(res){
                         if(res){
                           postObj.step = allStep;
                           postObj.id = res;
@@ -126,17 +135,11 @@
                           postObj.sec = allTime.sec;
                           PostScore.upload(postObj,'POST');
                         }
-                        bootbox.alert('Game Over。好腻害啊',function(){
                             setTimeout(function(){
                                 location = location;
                             },1500);
-                        });
-                      });*/
-                      msgTip('Game Over。好腻害啊',1000,function(){
-                            setTimeout(function(){
-                                location = location;
-                            },1500);
-                        });
+                      });
+                     
                     }else{
                          msgTip('Game Over,加油哦~',1000,function(){
                             setTimeout(function(){
@@ -214,7 +217,7 @@
                 short_name:'shellphon',
                 thread_key:'g-match',
                 secret:'980060bdb2bb38f1bdf5d73b37382696',
-                author_name:'g-match',
+                author_name:'g-match-mobile',
                 message:''
             },
             url:'http://api.duoshuo.com/posts/create.json',

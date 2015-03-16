@@ -31,6 +31,7 @@
   .map{
     width: 320px;
     margin: 2em auto;
+    overflow: hidden;
   }
   .map .item{
     float: left;
@@ -94,6 +95,12 @@
     -webkit-transition:none;
     transition:none;
   }
+  .level-info{
+    list-style-type: none;
+  }
+  .level-info li{
+    line-height: 1.5;
+  }
   .msg{
     width: 100%;
     height: 100%;
@@ -115,6 +122,22 @@
     color: #fff;
     text-align: center;
   }
+  .msg .txt .ask{
+    width: 100%;
+    display: none;
+  }
+  .msg .txt .ask input{
+    width: 80%;
+    margin: 5px auto;
+  }
+  .msg .txt .ask .assure{
+    border: none;
+    border-radius: 20px;
+    background-color: #97ceec;
+    color: #fff;
+    padding: .2em;
+    width: 50%;
+  }
   .title{
     text-align: center;
     font-size: 1.5em;
@@ -123,21 +146,65 @@
   .container{
     position: relative;
   }
+  .info span, .level-info{
+    color: #0E76D2;
+  }
+  .range{
+    width: 80%;
+    margin:20px auto;
+  }
+  .range table{
+    width: 100%;
+  }
+  .range table td,.range table th{
+    text-align: left;
+  }
   
 </style>
  </head>
  <body>
  <div class="container">
   <p class="title">小游戏：配对</p>
+  <div class="info">
+    <p>步数：<span id="steps">0</span>&nbsp;|&nbsp;
+    时间：<span id="time_min">00</span>:<span id="time_sec">00</span>
+    </p>
+  </div>
   <div id="map" class="map">
   </div>
+   <div class="range">
+    <ul id="level_pass" class="level-info">
+    </ul>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>ID</th>
+          <th>Step</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody id="range">
+      </tbody>
+    </table>
+  </div>
   <div class="msg" style="display:none;">
-    <p class="txt">
-    </p>
+    <div class="txt">
+    <p></p>
+    <div class="ask"><input id="nickname" type="text" placeholder="输入你的昵称~"><button class="assure">确认</button></div>
+    </div>
   </div>
  </div>
   <script src="http://cdn.bootcss.com/zepto/1.1.4/zepto.min.js"></script>
   <script src="../js/lib/zeptolib/touch.js"></script>
   <script src="matches-m.js"></script>
+  <script type="text/javascript" src="../js/wxshare.js"></script>
+  <script type="text/javascript">
+  var imgUrl = 'http://shellphon.github.io/images/finger.png',
+    lineLink = 'http://shellphon.github.io/funs/moondog.html',
+    descContent = '无聊玩玩咯',
+    shareTitle='小游戏-配对';
+  wxShare(imgUrl, lineLink, descContent, shareTitle,'');
+  </script>
  </body>
 </html>
