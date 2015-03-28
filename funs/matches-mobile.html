@@ -195,6 +195,22 @@
     </div>
   </div>
  </div>
+ <script type="text/javascript"> 
+        var system = { 
+            win: false, 
+            mac: false, 
+            xll: false, 
+            ipad:false 
+        }; 
+        var p = navigator.platform; 
+        system.win = p.indexOf("Win") == 0; 
+        system.mac = p.indexOf("Mac") == 0; 
+        system.x11 = (p == "X11") || (p.indexOf("Linux") == 0); 
+        system.ipad = (navigator.userAgent.match(/iPad/i) != null)?true:false; 
+        if (system.win || system.mac || system.xll||system.ipad) { 
+            window.location.href = '/funs/matches.html'; 
+        }
+  </script> 
   <script src="http://cdn.bootcss.com/zepto/1.1.4/zepto.min.js"></script>
   <script src="../js/lib/zeptolib/touch.js"></script>
   <script src="matches-m.js"></script>
