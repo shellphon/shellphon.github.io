@@ -49,6 +49,9 @@
     ];
     function write(){
       var rand = Math.ceil(Math.random()*words.length);
+      if(rand==words.length){
+        return;
+      }
       var h = words[rand].split('#');
       var d = '<p class="p{i}">{a}</p>';
       var ho = '';
