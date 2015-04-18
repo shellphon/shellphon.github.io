@@ -47,14 +47,17 @@
       '你那么美#我只想多见见',
       '我喜欢你#我好喜欢你#我超级喜欢你'
     ];
-    var rand = Math.ceil(Math.random()*words.length);
-    var h = words[rand].split('#');
-    var d = '<p class="p{i}">{a}</p>';
-    var ho = '';
-    for(var i=0;i<h.length;i++){
-        ho += d.replace(/{i}/, i).replace(/{a}/, h[i]);
+    function write(){
+      var rand = Math.ceil(Math.random()*words.length);
+      var h = words[rand].split('#');
+      var d = '<p class="p{i}">{a}</p>';
+      var ho = '';
+      for(var i=0;i<h.length;i++){
+          ho += d.replace(/{i}/, i).replace(/{a}/, h[i]);
+      }
+      document.getElementById('note').innerHTML = ho;
     }
-    document.getElementById('note').innerHTML = ho;
+    setInterval(write, 2800);
  </script>
   
  </body>
