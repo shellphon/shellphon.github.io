@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
+  <title>Love</title>
+<style type="text/css">
+  *{
+      margin: 0;
+      padding: 0;
+  }
+  div{
+     margin:0 auto;
+     text-align:center;
+  }
+  .heartDiv{
+      -webkit-animation-name: beat;
+      -webkit-animation-duration: 0.5s;
+      -webkit-animation-delay: 1s;
+      -webkit-animation-timing-function: ease-out;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-play-state: running;
+  }
+  .heart{
+    width: 9.375rem;
+    height: 6.25rem;
+    background-color: #E76464;
+    /* border: 1px solid #000; */
+    transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    border-top-left-radius: 3.125rem 3.125rem;
+    border-bottom-left-radius: 3.125rem 3.125rem;
+    position: relative;
+    margin-top: 200px;
+    left: -.9375rem;
+  }
+  .heart::after{
+    transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 9.375rem;
+    height: 6.25rem;
+    background-color: #E76464;
+    /* border: 1px solid #000; */
+    border-top-right-radius: 3.125rem 3.125rem;
+    border-bottom-right-radius: 3.125rem 3.125rem;
+    top: -1.5625rem;
+    right: -1.5625rem;
+  }
+  .say{
+    width: 18.75rem;
+    margin: 3.125rem auto;
+    height: 1.5625rem;
+    font-size: 137.5%;
+    color: #F59191;
+    background-color: #fff;
+    border: 2px solid #FFCCCC;
+  }
+  @-webkit-keyframes beat{
+      0%{
+        -webkit-transform: scale(1);
+      }
+      50%{
+         -webkit-transform: scale(1.2);
+      }
+  }
+  #hideBeat{
+    display: none;
+  }
+</style>
+  
+ </head>
+ <body>
+  <div style="overflow:hidden;">
+    <div class="heartDiv">
+      <div class="heart"></div>
+    </div>
+    <marquee class="say">喜欢你，就仿佛在脑海里和你过完了一生。</marquee>
+    <audio id="hideBeat" controls="controls" autoplay loop>
+        <source src="./beat.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+  <script>
+  (function(){
+    //console.log(document.body.clientWidth); 
+    document.documentElement.style.fontSize = document.body.clientWidth/20 +'px';
+  })();
+  </script>
+ </body>
+</html>
