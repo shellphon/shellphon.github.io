@@ -17,6 +17,7 @@
 		<label for="mile">距离</label><input id="mile" type="text" placeholder="多少米" />
 		<button id="btn">确定</button>
 	</div>
+    <script src="http://cdn.bootcss.com/zepto/1.1.4/zepto.min.js"></script>
 	<script>
 	(function(){
 		var Util = {
@@ -58,11 +59,11 @@
                 form.submit();
             }
         };
-        document.getElementById('btn').onclick(function(){
-        	var date = document.getElementById('date').value;
-        	var cal = document.getElementById('cal').value;
-        	var mile = document.getElementById('mile').value;
-        	var step = document.getElementById('step').value;		
+       $('#btn').click(function(){
+        	var date = $('#date').val(),
+                cal = $('#cal').val(),
+                mile = $('#mile').val(),
+                step = $('#step').val();		
 	      var rtn = {};
 	      rtn.date=date;
 	      rtn.mile  = mile;
