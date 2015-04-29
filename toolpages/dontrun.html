@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>(●—●)Dont run run~</title>
+	<style>
+		h1{text-align: center;}
+
+	</style>
+</head>
+<body>
+	<h1>泡起来，呸，跑起来</h1>
+	<hr />
+    <div id="main" style="height:400px;"></div>
+    <script src="http://cdn.bootcss.com/echarts/2.2.1/echarts.js"></script>
+    <script type="text/javascript">
+   		(function(){
+   			 var run = [
+    	{'date':'2015-04-01','steps':10000,'miles':1000,'calory':24008},
+    	{'date':'2015-04-02','steps':8000,'miles':1000,'calory':248},
+    	{'date':'2015-04-03','steps':9000,'miles':1000,'calory':248},
+    	{'date':'2015-04-04','steps':20000,'miles':1000,'calory':248},
+    	{'date':'2015-04-05','steps':16000,'miles':1000,'calory':20048},
+    	{'date':'2015-04-06','steps':5000,'miles':1000,'calory':248},
+    	{'date':'2015-04-07','steps':8000,'miles':1000,'calory':248},
+    	{'date':'2015-04-08','steps':9000,'miles':1000,'calory':248},
+    	{'date':'2015-04-09','steps':13000,'miles':1000,'calory':248},
+    	{'date':'2015-04-10','steps':18000,'miles':1000,'calory':248},
+    	{'date':'2015-04-11','steps':15000,'miles':1000,'calory':248}
+    ];
+    var rundate = [],
+    	runstep = [],
+    	runmile = [],
+    	runcalory = [];
+    run.forEach(function(e,i){
+    	rundate.push(e['date']);
+    	runstep.push(e['steps']);
+    	runmile.push(e['miles']);
+    	runcalory.push(e['calory']);
+    });
+        require.config({
+            paths: {
+                echarts: 'http://cdn.bootcss.com/echarts/2.2.1'
+            }
+        });
+        require(
+            [
+                'echarts',
+                'echarts/chart/line',   // 按需加载所需图表，如需动态类型切换功能，别忘了同时加载相应图表
+                'echarts/chart/bar'
+            ],
+            function (ec) {
+                var myChart = ec.init(document.getElementById('main'));
+                var option = {
+                     title : {
+        text: '奔跑吧，胖砸',
+        subtext: '数据来自weloop手环'
+    },
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['步数(步)','距离(m)','卡路里(c)']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {show: true, type: ['line', 'bar']},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : false,
+            data : rundate
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value',
+            axisLabel : {
+                formatter: '{value}'
+            }
+        }
+    ],
+    series : [
+        {
+            name:'步数(步)',
+            type:'line',
+            data:runstep,
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        },
+         {
+            name:'距离(m)',
+            type:'line',
+            data:runmile,
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        },
+         {
+            name:'卡路里(c)',
+            type:'bar',
+            data:runcalory,
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        }
+    ]
+                };
+                myChart.setOption(option);
+            }
+        );
+   		})();
+    </script>
+</body>
+</body>
+</html>

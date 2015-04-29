@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>(●—●)今天你跑了没？</title>
+	<style>
+		.form{
+			width: 30rem;
+		}
+	</style>
+</head>
+<body>
+	<div class="form">
+		<label for="date">时间</label><input id="date" type="text" placeholder="请输入时间:2015-04-01"/>
+		<label for="step">步数</label><input id="step" type="text" placeholder="步数" />
+		<label for="cal">卡路里</label><input id="cal" type="text" placeholder="多少焦" />
+		<label for="mile">距离</label><input id="mile" type="text" placeholder="多少米" />
+		<button id="btn">确定</button>
+	</div>
+	<script>
+	(function(){
+		var Util = {
+            run: {
+                datas:{
+                    short_name:'shellphon',
+                    thread_key:'run1115',
+                    secret:'980060bdb2bb38f1bdf5d73b37382696',
+                    author_name:'rundont',
+                    message:''
+                },
+                url:'http://api.duoshuo.com/posts/create.json',
+                post:function(dataObj, method){
+                    var result = this.datas;
+                    result.message = JSON.stringify(dataObj);
+                    Util.postIframe(this.url, method, result); 
+                }
+            },
+            postIframe:function(target_url, method, params){
+                var iframe = document.createElement("iframe");
+                document.body.appendChild(iframe);
+                iframe.style.display = "none";
+                var frame_name = "frame_name" + (new Date).getTime();
+                iframe.contentWindow.name = frame_name;
+                var form = document.createElement("form");
+                form.target = frame_name;
+                form.action = target_url;
+                form.method = method;
+                for (var key in params){
+                    if (params.hasOwnProperty(key)){
+                        var input = document.createElement("input");
+                        input.type = "hidden";
+                        input.name = key;
+                        input.value = params[key];
+                        form.appendChild(input);
+                    }
+                }
+                document.body.appendChild(form);
+                form.submit();
+            }
+        };
+        document.getElementById('btn').onclick(function(){
+        	var date = document.getElementById('date').value;
+        	var cal = document.getElementById('cal').value;
+        	var mile = document.getElementById('mile').value;
+        	var step = document.getElementById('step').value;		
+	      var rtn = {};
+	      rtn.date=date;
+	      rtn.mile  = mile;
+	      rtn.step = step;
+	      Util.run.post(rtn,'POST');
+        });
+
+	})();
+	</script>
+</body>
+</html>
