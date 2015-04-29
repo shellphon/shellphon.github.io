@@ -5,16 +5,37 @@
 	<title>(●—●)今天你跑了没？</title>
 	<style>
 		.form{
-			width: 30rem;
+			width: 20rem;
+            margin: 6rem auto;
 		}
+        .line {
+          overflow: hidden;
+          line-height: 1.5;
+        }
+        label {
+          float: left;
+        }
+        input {
+          float: right;
+        }
+        #btn{
+              text-align: center;
+              float: right;
+              width: 10rem;
+              height: 3rem;
+              font-size: 1.5rem;
+              border-radius: .5rem;
+              background: #fefefe;
+              border: 1px solid #efef00;
+        }
 	</style>
 </head>
 <body>
 	<div class="form">
-		<label for="date">时间</label><input id="date" type="text" placeholder="请输入时间:2015-04-01"/>
-		<label for="step">步数</label><input id="step" type="text" placeholder="步数" />
-		<label for="cal">卡路里</label><input id="cal" type="text" placeholder="多少焦" />
-		<label for="mile">距离</label><input id="mile" type="text" placeholder="多少米" />
+		<div class="line"><label for="date">时间</label><input id="date" type="text" placeholder="请输入时间:2015-04-01"/></div>
+		<div class="line"><label for="step">步数</label><input id="step" type="text" placeholder="步数" /></div>
+		<div class="line"><label for="cal">卡路里</label><input id="cal" type="text" placeholder="多少焦" /></div>
+		<div class="line"><label for="mile">距离</label><input id="mile" type="text" placeholder="多少米" /></div>
 		<button id="btn">确定</button>
 	</div>
     <script src="http://cdn.bootcss.com/zepto/1.1.4/zepto.min.js"></script>
@@ -66,8 +87,9 @@
                 step = $('#step').val();		
 	      var rtn = {};
 	      rtn.date=date;
-	      rtn.mile  = mile;
-	      rtn.step = step;
+	      rtn.miles  = mile;
+	      rtn.steps = step;
+          rtn.calory = cal;
 	      Util.run.post(rtn,'POST');
         });
 
