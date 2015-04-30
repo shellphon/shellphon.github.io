@@ -53,7 +53,7 @@ function isOwnEmpty(obj){
               pull:function(){//拉下数据，并排序后返回数组给range
                 var that = this;
                 var urltemp = 'http://api.duoshuo.com/threads/listPosts.jsonp?order=asc&thread_key=run1115&short_name=shellphon&page={page}&limit=15',
-                    result = [];
+                    result = beforeData;
                 function getAjax(i){
                     $.ajax({
                            type: "get",
