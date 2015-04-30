@@ -79,9 +79,9 @@ function isOwnEmpty(obj){
                              }else{
                                   result.forEach(function(e,i){
                                         rundate.push(e['date']);
-                                        runstep.push(e['steps']);
-                                        runmile.push(e['miles']);
-                                        runcalory.push(e['calory']);
+                                        runstep.push(parseInt(e['steps']));
+                                        runmile.push(parseInt(e['miles']));
+                                        runcalory.push(parseInt(e['calory']));
                                     });
                                   draw();
                              }
