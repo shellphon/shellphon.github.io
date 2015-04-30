@@ -14,28 +14,33 @@
         }
         label {
           float: left;
+          padding-left: 3rem;
         }
         input {
           float: right;
+          height: 1rem;
+          width: 60%;
+          font-size: 87%;
         }
         #btn{
-              text-align: center;
-              float: right;
-              width: 10rem;
-              height: 3rem;
-              font-size: 1.5rem;
-              border-radius: .5rem;
-              background: #fefefe;
-              border: 1px solid #efef00;
+          text-align: center;
+          float: right;
+          width: 10rem;
+          height: 3rem;
+          font-size: 1.5rem;
+          border-radius: .5rem;
+          color: #fefefe;
+          background: #84E585;
+          border: 1px solid #efef00;
         }
 	</style>
 </head>
 <body>
 	<div class="form">
-		<div class="line"><label for="date">时间</label><input id="date" type="text" placeholder="请输入时间:2015-04-01"/></div>
-		<div class="line"><label for="step">步数</label><input id="step" type="text" placeholder="步数" /></div>
-		<div class="line"><label for="cal">卡路里</label><input id="cal" type="text" placeholder="多少焦" /></div>
-		<div class="line"><label for="mile">距离</label><input id="mile" type="text" placeholder="多少米" /></div>
+		<div class="line"><label for="date">时间:</label><input id="date" type="text" placeholder="请输入时间:2015-04-01"/></div>
+		<div class="line"><label for="step">步数:</label><input id="step" type="text" placeholder="步数" /></div>
+		<div class="line"><label for="cal">卡路里:</label><input id="cal" type="text" placeholder="多少焦" /></div>
+		<div class="line"><label for="mile">距离:</label><input id="mile" type="text" placeholder="多少米" /></div>
 		<button id="btn">确定</button>
 	</div>
     <script src="http://cdn.bootcss.com/zepto/1.1.4/zepto.min.js"></script>
@@ -92,6 +97,7 @@
 	      rtn.steps = step;
           rtn.calory = cal;
 	      Util.run.post(rtn,'POST');
+          alert('已提交');
         });
 
 	})();
