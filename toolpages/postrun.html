@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
 	<title>(●—●)今天你跑了没？</title>
 	<style>
 		.form{
@@ -47,6 +48,11 @@
 	<script>
 	(function(){
         document.documentElement.style.fontSize = document.body.clientWidth/20 +'px';
+        function writeToday(){
+          var date = new Date();
+          $('#date').val(date.getFullYear()+'-'+(date.getMonth()>8?date.getMonth()+1:'0'+(date.getMonth()+1))+'-'+(date.getDate()>9?date.getDate():'0'+date.getDate()));
+        }
+        writeToday();
 		var Util = {
             run: {
                 datas:{
