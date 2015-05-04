@@ -17,7 +17,7 @@
           {url:"./funs/country.html",desc:'101'},
           {url:"./funs/cloud.html",desc:'云朵'},
           {url:"./funs/matches.html",desc:'游戏-匹配'},
-          {url:"./funs/dontrun.html",desc:'手环数据'}
+          {url:"./toolpages/dontrun.html",desc:'手环数据'}
         ];
       
     $('#urls').append(urls.map(function(e){
