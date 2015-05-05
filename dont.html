@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">    
-    <title>Document</title>
+    <title>Dont</title>
     <link rel="stylesheet" href="css/zepto.fullpage.css">
     <style>
         a{text-decoration: none;color:#656565;}
@@ -146,7 +146,7 @@
             <div class="page page4">
                 <div class="title">❤小玩意❤</div>
                 <ul class="urls">
-                <li><a href="/funs/matches-mobile.html">小小游戏</a></li>
+                <li><a href="/funs/matches-mobile.html" target="_blank">小小游戏</a></li>
                 <li><a href="/funs/love2.html">我...喜欢你</a></li>
                 </ul>
             </div>
@@ -154,9 +154,13 @@
     </div>
     <span class="start"><b></b></span>
     <script src="http://cdn.bootcss.com/zepto/1.1.4/zepto.min.js"></script>
+    <script src="js/lib/zeptolib/touch.js"></script>
     <script src="js/lib/zepto.fullpage.js"></script>
     <script>
         $('.wp-inner').fullpage();
+        $(document).on('tap', 'a', function (e) {
+            location.href = this.href;
+        });
     </script>
 </body>
 </html>
