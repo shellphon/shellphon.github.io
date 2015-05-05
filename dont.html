@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">    
+    <title>Document</title>
+    <link rel="stylesheet" href="css/zepto.fullpage.css">
+    <style>
+        a{text-decoration: none;color:#656565;}
+        .wp{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;            
+        }
+        .page{
+            font-size: 20px;
+            /*line-height: 320px;*/
+            text-align: center;
+            font-family: Microsoft Yahei, Arial;
+            background: #6c9;
+        }
+        .page1{
+        }
+        .page2{
+        }
+        .page3{
+        }
+        .page4{
+        }
+
+        /* 箭头 */
+        @-webkit-keyframes start {
+            0%,30% {
+                opacity: 0.2;
+                -webkit-transform: translate(0,10px);
+            }
+            60% {
+                opacity: 1;
+                -webkit-transform: translate(0,0);
+            }
+            100% {
+                opacity: 0.2;
+                -webkit-transform: translate(0, -5px);
+            }
+        }
+        @keyframes start {
+            0%,30% {
+                opacity: 0.2;
+                transform: translate(0,10px);
+            }
+            60% {
+                opacity: 1;
+                transform: translate(0,0);
+            }
+            100% {
+                opacity: 0.2;
+                transform: translate(0, -5px);
+            }
+        }
+        .start{
+            position: fixed;
+            left: 50%;
+            margin-left: -17px;
+            top: 95%;
+            margin-top: -34px;
+            width: 34px;
+            height: 34px;
+        }
+        .start b{
+            position: absolute;
+            left: 50%;
+            top: 10px;
+            margin-left: -9px;
+            width: 19px;
+            height: 12px;
+            background: url(images/arrow.png);
+            background-size: 100% 100%;
+            -webkit-animation: start 1.5s infinite ease-in-out;
+            animation: start 1.5s infinite ease-in-out;
+        }
+        .page .title{
+            margin-top: 50px;
+            text-align: center;
+            color:#ffffe0;
+            background: #656565;
+            height: 50px;
+            line-height: 50px;
+        }
+        .page1{
+            position: relative;
+        }
+        .page1 p{
+              width: 80%;
+              margin: 50px auto;
+              line-height: 1.5;
+              font-weight: bold;
+              position: relative;
+        }
+        .page1 p::after{
+            content: "--不是我说的";
+            display: block;
+            position: absolute;
+            bottom: -50px;
+            right: 10px;
+            font-size: 18px;
+            color: #adada5;
+        }
+        .page1 .myblog{
+              position: absolute;
+              bottom: 50px;
+              right: 20px;
+              
+              color: #656565;
+        }
+        .sns,.urls{
+          list-style: none;
+          text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp">
+        <div class="wp-inner">
+            <div class="page page1">
+                <div class="title">~Hello 我~</div>
+                <p>世界就像一面镜子，你对她笑，她就对着你笑~</p>
+                <a class="myblog" href="/githublog/">我的技术博客</a>
+            </div>
+            <div class="page page2">
+                <div class="title">*关于我*</div>
+                <p>职业：前端<br>属性：吐槽的天秤尾<br>ukulele<br>伪文艺<br><s>宅男</s><br><s>逗比</s></p>
+            </div>
+            <div class="page page3">
+                <div class="title">+SNS+</div>
+                <ul class="sns">
+                    <li>微博：<a href="http://weibo.com/206068916">dont27</a></li>
+                    <li>Github:<a href="https://github.com/shellphon">shellphon(夏侯风)</a></li>
+                    <li>邮箱：<a href="#">dont923@gmail.com</a></li>
+                    <li>微信：<a href="#">不要了吧- -</a></li>
+                </ul>
+            </div>
+            <div class="page page4">
+                <div class="title">❤小玩意❤</div>
+                <ul class="urls">
+                <li><a href="/funs/matches-mobile.html">小小游戏</a></li>
+                <li><a href="/funs/love2.html">我...喜欢你</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <span class="start"><b></b></span>
+    <script src="http://cdn.bootcss.com/zepto/1.1.4/zepto.min.js"></script>
+    <script src="js/lib/zepto.fullpage.js"></script>
+    <script>
+        $('.wp-inner').fullpage();
+    </script>
+</body>
+</html>
