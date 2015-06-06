@@ -52,7 +52,6 @@
     right: -1.5625rem;
   }
   .say{
-    width: 18.75rem;
     margin: 5rem auto;
     height: 1.5625rem;
     font-size: 137.5%;
@@ -86,16 +85,13 @@
       <div class="heart"></div>
     </div>
     <p id="say" class="say">喜欢你，就仿佛在脑海里和你过完了一生。</p>
-    <audio id="hideBeat" controls="controls" autoplay loop>
-        <source src="./beat.mp3" type="audio/mpeg">
-    </audio>
   </div>
   <script>
   (function(){
     //console.log(document.body.clientWidth); 
     document.documentElement.style.fontSize = document.body.clientWidth/20 +'px';
     document.getElementById('btn').onclick = function(){
-      document.getElementById('say').innerHTML = document.getElementById('you').value+',我爱你。';
+      document.getElementById('say').innerHTML = document.getElementById('you').value+', 我爱你';
       document.getElementById('form').style.display = 'none';
       document.getElementById('all').style.display = 'block';
     };
