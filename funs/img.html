@@ -40,6 +40,7 @@
         position: absolute;
         top: -3px;
         left: 0px;
+        border-radius: 50%;
     }
 </style>
 </head>
@@ -103,15 +104,16 @@ function showImg(file){
         //console.log(imgData);
         var bstr='box-shadow:';
         var barr=[];
-        var x=0,y=3;
+        var x=0,y;
         for(var i=0;i<imgArr.length;i+=4){
             if(i%640==0){
                 x=0;
             }
+            y=Math.floor(i/640)*3+3;
             barr.push(x+'px '+y+'px rgba('+imgArr[i]+','+imgArr[i+1]+','+imgArr[i+2]+','+imgArr[i+3]+')');
             x+=3;
             //console.log(Math.floor(i/160));
-            y=Math.floor(i/640)*3;
+            
 
         }
         var css = document.createElement('style');
