@@ -85,6 +85,10 @@ function showImg(file){
         //document.getElementById("dragbox").src = this.result;
         var img = new Image();
         img.src = this.result;
+        console.log(this.result);
+        console.log(img.naturalWidth);
+        var nWidth = img.naturalWidth,
+            nheight = img.naturalHeight;
         var canvas = document.createElement('canvas');//创建画布
         canvas.width=160;
         canvas.height=90;
