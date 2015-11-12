@@ -302,3 +302,9 @@ position: relative; }
   96% { transform: translate(4px, -9px) rotate(2.5deg); }
   98% { transform: translate(-4px, 9px) rotate(0.5deg); }
 }
+.danmu{
+    position: fixed;
+    transition: all linear 20s;
+    white-space: nowrap;
+    right: -400px;
+  }
