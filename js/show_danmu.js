@@ -79,7 +79,7 @@
           };
 
     
-    
+    GetData.pull();
 
 
 })(jQuery);
