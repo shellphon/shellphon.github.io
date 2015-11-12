@@ -38,9 +38,15 @@
 	};
         var GetData = {
         	  result:[],
-        	  damu:function(){
+        	  danmu:function(){
         	  	this.result.forEach(function(e,i){
-        	  		damu(e.text);
+        	  		if(i%2){
+        	  			setTimeout(function(){
+        	  				danmu(e.text);
+        	  			},500);
+        	  		}else{
+        	  			danmu(e.text);
+        	  		}
         	  	});
         	  },
               pull:function(){//拉下数据，并排序后返回数组给range
@@ -69,7 +75,7 @@
                                }
                                getAjax(i);
                              }else{
-                             	that.damu();
+                             	that.danmu();
                              }
                            }
                          });
