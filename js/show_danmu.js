@@ -50,8 +50,9 @@
         	  	});
         	  },
               pull:function(){//拉下数据，并排序后返回数组给range
-                var that = this;
-                var urltemp = 'http://api.duoshuo.com/threads/listPosts.jsonp?order=asc&thread_key=danmu&short_name=shellphon&page={page}&limit=15';
+                var that = this,
+                	pageSize = 15,
+                    urltemp = 'http://api.duoshuo.com/threads/listPosts.jsonp?order=asc&thread_key=danmu&short_name=shellphon&page={page}&limit='+pageSize;
                 function getAjax(i){
                     $.ajax({
                            type: "get",
@@ -65,19 +66,22 @@
                               var key,
                                   temp,
                                   eveObj;
-                              if(dataJson.parentPosts&&!isOwnEmpty(dataJson.parentPosts)){
-                                i++;
-                               for(key in dataJson.parentPosts){
-                                 temp = dataJson.parentPosts[key].message.replace(/\&quot;/g,'"');
-                                 eveObj = JSON.parse(temp);
-                                 eveObj.time = dataJson.parentPosts[key].created_at;
-                                 that.result.push(eveObj);
-                               }
-                               getAjax(i);
-                             }else{
-                             	that.danmu();
-                             }
-                           }
+                              if(dataJson.parentPosts
+                              	&&!isOwnEmpty(dataJson.parentPosts)
+                              	&&i*pageSize<=dataJson.cursor.total){
+                              	
+	                                i++;
+	                               for(key in dataJson.parentPosts){
+	                                 temp = dataJson.parentPosts[key].message.replace(/\&quot;/g,'"');
+	                                 eveObj = JSON.parse(temp);
+	                                 eveObj.time = dataJson.parentPosts[key].created_at;
+	                                 that.result.push(eveObj);
+	                               }
+	                               getAjax(i);
+	                             }else{
+	                             	that.danmu();
+	                             }
+                            }
                          });
                 }
                 getAjax(1);
