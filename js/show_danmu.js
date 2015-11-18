@@ -7,7 +7,7 @@
     		height = $(window).height(),
     		width = $(window).width(),
     		$dom = $('<div class="danmu" id="danmu'+id+'">'+str+'</div>').appendTo($('body'));
-    	    top = Math.ceil(Math.random()*height);
+    	    top = Math.ceil(Math.random()*(height-30));
 	    	for(var i=0;i<3;i++){
 	    		rgb.push(Math.ceil(Math.random()*256));
 	    	}
