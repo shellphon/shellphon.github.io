@@ -21,8 +21,9 @@ position: relative; }
 .ul-guide>li>a { color: #ffffe0; display: block; text-decoration: none; }
 
 /* tab of content */
-.div-tab { text-align: center; width: 803px; margin: 1.5em auto; position: relative; display: none; }
+.div-tab { width: 803px; margin: 1.5em auto; position: relative; display: none; }
 .div-tab>span { float: center; vertical-align: middle; }
+.tab-home { text-align: center; }
 
 /* namecard */
 .div-namecard { background-color: #FFFFCC; width: 530px; height: 222px; border: 1px dashed black; border-radius: 10px; margin: 0 auto; position: relative; }
@@ -50,40 +51,8 @@ position: relative; }
 
 /* skill table */
 .skill-back { background-color: rgba(204, 255, 153, 0.27); width: 800px; height: 300px; border: 1px dashed #000; }
-.tab-about { background-color: rgba(204, 255, 153, 0.27); width: 800px; height: 300px; border: 1px dashed #000; }
-.div-skill { margin: 0 auto; text-align: center; width: 605px; height: 300px; }
-.div-skill ul { }
-.div-skill ul.skill-title { font-weight: bold; }
-.div-skill ul.skill-title>li { border-top: 1px solid #CC9966; }
-.div-skill li { list-style-type: none; background-color: #FFFFFF; width: 150px; height: 30px; float: left; border-left: 1px solid #CC9966; border-bottom: 1px solid #CC9966; padding-top: 8px; }
-.div-skill li.last { border-right: 1px solid #CC9966; }
-.div-degree { width: 150px; height: 30px; position: relative; }
-.div-degree .degree-out { width: 100px; height: 8px; border: 1px solid #000; position: absolute; top: 6px; left: 20px; }
-.div-degree .degree-in { width: 100px; height: 8px; position: absolute; top: 7px; left: 21px; background-color: #0000ff; }
-.div-degree .degree-in5 { width: 100px; height: 8px; position: absolute; top: 7px; left: 21px; background-color: #0000ff; }
-.div-degree .degree-in4 { width: 80px; height: 8px; position: absolute; top: 7px; left: 21px; background-color: #00ff00; }
-.div-degree .degree-in3 { width: 60px; height: 8px; position: absolute; top: 7px; left: 21px; background-color: #00ff00; }
-.div-degree .degree-in2 { width: 40px; height: 8px; position: absolute; top: 7px; left: 21px; background-color: #ff0000;  /* Chrome, Safari, Opera */ -webkit-animation-name: move; -webkit-animation-duration: 4s; -webkit-animation-timing-function: ease-in; -webkit-animation-delay: 2s; -webkit-animation-iteration-count: infinite; -webkit-animation-direction: alternate; -webkit-animation-play-state: running; -moz-animation-name: move; -moz-animation-duration: 4s; -moz-animation-timing-function: ease-in; -moz-animation-delay: 2s; -moz-animation-iteration-count: infinite; -moz-animation-direction: alternate; -moz-animation-play-state: running;  /* Standard syntax */ animation-name: move; animation-duration: 4s; animation-timing-function: ease-in; animation-delay: 2s; animation-iteration-count: infinite; animation-direction: alternate; animation-play-state: running; }
-@-webkit-keyframes move {
-  0% { width: 40px; background-color: #ff0000; }
-  25% { width: 60px; background-color: #00ff00; }
-  50% { width: 80px; background-color: #00ff00; }
-  100% { width: 100px; background-color: #0000ff; }
-}
-@-moz-keyframes move {
-  0% { width: 40px; background-color: #ff0000; }
-  25% { width: 60px; background-color: #00ff00; }
-  50% { width: 80px; background-color: #00ff00; }
-  100% { width: 100px; background-color: #0000ff; }
-}
-@keyframes move {
-  0% { width: 40px; background-color: #ff0000; }
-  25% { width: 60px; background-color: #00ff00; }
-  50% { width: 80px; background-color: #00ff00; }
-  100% { width: 100px; background-color: #0000ff; }
-}
-.div-degree .degree-in1 { width: 20px; height: 8px; position: absolute; top: 7px; left: 21px; background-color: #ff0000; }
-.div-degree .degree-in0 { width: 0px; height: 8px; position: absolute; top: 7px; left: 21px; background-color: #ff0000; }
+.tab-about { width: 800px;  /*height: 300px;*/ }
+.tab-about .sf-ex-card { width: 300px; }
 
 /* new css for ukulele */
 .ukubox { width: 100px; height: 250px; border-style: solid; border-width: 0px; border-radius: 10px; border-color: #CCCC33; background-color: #FFFFFF; position: relative; margin: 0 auto; padding: 30px; top: 30px; -webkit-transform: rotate(60deg); -moz-transform: rotate(60deg); -o-transform: rotate(60deg); transform: rotate(60deg); }
@@ -130,7 +99,7 @@ position: relative; }
 .ukubox .bd-mid { width: 78px; height: 40px; top: 59px; left: 11px; background-color: #CC6600; }
 .bd-mid .mid-left { width: 48px; height: 31px; background-color: #FFFFFF; top: 3px; left: -35px; border-bottom-right-radius: 55px 27px; -webkit-transform: rotate(-31deg); -moz-transform: rotate(-31deg); -o-transform: rotate(-31deg); transform: rotate(-31deg); }
 .bd-mid .mid-right { width: 48px; height: 31px; background-color: #FFFFFF; top: 3px; right: -35px; border-bottom-left-radius: 55px 27px; -webkit-transform: rotate(31deg); -moz-transform: rotate(31deg); -o-transform: rotate(31deg); transform: rotate(31deg); }
-#home-footer { margin: 1em auto;  padding: 0.6em 0; text-align: center; border-top: 2px solid rgb(204, 204, 204); width: 803px; }
+#home-footer { margin: 1em auto; padding: 0.6em 0; text-align: center; border-top: 2px solid rgb(204, 204, 204); width: 803px; }
 #home-footer p a { color: #d25349; text-decoration: none; border-bottom: 1px dotted #a6a5a3; }
 @-webkit-keyframes swing {
   20% { -webkit-transform: rotate3d(0, 0, 1, 15deg); transform: rotate3d(0, 0, 1, 15deg) }
@@ -302,9 +271,4 @@ position: relative; }
   96% { transform: translate(4px, -9px) rotate(2.5deg); }
   98% { transform: translate(-4px, 9px) rotate(0.5deg); }
 }
-.danmu{
-    position: fixed;
-    transition: all linear 20s;
-    white-space: nowrap;
-    right: -400px;
-  }
+.danmu { position: fixed; transition: all linear 20s; white-space: nowrap; right: -400px; }
