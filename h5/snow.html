@@ -27,12 +27,14 @@
                             window.webkitRequestAnimationFrame ||
                             window.msRequestAnimationFrame || 
                             window.oRequestAnimationFrame ||
-                            function(callback) { setTimeout(callback, 1000 / 60); };
+                            function(callback) { return setTimeout(callback, 1000 / 60); };
         cancelAnimationFrame = window.cancelAnimationFrame ||
                             window.mozCancelAnimationFrame ||
                             window.webkitCancelAnimationFrame ||
                             window.msCancelAnimationFrame || 
-                            window.oCancelAnimationFrame;
+                            window.oCancelAnimationFrame || function(id){
+                            	clearTimeout(id);
+                            };
 
         var SnowFall=function(canvas, snowSize){
         	var snow = [],x,y,radius,obj;
