@@ -43,7 +43,6 @@ body:before {
 	line-height: 80px;
 	text-indent: 30px;
 	margin-bottom: 30px;
-	-webkit-user-select: none;
 	outline: none;
 	background-color: transparent;
 }
