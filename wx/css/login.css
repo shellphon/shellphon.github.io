@@ -28,7 +28,7 @@ body:before {
 .content h2{
 	font-size: 64px;
 	text-align: center;
-	font-weight: normal;
+	font-weight: bold;
 	color:#fff;
 	margin-bottom: 126px;
 }
@@ -65,7 +65,8 @@ input:-moz-placeholder { color:#d9e6e9; }
 .content .links{
 	text-align: center;
 	margin-top: 20px;
-	color: #fff;
+	color: #b6cbdf;
+	font-size: 26px;
 }
 .content .links a{
 	text-decoration: none;
