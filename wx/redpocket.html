@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  	<meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+	<title>红包</title>
+	<link rel="stylesheet" href="./css/redpocket.css">
+	<script>
+        var phoneWidth =  parseInt(window.screen.width);
+        var phoneScale = phoneWidth/640;
+        var ua = navigator.userAgent;
+        if (/Android (\d+\.\d+)/.test(ua)){
+            var version = parseFloat(RegExp.$1);
+            if(version>2.3){
+                document.write('<meta name="viewport" content="width=640, minimum-scale = '+phoneScale+', maximum-scale = '+phoneScale+', target-densitydpi=device-dpi">');
+            }else{
+                document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+            }
+        } else {
+            document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+        }
+</script>
+</head>
+<body>
+	<header></header>
+	<section class="content">
+		<button class="pocket-point pop">
+			发起红包
+		</button>
+	</section>
+	<section class="pocket" style="display: none;">
+		<span class="close">×</span>
+			<div class="pocket-up">
+				<img src="http://shellphon.wang/images/finger.png" alt="">
+				<a href="">Dont</a>
+				<p class="desc">发了一个红包</p>
+				<p class="phraise">恭喜发财，大吉大利！</p>
+			</div>
+			<button class="pocket-point take-pocket">拆红包</button>
+	</section>
+	<footer></footer>
+	<script type="text/javascript">
+	(function(){
+		var pop = document.getElementsByClassName('pop')[0],
+			close = document.getElementsByClassName('close')[0],
+			pocket = document.getElementsByClassName('pocket')[0],
+			getPocket = document.getElementsByClassName('take-pocket')[0];
+
+			close.onclick = function(){
+				var realPocket = document.getElementsByClassName('pocket')[0];
+				if(realPocket.style.display!='none'){
+					realPocket.style.display='none';
+				}
+			};
+
+			pop.onclick = function(){
+				var realPocket = document.getElementsByClassName('pocket')[0];
+				if(realPocket.style.display=='none'){
+					realPocket.style.display='block';
+				}
+			};
+
+			getPocket.onclick = function(){
+				alert('猴年行大运！欢喜过大年～');
+				pocket.style.display='none';
+			};
+
+			setTimeout(function(){
+				pocket.style.display = 'block';
+			},2000);
+	})();
+	</script>
+</body>
+</html>

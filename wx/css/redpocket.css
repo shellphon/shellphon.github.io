@@ -1,0 +1,107 @@
+*{
+	margin: 0;padding: 0;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+body{
+ 	
+}
+.content{
+	
+}
+.pocket-point{
+	width: 180px;
+	height: 180px;
+	text-align: center;
+	line-height: 180px;
+	font-size: 36px;
+	color: #ffF9F6;
+	background-color:#ffaa3b;
+	border: 0; 
+	border-radius: 100%;
+	outline: none;
+}
+.content .pop{
+	position: absolute;
+	top:50%;
+	left: 50%;
+	-webkit-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	z-index: 5;
+}
+.pocket{
+	width: 524px;
+	height: 728px;
+	background-color: #a24536;
+	border-radius: 20px;
+	position: absolute;
+	top:50%;
+	left: 50%;
+	-webkit-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	z-index: 10;
+	overflow: hidden;
+}
+.pocket .close{
+	display: block;
+	width: 36px;
+	height: 36px;
+	line-height: 36px;
+	color:#9d4132;
+	font-size:32px;
+	position: absolute;
+	top: 40px;
+	right: 40px;
+	z-index: 20;
+}
+.pocket .pocket-up{
+	text-align: center;
+	background-color: #c04d3b;
+	border-radius: 20px;
+	padding-top: 70px;
+	width: 200%;
+    height: 472px;
+    border-bottom-left-radius: 60%;
+    border-bottom-right-radius: 60%;
+	position: absolute;
+	top:0;
+	left: 50%;
+	-webkit-transform: translate(-50%,0);
+	-ms-transform: translate(-50%,0);
+	-o-transform: translate(-50%,0);
+	transform: translate(-50%,0);
+}
+.pocket .pocket-up img{
+	width: 110px;
+	height: 110px;
+	border-radius: 100%;
+	display: block;
+	margin: 70px auto 30px;
+}
+.pocket .pocket-up a{
+	color:#fffefb;
+	text-decoration: none;
+	font-size: 28px;
+	outline: none;
+}
+.pocket .pocket-up .desc{
+	font-size: 28px;
+	margin: 14px auto 44px;
+	color: #d09f8e;
+}
+.pocket .pocket-up .phraise{
+	color:#fffefb;
+	font-size: 32px;
+}
+.pocket .take-pocket{
+	position: absolute;
+	bottom: 100px;
+	left: 50%;
+	-webkit-transform: translate(-50%,0);
+	-ms-transform: translate(-50%,0);
+	-o-transform: translate(-50%,0);
+	transform: translate(-50%,0);
+}
