@@ -62,10 +62,10 @@ body{
 	background-color: #c04d3b;
 	border-radius: 20px;
 	padding-top: 70px;
-	width: 200%;
+	width: 100%;
     height: 472px;
-    border-bottom-left-radius: 60%;
-    border-bottom-right-radius: 60%;
+    border-bottom-left-radius: 262px 80px;
+    border-bottom-right-radius: 262px 80px;
 	position: absolute;
 	top:0;
 	left: 50%;
