@@ -28,6 +28,13 @@
 			发起红包
 		</button>
 	</section>
+	<section class="dialogue">
+		<div class="talk-bar">
+			<div class="voice"></div>
+			<div class="extra"></div>
+			<div class="input"><span class="emoji"></span></div>
+		</div>
+	</section>
 	<section class="pocket" style="display: none;">
 		<span class="close">×</span>
 			<div class="pocket-up">
@@ -64,10 +71,10 @@
 				alert('猴年行大运！欢喜过大年～');
 				pocket.style.display='none';
 			};
-
 			setTimeout(function(){
 				pocket.style.display = 'block';
 			},2000);
+			document.getElementsByClassName('dialogue')[0].style.height = document.documentElement.clientHeight+'px';
 	})();
 	</script>
 </body>
