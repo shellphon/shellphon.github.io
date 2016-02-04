@@ -24,15 +24,41 @@
 <body>
 	<header></header>
 	<section class="content">
-		<button class="pocket-point pop">
+		<!-- <button class="pocket-point pop">
 			发起红包
-		</button>
+		</button> -->
 	</section>
 	<section class="dialogue">
+		<div class="say isay" style="display:none;">
+			<img src="./images/i.png" alt="">
+			<div class="words">新年行大运！</div>
+		</div>
+		<div class="say hesay" style="display:none;">
+			<img src="./images/he.png" alt="">
+			<div class="words">哈哈</div>
+		</div>
+		<div class="say hesay" style="display:none;">
+			<img src="./images/he.png" alt="">
+			<div class="pocket-word">
+				<div class="pw-up">
+					<p>恭喜发财,大吉大利</p>
+					<p class="tip">领取红包</p>
+				</div>
+				<div class="pw-down">
+					<p>微信红包</p>
+				</div>
+			</div>
+		</div>
+		<div class="say isay" style="display:none;">
+			<img src="./images/i.png" alt="">
+			<div class="words">谢谢老板！</div>
+		</div>
+
 		<div class="talk-bar">
 			<div class="voice"></div>
 			<div class="extra"></div>
-			<div class="input"><span class="emoji"></span></div>
+			<div class="input"></div>
+			<div class="emoji"></div>
 		</div>
 	</section>
 	<section class="pocket" style="display: none;">
@@ -48,10 +74,22 @@
 	<footer></footer>
 	<script type="text/javascript">
 	(function(){
-		var pop = document.getElementsByClassName('pop')[0],
+		var pop = document.getElementsByClassName('pocket-word')[0],
 			close = document.getElementsByClassName('close')[0],
 			pocket = document.getElementsByClassName('pocket')[0],
-			getPocket = document.getElementsByClassName('take-pocket')[0];
+			getPocket = document.getElementsByClassName('take-pocket')[0],
+			says = document.getElementsByClassName('say'),
+			sayNum = says.length,
+			sIndex = 0;
+
+			var interval = setInterval(function(){
+				//console.log(sayNum+':'+sIndex);
+				if(sIndex==sayNum-2){
+					clearInterval(interval);
+				}
+				says[sIndex].style.display = 'block';
+				sIndex++;
+			},800);
 
 			close.onclick = function(){
 				var realPocket = document.getElementsByClassName('pocket')[0];
@@ -61,19 +99,22 @@
 			};
 
 			pop.onclick = function(){
-				var realPocket = document.getElementsByClassName('pocket')[0];
-				if(realPocket.style.display=='none'){
-					realPocket.style.display='block';
-				}
+				setTimeout(function(){
+					var realPocket = document.getElementsByClassName('pocket')[0];
+					if(realPocket.style.display=='none'){
+						realPocket.style.display='block';
+					}
+				},400);
 			};
 
 			getPocket.onclick = function(){
 				alert('猴年行大运！欢喜过大年～');
 				pocket.style.display='none';
+				says[sayNum-1].style.display="block";
 			};
-			setTimeout(function(){
+			/*setTimeout(function(){
 				pocket.style.display = 'block';
-			},2000);
+			},2000);*/
 			document.getElementsByClassName('dialogue')[0].style.height = document.documentElement.clientHeight+'px';
 	})();
 	</script>
