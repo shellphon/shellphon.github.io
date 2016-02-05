@@ -31,7 +31,7 @@
 	<section class="dialogue">
 		<div class="say isay" style="display:none;">
 			<img src="./images/i.png" alt="">
-			<div class="words">新年行大运！</div>
+			<div class="words">恭喜发财！</div>
 		</div>
 		<div class="say hesay" style="display:none;">
 			<img src="./images/he.png" alt="">
@@ -57,7 +57,7 @@
 		<div class="talk-bar">
 			<div class="voice"></div>
 			<div class="extra"></div>
-			<div class="input"></div>
+			<input type="text" class="input"/>
 			<div class="emoji"></div>
 		</div>
 	</section>
@@ -89,7 +89,7 @@
 				}
 				says[sIndex].style.display = 'block';
 				sIndex++;
-			},800);
+			},1000);
 
 			close.onclick = function(){
 				var realPocket = document.getElementsByClassName('pocket')[0];

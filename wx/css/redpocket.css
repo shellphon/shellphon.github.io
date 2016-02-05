@@ -232,10 +232,11 @@ body{
 .dialogue .hesay .pocket-word .pw-up p{
 	font-size: 26px;
 	color: #fdfdfd;
-	padding-bottom: 16px;
+	padding-bottom: 8px;
 }
 .dialogue .hesay .pocket-word .pw-up p.tip{
 	padding: 0;
+	font-size: 24px;
 }
 .dialogue .hesay .pocket-word .pw-down{
 	background-color: #fff;
@@ -243,7 +244,7 @@ body{
 	padding: 16px 24px;
 }
 .dialogue .hesay .pocket-word .pw-down p{
-	font-size: 22px;
+	font-size: 23px;
 	color: #c1c1c1;
 }
 .dialogue .hesay .pocket-word:before{
@@ -315,10 +316,10 @@ body{
 }
 .dialogue .talk-bar .input{
 	width: 380px;
-    height: 64px;
+    height: 54px;
     float: left;
     margin-left: 15px;
-    border: 3px solid #e0e0e0;
+    border: 1px solid #e0e0e0;
     border-radius: 10px;
     background-color: #fdfdfd;
 }
