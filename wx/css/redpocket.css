@@ -146,7 +146,7 @@ body{
 	border-bottom-color: transparent;
 
 	position: absolute;
-	right: -31px;
+	right: -30px;
 	top:13px; 
 }
 .dialogue .isay .words:after{
@@ -161,7 +161,7 @@ body{
 	border-bottom-color: transparent;
 
 	position: absolute;
-	right: -28px;
+	right: -27px;
 	top:14px; 
 }
 
@@ -195,7 +195,7 @@ body{
 	border-bottom-color: transparent;
 
 	position: absolute;
-	left: -31px;
+	left: -30px;
 	top:13px; 
 }
 .dialogue .hesay .words:after{
@@ -210,7 +210,7 @@ body{
 	border-bottom-color: transparent;
 
 	position: absolute;
-	left: -28px;
+	left: -27px;
 	top:14px; 
 }
 .dialogue .hesay .pocket-word{
@@ -259,7 +259,7 @@ body{
 	border-bottom-color: transparent;
 
 	position: absolute;
-	left: -31px;
+	left: -30px;
 	top:13px; 
 }
 .dialogue .hesay .pocket-word:after{
@@ -274,7 +274,7 @@ body{
 	border-bottom-color: transparent;
 
 	position: absolute;
-	left: -28px;
+	left: -27px;
 	top:14px; 
 }
 .dialogue .talk-bar{
