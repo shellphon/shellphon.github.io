@@ -71,6 +71,21 @@
 			</div>
 			<button class="pocket-point take-pocket">拆红包</button>
 	</section>
+	<section class="result" style="display:none;">
+		<div class="res-top">
+			<a href="javascript:void(0);" class="res-back">←</a>
+			<div class="whos-red"><img src="./images/he.png" alt=""></div>
+		</div>
+		<div class="res-mid">
+			<h3>Dont的红包</h3>
+			<p>恭喜发财，大吉大利</p>
+			<p class="money"><span class="amount">6.66</span><span>元</span></p>
+		</div>
+		<div class="res-bottom">
+			<p class="sum">1个红包共6.66元</p>
+			<div class="res-list"></div>
+		</div>
+	</section>
 	<footer></footer>
 	<script type="text/javascript">
 	(function(){
@@ -78,9 +93,11 @@
 			close = document.getElementsByClassName('close')[0],
 			pocket = document.getElementsByClassName('pocket')[0],
 			getPocket = document.getElementsByClassName('take-pocket')[0],
+			closeResult = document.getElementsByClassName('res-back')[0],
 			says = document.getElementsByClassName('say'),
 			sayNum = says.length,
-			sIndex = 0;
+			sIndex = 0,
+			hasPocketOpen = false;
 
 			var interval = setInterval(function(){
 				//console.log(sayNum+':'+sIndex);
@@ -99,23 +116,37 @@
 			};
 
 			pop.onclick = function(){
-				setTimeout(function(){
-					var realPocket = document.getElementsByClassName('pocket')[0];
-					if(realPocket.style.display=='none'){
-						realPocket.style.display='block';
-					}
-				},400);
+				if(!hasPocketOpen){
+					hasPocketOpen = true;
+					setTimeout(function(){
+						var realPocket = document.getElementsByClassName('pocket')[0];
+						if(realPocket.style.display=='none'){
+							realPocket.style.display='block';
+						}
+					},400);
+				}else{
+					var res = document.getElementsByClassName('result')[0];
+					res.style.display='block';
+				}
 			};
 
 			getPocket.onclick = function(){
-				alert('猴年行大运！欢喜过大年～');
-				pocket.style.display='none';
-				says[sayNum-1].style.display="block";
+				setTimeout(function(){
+					var res = document.getElementsByClassName('result')[0];
+					pocket.style.display='none';
+					res.style.display='block';
+					says[sayNum-1].style.display="block";
+				},600);
+			};
+			closeResult.onclick=function(){
+				var res = document.getElementsByClassName('result')[0];
+				res.style.display='none';
 			};
 			/*setTimeout(function(){
 				pocket.style.display = 'block';
 			},2000);*/
 			document.getElementsByClassName('dialogue')[0].style.height = document.documentElement.clientHeight+'px';
+			document.getElementsByClassName('result')[0].style.height = document.documentElement.clientHeight+'px';
 	})();
 	</script>
 </body>
