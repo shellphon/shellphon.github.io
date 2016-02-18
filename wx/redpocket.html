@@ -73,7 +73,7 @@
 	</section>
 	<section class="result" style="display:none;">
 		<div class="res-top">
-			<a href="javascript:void(0);" class="res-back">←</a>
+			<a href="javascript:void(0);" class="res-back">&#11013;</a>
 			<div class="whos-red"><img src="./images/he.png" alt=""></div>
 		</div>
 		<div class="res-mid">
@@ -83,7 +83,20 @@
 		</div>
 		<div class="res-bottom">
 			<p class="sum">1个红包共6.66元</p>
-			<div class="res-list"></div>
+			<div class="res-list">
+				<div class="res-item">
+					<div class="item-left">
+						<img src="./images/i.png" alt="">
+						<div class="il-detail">
+							<h4>Shellphon</h4>
+							<p class="il-time"></p>
+						</div>
+					</div>
+					<div class="item-right">
+						<h4>6.66元</h4>
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
 	<footer></footer>
@@ -97,7 +110,8 @@
 			says = document.getElementsByClassName('say'),
 			sayNum = says.length,
 			sIndex = 0,
-			hasPocketOpen = false;
+			hasPocketOpen = false,
+			takePocketTime = '';
 
 			var interval = setInterval(function(){
 				//console.log(sayNum+':'+sIndex);
@@ -132,8 +146,11 @@
 
 			getPocket.onclick = function(){
 				setTimeout(function(){
-					var res = document.getElementsByClassName('result')[0];
+					var res = document.getElementsByClassName('result')[0],
+						time = document.getElementsByClassName('il-time')[0];
+					var now = new Date();
 					pocket.style.display='none';
+					time.innerHTML = (now.getHours()>9?now.getHours():'0'+now.getHours())+':'+(now.getMinutes()>9?now.getMinutes():'0'+now.getMinutes())+':'+(now.getSeconds()>9?now.getSeconds():'0'+now.getSeconds());
 					res.style.display='block';
 					says[sayNum-1].style.display="block";
 				},600);

@@ -413,5 +413,40 @@ body{
 	font-size: 20px;
 	color: #bababa;
 }
-.result .res-bottom .res-list{}
-.result .res-bottom .res-list .res-item{}
+.result .res-bottom .res-list{
+	width: 100%;
+}
+.result .res-bottom .res-list .res-item{
+	background-color: #fff;
+	padding: 24px 22px;
+	overflow: hidden;
+}
+.result .res-bottom .res-list .res-item .item-left{
+	float: left;
+}
+.result .res-bottom .res-list .res-item .item-left img{
+	float: left;
+	width: 76px;
+	height: 76px;
+	border-radius: 50%;
+}
+.result .res-bottom .res-list .res-item .item-left .il-detail{
+	float: left;
+	margin-left: 16px;
+}
+.result .res-bottom .res-list .res-item .item-left .il-detail h4{
+	color: #0e0d0f;
+	font-size: 30px;
+}
+.result .res-bottom .res-list .res-item .item-left .il-detail .il-time{
+	margin-top: 20px;
+	font-size: 25px;
+	color: #cfcfcf;
+}
+.result .res-bottom .res-list .res-item .item-right{
+	float: right;
+}
+.result .res-bottom .res-list .res-item .item-right h4{
+	color: #323232;
+	font-size: 31px;
+}
