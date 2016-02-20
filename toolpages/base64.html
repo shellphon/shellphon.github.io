@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  	<link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
+  	<link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<title>base64 code</title>
+	<style>
+		.content{
+			position: relative;
+		    padding: 45px 15px 15px;
+		    margin: 15px 0;
+		    border-color: #e5e5e5 #eee #eee;
+		    border-style: solid;
+		    border-width: 1px 0;
+		    -webkit-box-shadow: inset 0 3px 6px rgba(0,0,0,.05);
+		    box-shadow: inset 0 3px 6px rgba(0,0,0,.05);
+		}
+		.base-form{
+			padding-top:30px; 
+			text-align: center;
+			position: relative;
+		}
+		.decode-form:after{
+			display: block;
+			content: "base64解码：";
+			color: #eee;
+			font-size: 16px;
+			position: absolute;
+			top: 5px;
+			left: 5px;
+		}
+		.encode-form:after{
+			display: block;
+			content: "base64编码：";
+			color: #eee;
+			font-size: 16px;
+			position: absolute;
+			top: 5px;
+			left: 5px;
+		}
+		.form-inline .form-control.text-area{
+			width:40%;
+		}
+	</style>
+</head>
+<body>
+	<div class="content">
+		<div class="form-inline base-form decode-form">
+		    <textarea type="text" class="form-control text-area" rows="3" id="to_decode" placeholder="输入base64编码"></textarea>
+		  
+		  	<button class="btn btn-default" id="decode">解码 =></button>
+		  	<textarea type="text" class="form-control text-area" rows="3" id="res_decode" ></textarea> 
+		</div>
+		<div class="form-inline base-form encode-form">
+		    <textarea type="text" class="form-control text-area" rows="3" id="to_encode" placeholder="输入字符串"></textarea>
+		  
+		  	<button class="btn btn-default" id="encode">编码 =></button>
+		  	<textarea type="text" class="form-control text-area" rows="3" id="res_encode" ></textarea> 
+		</div>
+	</div>
+	<script type="text/javascript">
+		(function(){
+			var decodeBtn = document.getElementById('decode'),
+				encodeBtn = document.getElementById('encode');
+
+				decodeBtn.onclick = function(){
+					var decodeStr = document.getElementById('to_decode').value;
+					try{
+						document.getElementById('res_decode').value = window.atob(decodeStr);
+					}catch(ex){
+						alert(ex.message);
+					}
+				};
+				
+
+				encodeBtn.onclick = function(){
+					var encodeStr = document.getElementById('to_encode').value;
+					document.getElementById('res_encode').value = window.btoa(encodeStr);
+				};
+		})();
+	</script>
+</body>
+</html>
