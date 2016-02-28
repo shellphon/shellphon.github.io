@@ -14,7 +14,7 @@ body:after{
 	content: " ";
 	display: block;
 	z-index: -1;
-	background:url(../images/loginbg.jpg) center center no-repeat;
+	background:url(http://7fvi54.com1.z0.glb.clouddn.com/login2bg.jpg) center center no-repeat;
 }
 ::-webkit-input-placeholder { color:#d9e6e9; }
 input:-moz-placeholder { color:#d9e6e9; }
