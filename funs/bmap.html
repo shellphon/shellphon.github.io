@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
+  <title>where ever</title>
+ <style type="text/css">
+ h2{
+    text-align: center;
+ }
+ .info{
+    text-align:center;
+    white-space:nowrap;
+    color: #333;
+    padding:10px;
+ }
+ </style>
+ <script charset="utf-8" src="http://api.map.baidu.com/api?v=1.3"></script>
+ </head>
+<body>
+<h2>周末去哪儿</h2>
+<div id="container"style="margin:50px auto;width:80%; min-height:500px;"></div>
+
+<script>
+ 
+function init() {
+	var place = [
+		{'name':'北京路','n':113.275377,'e':23.131648},
+		{'name':'上下九','n':113.252412,'e':23.119542},
+		{'name':'小蛮腰','n':113.330995,'e':23.112229},
+		{'name':'红专厂','n':113.375672,'e':23.118204},
+		{'name':'小洲村','n':113.364821,'e':23.068239},
+		{'name':'黄埔古港','n':113.397623,'e':23.092791},
+        {'name':'1850创意园','n':113.248154,'e':23.101335},
+        {'name':'荔湾湖公园','n':113.238878,'e':23.126671}
+	];
+    var map = new BMap.Map("container");
+    var center = new BMap.Point(113.299561,23.09831);//定位中心点
+        map.centerAndZoom(center, 13);
+        map.addControl(new BMap.NavigationControl());//加入工具条
+    //添加到提示窗
+   function addMarker(point, info){
+         //设置弹出信息框的宽度和高度
+          var opts = {
+              width : 250,     // 信息窗口宽度
+              title : ""  // 信息窗口标题
+             }
+        //创建标注
+          var marker = new BMap.Marker(point);
+          map.addOverlay(marker);
+
+        //創建弹出信息框
+          var infoWindow = new BMap.InfoWindow(info, opts);  // 创建信息窗口对象
+          marker.addEventListener("click", function(){          
+               this.openInfoWindow(infoWindow);  
+          });
+   }
+    var placeMarkers = place.map(function(e){
+        
+        var point = new BMap.Point(e.n, e.e);
+        var info = '<p class="info">'+e.name+'</p>';
+        addMarker(point,info);
+        return e;
+    });
+}
+document.body.onload=function(){
+	init();
+};
+
+</script>
+</body>
+</html>
