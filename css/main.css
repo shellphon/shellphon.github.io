@@ -55,24 +55,24 @@ position: relative; }
 .tab-about .sf-ex-card { width: 300px; margin: 0 auto; position: relative;}
 .tab-about .sf-ex-card:hover { -webkit-animation: rotate_turn ease 5s; -moz-animation: rotate_turn ease 5s; animation: rotate_turn ease 5s; }
 @-webkit-keyframes rotate_turn {
-  20% { -webkit-transform: rotate3d(0, 0, 1, -72deg); right: 0px; }
-  40% { -webkit-transform: rotate3d(0, 0, 1, -144deg); right: -300px; }
-  60% { -webkit-transform: rotate3d(0, 0, 1, -216deg); right: 0px; }
-  80% { -webkit-transform: rotate3d(0, 0, 1, -288deg); right: 300px; }
+  20% { -webkit-transform: rotate3d(0, 0, 1, 0deg); right: 0px; }
+  40% { -webkit-transform: rotate3d(0, 0, 1, -360deg); right: -300px; }
+  60% { -webkit-transform: rotate3d(0, 0, 1, 0deg); right: 0px; }
+  80% { -webkit-transform: rotate3d(0, 0, 1, 360deg); right: 300px; }
   100% { -webkit-transform: rotate3d(0, 0, 1, 0deg); right: 0px; }
 }
 @-moz-keyframes rotate_turn {
-  20% { -moz-transform: rotate3d(0, 0, 1, -72deg); right: 0px; }
-  40% { -moz-transform: rotate3d(0, 0, 1, -144deg); right: -300px; }
-  60% { -moz-transform: rotate3d(0, 0, 1, -216deg); right: 0px; }
-  80% { -moz-transform: rotate3d(0, 0, 1, -288deg); right: 300px; }
+  20% { -moz-transform: rotate3d(0, 0, 1, 0deg); right: 0px; }
+  40% { -moz-transform: rotate3d(0, 0, 1, -360deg); right: -300px; }
+  60% { -moz-transform: rotate3d(0, 0, 1, 0deg); right: 0px; }
+  80% { -moz-transform: rotate3d(0, 0, 1, 360deg); right: 300px; }
   100% { -moz-transform: rotate3d(0, 0, 1, 0deg); right: 0px; }
 }
 @keyframes rotate_turn {
-  20% { transform: rotate3d(0, 0, 1, -72deg); right: 0px; }
-  40% { transform: rotate3d(0, 0, 1, -144deg); right: -300px; }
-  60% { transform: rotate3d(0, 0, 1, -216deg); right: 0px; }
-  80% { transform: rotate3d(0, 0, 1, -288deg); right: 300px; }
+  20% { transform: rotate3d(0, 0, 1, 0deg); right: 0px; }
+  40% { transform: rotate3d(0, 0, 1, -360deg); right: -300px; }
+  60% { transform: rotate3d(0, 0, 1, 0deg); right: 0px; }
+  80% { transform: rotate3d(0, 0, 1, 360deg); right: 300px; }
   100% { transform: rotate3d(0, 0, 1, 0deg); right: 0px; }
 }
 /* new css for ukulele */
