@@ -1,21 +1,7 @@
-[我的主页](http://shellphone.github.io)
+[我的主页](http://shellphone.github.io) 已加了域名[shellphon.wang](http://shellphon.wang)
 ====================
-```
-really username must be the same？
-```
-确实新建的时候，要注意username.github.io 的username必须用当前用户的用户名，不过不排除后续改写一些配置可以配置其他吧？  
-
+ 
 - ####计划  
   
-  1. 主页面：导航栏，图片，链接自我介绍
-     + 导航栏:首页，关于我，sns，其他
-       * 首页展示啥？
-       * 关于我
-         + 技能列表：技能、熟练指数、喜爱程度、备注 【用ul li实现table】
-       * sns主要是一个网络名片吧
-       * 其他 我觉得可以放一些小东西
-         - 主要设想是放链接或者按钮触发，tab页面展示效果或者是浮窗展示
-     + 首页图片和文字
-  2. 博客：导航栏竖立居左，文章居右
-  3. 其他：
-     - 简历页面
+  1.新页面用gulp转化为压缩合并版：
+    以dev目录作为开发版代码目录，利用gulp进行实时处理
