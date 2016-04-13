@@ -1,0 +1,31 @@
+*{
+	margin: 0;padding: 0;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+body{
+ 	
+}
+
+.content{
+	width: 640px;
+	height: 986px;
+	background: url(../images/ship.jpg) no-repeat;
+	text-align: center;
+}
+.dia{
+    font-size: 32px;
+    text-align: center;
+    font-weight: bold;
+    border: none;
+    margin: 0 auto;
+    color: #333;
+    background: transparent;
+    width: 100%;
+    display: block;
+}
+.dia1{
+	padding-top: 45px;
+}
+.dia2{
+	margin-top: 290px;
+}
