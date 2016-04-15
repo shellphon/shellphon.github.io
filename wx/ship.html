@@ -76,7 +76,10 @@
                     //document.body.appendChild(canvas);
                     if(isMoblie()){
                         document.body.innerHTML = '';
-                        document.body.appendChild(canvas);
+                        
+                        var img = new Image();
+                        img.src = canvas.toDataURL("image/jpeg",0.5);
+                        document.body.appendChild(img);
                         var tips = document.createElement('p');
                         tips.className =  'tips';
                         tips.innerHTML = '长按保存图片';
