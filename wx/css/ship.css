@@ -29,6 +29,13 @@ body{
 .dia2{
 	margin-top: 290px;
 }
+.tips{
+    position: fixed;
+    top: 124px;
+    right: 20px;
+    font-size: 26px;
+    color: #337ab7;
+}
 #save{
     display: inline-block;
     padding: 6px 12px;

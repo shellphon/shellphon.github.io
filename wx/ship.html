@@ -34,6 +34,13 @@
     <script src="../js/lib/html2canvas.js"></script>
     <script>
         (function(){
+             function isMoblie(){
+                var ua = navigator.userAgent.toLowerCase(),
+                    sys = {};
+                    sys['iphone'] = ua.match(/iphone/);
+                    sys['android'] = ua.match(/android/);
+                return sys['iphone']||sys['android'];
+             }
             // https://github.com/ebidel/filer.js/blob/master/src/filer.js#L137
             function base64Img2Blob(code){
                 var parts = code.split(';base64,');
@@ -50,23 +57,33 @@
                 return new Blob([uInt8Array], {type: contentType}); 
             }
             function downloadFile(fileName, content){
-                console.log(content);
+                //console.log(content);
                 var aLink = document.createElement('a');
                 var blob = base64Img2Blob(content); //new Blob([content]);
-                console.log(blob);
+                //console.log(blob);
                 var evt = document.createEvent("HTMLEvents");
                 evt.initEvent("click", false, false);//initEvent 不加后两个参数在FF下会报错, 感谢 Barret Lee 的反馈
                 aLink.download = fileName;
                 aLink.href = URL.createObjectURL(blob);
-                console.log(aLink.href);
+               // console.log(aLink.href);
                 aLink.dispatchEvent(evt);
             }
 
             document.getElementById('save').onclick = function(){
                 html2canvas(document.getElementsByClassName('content')).then(function(canvas){
                     //document.body.appendChild(canvas);
-                    console.log(canvas);
+                    //console.log(canvas);
                     //document.body.appendChild(canvas);
+                    if(isMoblie()){
+                        document.body.innerHTML = '';
+                        document.body.appendChild(canvas);
+                        var tips = document.createElement('p');
+                        tips.className =  'tips';
+                        tips.innerHTML = '长按保存图片';
+
+                        document.body.appendChild(tips);
+                        return;
+                    }
                     downloadFile('ship.jpeg', canvas.toDataURL("image/jpeg",0.5));
                 });
             };
