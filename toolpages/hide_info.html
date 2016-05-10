@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  	<link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
+  	<title>隐写图片</title>
+  <link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .form-div{
+      width: 300px;
+      margin: 50px auto;
+    }
+  </style>
+</head>
+<body>
+     <div class="main">
+	      <h2 class="text-center">图片隐写</h2>
+	       <div class="form-div">
+	          <h4>处理方式:</h4>
+	          <div class="form-inline ">
+	            <div class="form-group">
+	               <input class="btn btn-default" type="radio" name="img_type" value="0">加密 <input class="form-control" type="text" id="code_data" placeholder="加密内容">
+	               <input class="btn btn-default" type="radio" name="img_type" value="1">解密
+	            </div>
+	          </div>
+	          <h4>上传文件：</h4>
+	          <div class="form-inline">
+	            <div class="form-group">
+	               <input class="btn btn-default" type="file" onchange="showFile(this)"/>
+	             </div>
+	          </div>
+	        <br>
+	       </div>
+	       <hr>
+	       <div id="canvas_wrapper" class="text-center">
+	        <h3 class="text-center">图片：(左为原图，右为<mark>处理结果</mark>图)</h3>
+	          <canvas id="origin"></canvas>
+	          <canvas id="processed"></canvas>
+	       </div>
+     </div>
+<script type="text/javascript">
+ function getRadioChecked(name){
+     var radio = document.getElementsByName(name),
+         value = null;  
+    for (i=0; i<radio.length; i++) {  
+        if (radio[i].checked) {  
+            value = radio[i].value;  
+            break;
+        }  
+    }  
+    return value;
+ }
+//通过浏览文件夹选择文件后调用：
+function showFile(input){
+    var file = input.files[0];
+    showImg(file);//将文件显示到图片元素
+}
+ 
+//通过拖拽文件放到指定元素时调用，ondragenter、ondragover事件触发时需要禁止浏览器默认行为和事件冒泡
+function disabledDefault(e){
+    e.stopPropagation();  
+    e.preventDefault(); 
+}
+ 
+//通过拖拽文件放到指定元素后调用，ondrop事件触发时需要禁止浏览器默认行为和事件冒泡
+function dragImg(e,div){
+    disabledDefault(e);
+    var file = e.dataTransfer.files[0];
+    showImg(file);//将文件显示到图片元素
+}
+ 
+//显示选定的图片
+function showImg(file){
+    var reader = new FileReader();
+    reader.onload = function(e) {
+        //直接显示图片
+        //document.getElementById("dragbox").src = this.result;
+        var img = new Image();
+        img.src = this.result;
+       // console.log(this.result);
+        //console.log(img.naturalWidth);
+        var nWidth = img.naturalWidth,
+            nheight = img.naturalHeight;
+        var canvas = document.getElementById('origin');//创建画布
+        canvas.width=nWidth;
+        canvas.height=nheight;
+        var ctx = canvas.getContext('2d');//得到2D工具
+        //将图片按新的高宽度重新绘制到画布上
+        ctx.drawImage(img, 0, 0, nWidth, nheight);
+        //压缩质量
+        var base64 = canvas.toDataURL('image/jpeg',1);
+        
+        var imgData = ctx.getImageData(0,0,nWidth,nheight),
+            resultData = null;
+
+        var type = getRadioChecked('img_type');
+        if(type==0){//加密
+            var text = document.getElementById('code_data').value;
+            resultData = encodeImg(imgData, newTextData(text, nWidth, nheight), 'b')
+        }else{//解密
+            resultData = decodeImg(imgData,'b');
+
+        }
+
+        canvas = document.getElementById('processed');
+        canvas.width=nWidth;
+        canvas.height=nheight;
+        ctx = canvas.getContext('2d');
+        ctx.putImageData(resultData, 0, 0);
+        
+       
+
+    }
+    reader.readAsDataURL(file);
+}
+function newTextData(text, width, height){
+  var textData,
+      fontSize = 20,
+      canvas = document.createElement('canvas'),
+      ctx = canvas.getContext('2d');
+      canvas.width = width;
+      canvas.height = height;
+      ctx.font = fontSize + 'px Microsoft Yahei';
+      ctx.fillStyle ='#f00';
+      console.log(ctx.measureText(text));
+      ctx.textAlign = 'center';
+      ctx.fillText(text, width/2, height/2);
+      ctx.stroke();
+      textData = ctx.getImageData(0, 0, width, height).data;
+  return textData;
+}
+//decode an imageData object and return
+function decodeImg(imgData, rgbIndex){
+  var canvas = document.createElement('canvas'),
+    copyImg = canvas.getContext('2d').createImageData(imgData.width, imgData.height);
+    copyImg.data.set(imgData.data),
+    length = copyImg.data.length;
+  var target = 0;
+  switch(rgbIndex){
+    case 'R':
+    case 'r':
+      target = 0;
+      break;
+    case 'G':
+    case 'g':
+      target = 1;
+      break;
+    case 'B':
+    case 'b':
+      target = 2;
+      break;
+    default:
+      target = 0;
+  }
+    for(var i=0;i<length;i++){
+        if(i%4==3&&copyImg.data[i]==0){
+            copyImg.data[i-3] = 255;
+            copyImg.data[i-2] = 255;
+            copyImg.data[i-1] = 255;
+            copyImg.data[i] = 255;
+        }
+      }
+    for(var i=0;i<length;i++){
+      if(i%4==target){
+          if(copyImg.data[i]%2 == 1){
+              copyImg.data[i] = 255;
+          }else{
+              copyImg.data[i] = 0;
+          }
+      }else if(i%4==3){
+          continue;
+      }else{
+        copyImg.data[i] = 0;
+      }
+    }
+    console.log(copyImg.data);
+    return copyImg;
+}
+
+function encodeImg(imgData, codeData, rgbIndex){
+  var canvas = document.createElement('canvas'),
+    copyImg = canvas.getContext('2d').createImageData(imgData.width, imgData.height);
+    copyImg.data.set(imgData.data),
+    length = copyImg.data.length;
+    var target = 0,
+        alpha = 3;
+    switch(rgbIndex){
+      case 'R':
+      case 'r':
+        target = 0;
+        alpha = 3;
+        break;
+      case 'G':
+      case 'g':
+        target = 1;
+        alpha = 2;
+        break;
+      case 'B':
+      case 'b':
+        target = 2;
+        alpha = 1;
+        break;
+      default:
+        target = 0;
+        alpha = 3;
+    }
+    console.log(copyImg.data);
+     for(var i=0;i<length;i++){
+        if(i%4==3&&copyImg.data[i]==0){
+            copyImg.data[i-3] = 255;
+            copyImg.data[i-2] = 255;
+            copyImg.data[i-1] = 255;
+            copyImg.data[i] = 255;
+        }
+      }
+    for(var i=0;i<length;i++){
+       
+        if(i%4==target){
+            if(codeData[i+alpha]===0 && copyImg.data[i]%2===1){
+                if(copyImg.data[i]===255){
+                  copyImg.data[i]--;
+                }else{
+                  copyImg.data[i]++;
+                }
+            }
+            if(codeData[i+alpha]!==0 && copyImg.data[i]%2===0){
+                copyImg.data[i]++;
+            }
+        }
+      }
+       console.log(copyImg.data);
+    return copyImg;
+}
+</script>
+</body>
+</html>
