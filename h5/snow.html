@@ -70,10 +70,10 @@
         		}
         	},
         	setStep:function(){
-        		var delY = Math.random()*2,
+        		var delY = Math.random()+0.2,
         			self = this;
 				this.snow = this.snow.map(function(e,i){
-					var x = e.x+0.4*Math.cos(Math.random()*Math.PI),
+					var x = e.x+0.2*Math.cos(Math.random()*Math.PI),
 						y = e.y+delY;
 					if(x>=self.canvas.width){
 						x = 0;
@@ -114,74 +114,9 @@
         		this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
         	}
         };
-        var fall = new SnowFall(canvas);
+        var fall = new SnowFall(canvas,50);
             fall.run();
         
-       /* setTimeout(function(){
-        	fall.stop();
-        	setTimeout(function(){
-	        	fall.drawFrame();
-	        	setTimeout(function(){
-		        	fall.end();
-		        	
-		        },5000);	
-	        },5000);
-        },5000);*/
-
-		/*var snow = [],x,y,radius,obj;
-		//初始化
-		for(var i=0;i<200;i++){
-			obj={};
-			x = Math.random()*canvas.width;
-			y = Math.random()*canvas.height;
-			radius = Math.floor(Math.random()*18);
-			obj.x = x;
-			obj.y = y;
-			obj.r = radius;
-			snow.push(obj);
-		}
-		function step(){
-			var delY = Math.random()*2;
-				snow = snow.map(function(e,i){
-					var x = e.x+0.4*Math.cos(Math.random()*Math.PI),
-						y = e.y+delY;
-					if(x>=canvas.width){
-						x = 0;
-					}
-					if(x<0){
-					 	x = canvas.width;
-					}
-					if(y>=canvas.height){
-						y = 0;
-					}
-					return {
-						'x':x,
-						'y':y,
-						'r':e.r
-					};
-				});
-		}
-		//渲染
-		function drawFrame(){
-			step();
-			context.clearRect(0,0,canvas.width,canvas.height);
-			snow.forEach(function(e,i){
-				var snowFlake = context.createRadialGradient(e.x, e.y, 0, e.x, e.y, e.r);
-	        snowFlake.addColorStop(0, "rgba(255, 255, 255, 1)");
-	        snowFlake.addColorStop(.5, "rgba(255, 255, 255, 0.5)");
-	        snowFlake.addColorStop(1, "rgba(255, 255, 255, 0)");
-	        context.save();
-	        //console.log('x:'+e.x+',y:'+e.y);
-	        context.fillStyle = snowFlake;
-				context.beginPath();
-				context.arc(e.x,e.y,e.r,0,2*Math.PI);
-				context.fill();
-				context.restore();
-			});
-			requestAnimationFrame(drawFrame);
-		}
-		drawFrame();
-*/
 	})();
 	</script>
 </body>
