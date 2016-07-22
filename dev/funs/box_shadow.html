@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;">
+  <link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
+  <title>box-shadow</title>
+  <style>
+    #box{
+      width: 4px;
+      height: 4px;
+      display: block;
+      margin:20px auto;
+    }
+  </style>
+ </head>
+ <body>
+  <div id="box"></div>
+  <script>
+  (function(){
+    var px = 50;
+    var allWidth = 400/px;//document.body.clientWidth/px,
+        arr = [];
+        for(var k=0;k<allWidth;k++){
+          var ar = [];
+          for(var j =0;j<allWidth;j++){
+
+            var r = Math.ceil(Math.random()*256),
+                g = Math.ceil(Math.random()*256),
+                b = Math.ceil(Math.random()*256),
+                a = new Number(Math.random()).toFixed(1);
+                ar.push({
+                  'r':r,
+                  'g':r,
+                  'b':b,
+                  'a':a
+                });
+
+          }
+          arr.push(ar);
+        }
+        var box=[],
+            x=0,
+            y;
+        arr.forEach(function(e,i){
+          var er = e;
+          y=0;
+          er.forEach(function(ee,j){
+              box.push(x+'px '+y+'px rgba('+ee.r+','+ee.g+','+ee.b+','+ee.a+')');
+              y+=px;
+          });
+          x+=px;
+        });
+        console.log(box.join(','));
+        var boxDom = document.getElementById('box');
+        boxDom.style.width = px +'px';
+        boxDom.style.height = px+'px';
+        boxDom.style.boxShadow = box.join(',');
+
+  })();
+  </script>
+ </body>
+</html>

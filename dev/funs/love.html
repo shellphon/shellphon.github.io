@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
+  <title>Love</title>
+<style type="text/css">
+  *{
+      margin: 0;
+      padding: 0;
+  }
+  div{
+     margin:0 auto;
+     text-align:center;
+  }
+  .heartDiv{
+      -webkit-animation-name: beat;
+      -webkit-animation-duration: 0.5s;
+      -webkit-animation-delay: 1s;
+      -webkit-animation-timing-function: ease-out;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-play-state: running;
+  }
+  .heart{
+    width: 150px;
+    height: 100px;
+    background-color: #E76464;
+    /* border: 1px solid #000; */
+    transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    border-top-left-radius: 50px 50px;
+    border-bottom-left-radius: 50px 50px;
+    position: relative;
+    margin-top: 200px;
+    left: -15px;
+  }
+  .heart::after{
+    transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 150px;
+    height: 100px;
+    background-color: #E76464;
+    /* border: 1px solid #000; */
+    border-top-right-radius: 50px 50px;
+    border-bottom-right-radius: 50px 50px;
+    top: -25px;
+    right: -25px;
+  }
+  .say{
+    width: 300px;
+    margin: 50px auto;
+    height: 25px;
+    font-size: 22px;
+    color: #F59191;
+    background-color: #fff;
+    border: 2px solid #FFCCCC;
+  }
+  @-webkit-keyframes beat{
+      0%{
+        -webkit-transform: scale(1);
+      }
+      50%{
+         -webkit-transform: scale(1.2);
+      }
+  }
+  #hideBeat{
+    display: none;
+  }
+</style>
+  
+ </head>
+ <body>
+  <div style="overflow:hidden;">
+    <div class="heartDiv">
+      <div class="heart"></div>
+    </div>
+    <marquee class="say">你造吗？我宣你很久了。</marquee>
+    <audio id="hideBeat" controls="controls" autoplay loop>
+        <source src="./beat.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+ </body>
+</html>

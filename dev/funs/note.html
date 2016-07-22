@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    
+    <!-- Sets initial viewport load and disables zooming  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
+  <title>随笔</title>
+<style type="text/css">
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  body{
+    font-family: "Microsoft Yahei", Arial;
+    background: url(../images/note.png);
+  }
+  .note{
+    margin: 10em auto;
+    text-align: center;
+  }
+  .note p{
+    line-height: 3;
+    color:#618D01;
+  }
+  .note .p1{
+  }
+ .note .p3{
+  }
+  
+</style>
+ </head>
+ <body>
+<div id="note" class="note">
+  <p class="p1">当我躺在床上</p>
+  <p class="p2">脑海闪过的总是你的微笑</p>
+  <p class="p3">我就知道出大事了</p>
+</div>
+ <script>
+    var words = [
+      '当我躺在床上#脑海闪过的总是你的微笑#我就知道出大事了',
+      '世界那么大#我只想多看看',
+      '一不开心#就想起你的微笑#整颗心都甜了',
+      '路那么长#我只想多走走',
+      '你那么美#我只想多见见',
+      '我喜欢你#我好喜欢你#我超级喜欢你'
+    ];
+    function write(){
+      var rand = Math.ceil(Math.random()*words.length);
+      if(rand==words.length){
+        return;
+      }
+      var h = words[rand].split('#');
+      var d = '<p class="p{i}">{a}</p>';
+      var ho = '';
+      for(var i=0;i<h.length;i++){
+          ho += d.replace(/{i}/, i).replace(/{a}/, h[i]);
+      }
+      document.getElementById('note').innerHTML = ho;
+    }
+    setInterval(write, 2800);
+ </script>
+  
+ </body>
+</html>

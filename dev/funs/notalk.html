@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
+	<title>不想和你说话</title>
+	<style>
+        body{
+            text-align: center;
+        }
+        .content{
+            width: 250px;
+            height: 280px;
+            position: relative;
+            margin: 50px auto;
+            background: url(../images/noword.png) -58px -15px no-repeat;
+        }
+        .content img{
+            display: block;
+            margin: 0 auto;
+        }
+        .content textarea{
+            width: 214px;
+            display: block;
+            font-size: 20px;
+            position: absolute;
+            height: 46px;
+            border: none;
+            font-family: 'Miscrosoft Yahei';
+            left: 50%;
+            bottom: 30px;
+            margin-left: -107px;
+            text-align: center;
+        }
+        button{
+            color: #fff;
+            background-color: #5cb85c;
+            border-color: #4cae4c;
+            display: inline-block;
+            padding: 6px 12px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.42857143;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div style="display: none;"><img width="0" height="0" src="../images/d-img.png"></div>
+	<header></header>
+    <input class="btn btn-default" type="file" onchange="showFile(this)"/>
+	<div id="content" class="content">
+		<textarea id="words" cols="30" rows="10">对方不想和你说话
+并扔给一张图片</textarea>
+	</div>
+    <button id="save">点击保存</button>
+	<footer></footer>
+    <script src="../js/lib/html2canvas.js"></script>
+    <script>
+        (function(){
+            var contentLogo = {height:88};
+            //通过浏览文件夹选择文件后调用：
+            function showFile(input){
+                var file = input.files[0];
+                showImg(file);//将文件显示到图片元素
+            }
+            window.showFile = showFile;
+            //显示选定的图片
+            function showImg(file){
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    //直接显示图片
+                    //document.getElementById("dragbox").src = this.result;
+                    var img = new Image();
+                    img.src = this.result;
+                   // console.log(this.result);
+                    //console.log(img.naturalWidth);
+                    var nWidth = img.naturalWidth,
+                        nheight = img.naturalHeight;
+                        if(nheight<contentLogo.height){
+                            img.style.paddingTop = contentLogo.height-nheight+'px';
+                        }else{
+                            img.style.height = contentLogo.height+'px';
+                        }
+                    document.getElementById('content').appendChild(img);
+                }
+                reader.readAsDataURL(file);
+            }
+            // https://github.com/ebidel/filer.js/blob/master/src/filer.js#L137
+            function base64Img2Blob(code){
+                var parts = code.split(';base64,');
+                var contentType = parts[0].split(':')[1];
+                var raw = window.atob(parts[1]);
+                var rawLength = raw.length;
+
+                var uInt8Array = new Uint8Array(rawLength);
+
+                for (var i = 0; i < rawLength; ++i) {
+                  uInt8Array[i] = raw.charCodeAt(i);
+                }
+
+                return new Blob([uInt8Array], {type: contentType}); 
+            }
+            function downloadFile(fileName, content){
+                //console.log(content);
+                var aLink = document.createElement('a');
+                var blob = base64Img2Blob(content); //new Blob([content]);
+                //console.log(blob);
+                var evt = document.createEvent("HTMLEvents");
+                evt.initEvent("click", false, false);//initEvent 不加后两个参数在FF下会报错, 感谢 Barret Lee 的反馈
+                aLink.download = fileName;
+                aLink.href = URL.createObjectURL(blob);
+               // console.log(aLink.href);
+                aLink.dispatchEvent(evt);
+            }
+
+            document.getElementById('save').onclick = function(){
+                html2canvas(document.getElementsByClassName('content')).then(function(canvas){
+                    downloadFile('不想和你说话.jpeg', canvas.toDataURL("image/jpeg",0.5));
+                });
+            };
+        })();
+    </script>
+</body>
+</html>

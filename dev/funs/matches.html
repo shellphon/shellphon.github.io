@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
+  <title>匹配</title>
+<style type="text/css">
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  body{
+    font-family: "Microsoft Yahei", Arial;
+  }
+  @font-face{
+    font-family: icofont;
+    src: url('../images/fonts/funmatches/fontawesome.eot');
+    src: url('../images/fonts/funmatches/fontawesome.eot?#iefix') format('embedded-opentype'),
+         url('../images/fonts/funmatches/fontawesome.woff') format('woff'),
+         url('../images/fonts/funmatches/fontawesome.ttf') format('truetype'),
+         url('../images/fonts/funmatches/fontawesome.svg#fontawesome') format('svg');
+  }
+  .map{
+    width: 400px;
+    margin: 20px auto;
+  }
+  .map .item{
+    float: left;
+    width: 90px;
+    height: 90px;
+    margin: 5px;
+    position: relative;
+    cursor: pointer;
+  }
+  .map .item>div{
+    border-radius: 50px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0px;
+    left: 0px;
+    -webkit-transition:all 500ms;
+    -moz-transition:all 500ms;
+    transition:all 500ms;
+    text-align: center;
+    backface-visibility: hidden;
+  }
+  .map .item .front{
+    background-color: #7BDDA8;
+  }
+  .map .item .back{
+    -webkit-transform:rotateY(180deg);
+    -moz-transform:rotateY(180deg);
+    transform:rotateY(180deg);
+  }
+
+  .map .un .front::after{
+    content:'';
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    background-color: #89EA89;
+    position: absolute;
+    top: 30px;
+    left: 30px; 
+  }
+  
+  .map .item .back span{
+    font-family: icofont,'Microsoft Yahei',Arial;
+    height: 30px;
+    line-height: 30px;
+    font-size: 28px;
+    display: inline-block;
+    margin: 25px;
+  }
+  .map .show .front{
+    -webkit-transform:rotateY(180deg);
+    -moz-transform:rotateY(180deg);
+    transform:rotateY(180deg);
+  }
+  .map .show .back{
+    -webkit-transform:rotateY(0deg);
+    -moz-transform:rotateY(0deg);
+    transform:rotateY(0deg);
+  }
+  .map .match{
+    visibility: hidden;
+  }
+  .map .match>div{
+    -webkit-transition:none;
+    -moz-transition:none;
+    transition:none;
+  }
+  .fixed-info{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+  }
+  .fixed-info p{
+    font-size: 22px;
+  }
+  .fixed-info span{
+    color: #0E76D2;
+  }
+  .level-info{
+    list-style-type: none;
+    margin-top: 20px;
+  }
+  .level-info li{
+    line-height: 1.5;
+  }
+  .fixed-range{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+  }
+  
+</style>
+<link href="http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+ </head>
+ <body>
+  <div class="fixed-info">
+    <p>步数：<span id="steps">0</span><br />
+    时间：<span id="time_min">00</span>:<span id="time_sec">00</span>
+    </p>
+    <ul id="level_pass" class="level-info">
+    </ul>
+  </div>
+  <div class="fixed-range">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>ID</th>
+          <th>Step</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody id="range">
+        <tr>
+          <td>1</td>
+          <td>Dont</td>
+          <td>1</td>
+          <td>00:01</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="map" class="map">
+  </div>
+  <script type="text/javascript"> 
+        var ua = navigator.userAgent.toLowerCase(),
+            sys = {};
+            sys['iphone'] = ua.match(/iphone/);
+            sys['android'] = ua.match(/android/);
+        if (sys['iphone']||sys['android']) { 
+            window.location.href = '/funs/matches-mobile.html'; 
+        }
+  </script> 
+  <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://cdn.bootcss.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script src="http://cdn.bootcss.com/bootbox.js/4.3.0/bootbox.min.js"></script>
+  <script src="matches.js"></script>
+ </body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    
+    <!-- Sets initial viewport load and disables zooming  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- Include the CSS 
+    <link rel="stylesheet" href="../css/vip_rights.css"/>
+    -->
+
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <meta name="wxm:img_url" content="http://7fvi54.com1.z0.glb.clouddn.com/u2.jpg">
+   
+  <link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
+  <title>记忆小游戏~</title>
+<style type="text/css">
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  body{
+    font-family: "Microsoft Yahei", Arial;
+  }
+  @font-face{
+    font-family: icofont;
+    src: url('../images/fonts/funmatches/fontawesome.eot');
+    src: url('../images/fonts/funmatches/fontawesome.eot?#iefix') format('embedded-opentype'),
+         url('../images/fonts/funmatches/fontawesome.woff') format('woff'),
+         url('../images/fonts/funmatches/fontawesome.ttf') format('truetype'),
+         url('../images/fonts/funmatches/fontawesome.svg#fontawesome') format('svg');
+  }
+  .map{
+    width: 320px;
+    margin: 2em auto;
+    overflow: hidden;
+  }
+  .map .item{
+    float: left;
+    width: 76px;
+    height: 76px;
+    margin: 2px;
+    position: relative;
+    cursor: pointer;
+  }
+  .map .item>div{
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0px;
+    left: 0px;
+    -webkit-transition:all 500ms;
+    transition:all 500ms;
+    text-align: center;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  .map .item .front{
+    background-color: #7BDDA8;
+  }
+  .map .item .back{
+    -webkit-transform:rotateY(180deg);
+    transform:rotateY(180deg);
+  }
+
+  .map .un .front::after{
+    content:'';
+    display: block;
+    width: 40%;
+    height: 40%;
+    border-radius: 100%;
+    background-color: #89EA89;
+    position: absolute;
+    top: 30%;
+    left: 30%; 
+  }
+  
+  .map .item .back span{
+    font-family: icofont,'Microsoft Yahei',Arial;
+    font-size: 1.5em;
+    display: inline-block;
+    margin: 30%;
+  }
+  .map .show .front{
+    -webkit-transform:rotateY(180deg);
+    transform:rotateY(180deg);
+  }
+  .map .show .back{
+    -webkit-transform:rotateY(0deg);
+    transform:rotateY(0deg);
+  }
+  .map .match{
+    visibility: hidden;
+  }
+  .map .match>div{
+    -webkit-transition:none;
+    transition:none;
+  }
+  .level-info{
+    list-style-type: none;
+  }
+  .level-info li{
+    line-height: 1.5;
+  }
+  .msg{
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(0,0,0,0.4); */
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  .msg .txt{
+    width: 160px;
+    position: absolute;
+    left: 50%;
+    top: 100px;
+    margin-left: -80px;
+    background-color: #3D3B3B;
+    border: 1px solid #44BB6A;
+    border-radius: 5px;
+    padding: 50px 0px;
+    color: #fff;
+    text-align: center;
+  }
+  .msg .txt .ask{
+    width: 100%;
+    display: none;
+  }
+  .msg .txt .ask input{
+    width: 80%;
+    margin: 5px auto;
+  }
+  .msg .txt .ask .assure{
+    border: none;
+    border-radius: 20px;
+    background-color: #97ceec;
+    color: #fff;
+    padding: .2em;
+    width: 50%;
+  }
+  .title{
+    text-align: center;
+    font-size: 1.5em;
+    margin:20px;
+  }
+  .container{
+    position: relative;
+  }
+  .info span, .level-info{
+    color: #0E76D2;
+  }
+  .range{
+    width: 80%;
+    margin:20px auto;
+  }
+  .range table{
+    width: 100%;
+  }
+  .range table td,.range table th{
+    text-align: left;
+  }
+  
+</style>
+ </head>
+ <body>
+ <div class="container">
+  <p class="title">小游戏：配对</p>
+  <div class="info">
+    <p>步数：<span id="steps">0</span>&nbsp;|&nbsp;
+    时间：<span id="time_min">00</span>:<span id="time_sec">00</span>
+    </p>
+  </div>
+  <div id="map" class="map">
+  </div>
+   <div class="range">
+    <ul id="level_pass" class="level-info">
+    </ul>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>ID</th>
+          <th>Step</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody id="range">
+      </tbody>
+    </table>
+  </div>
+  <div class="msg" style="display:none;">
+    <div class="txt">
+    <p></p>
+    <div class="ask"><input id="nickname" type="text" placeholder="输入你的昵称~"><button class="assure">确认</button></div>
+    </div>
+  </div>
+ </div>
+  <script src="http://cdn.bootcss.com/zepto/1.1.4/zepto.min.js"></script>
+  <script src="../js/lib/zeptolib/touch.js"></script>
+  <script src="matches-m.js"></script>
+ </body>
+</html>

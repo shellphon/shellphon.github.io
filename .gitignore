@@ -15,3 +15,8 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+######################
+node_modules
+tmp
+**/build
+**/node_modules

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>snow canvas</title>
+	<style type="text/css">
+		body{
+			background-color: #333;
+		}
+	</style>
+</head>
+<body>
+	<script>
+	(function(){
+		var canvas = document.createElement('canvas'),
+			context = canvas.getContext('2d');
+			canvas.id = "snow";
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        canvas.setAttribute("style", "position: fixed; top: 0; left: 0; z-index: 1000; pointer-events: none;");
+        document.getElementsByTagName("body")[0].appendChild(canvas);
+        context.fillStyle='#eee';
+        
+
+        requestAnimationFrame = window.requestAnimationFrame ||
+                            window.mozRequestAnimationFrame ||
+                            window.webkitRequestAnimationFrame ||
+                            window.msRequestAnimationFrame || 
+                            window.oRequestAnimationFrame ||
+                            function(callback) { return setTimeout(callback, 1000 / 60); };
+        cancelAnimationFrame = window.cancelAnimationFrame ||
+                            window.mozCancelAnimationFrame ||
+                            window.webkitCancelAnimationFrame ||
+                            window.msCancelAnimationFrame || 
+                            window.oCancelAnimationFrame || function(id){
+                            	clearTimeout(id);
+                            };
+
+        var SnowFall=function(canvas, snowSize){
+        	var snow = [],x,y,radius,obj;
+
+        	this.snow = [];
+        	this.loop = null;
+        	this.canvas = canvas;
+        	this.ctx = canvas.getContext('2d');
+        	this.snowSize = snowSize || 100;
+
+        	for(var i=0;i<this.snowSize;i++){
+					obj={};
+					x = Math.random()*canvas.width;
+					y = Math.random()*canvas.height;
+					radius = Math.floor(Math.random()*18);
+					obj.x = x;
+					obj.y = y;
+					obj.r = radius;
+					snow.push(obj);
+			}
+			this.snow = snow;
+			
+        	return this;
+        };
+        SnowFall.prototype = {
+        	
+        	run:function(){
+        		this.drawFrame();
+        	},
+        	stop:function(){
+        		if(this.loop){
+        			cancelAnimationFrame(this.loop);
+        		}
+        	},
+        	setStep:function(){
+        		var delY = Math.random()+0.2,
+        			self = this;
+				this.snow = this.snow.map(function(e,i){
+					var x = e.x+0.2*Math.cos(Math.random()*Math.PI)-1,
+						y = e.y+delY;
+					if(x>=self.canvas.width){
+						x = 0;
+					}
+					if(x<0){
+					 	x = self.canvas.width;
+					}
+					if(y>=self.canvas.height){
+						y = 0;
+					}
+					return {
+						'x':x,
+						'y':y,
+						'r':e.r
+					};
+				});
+        	},
+        	drawFrame:function(){
+        		var self = this;
+        		this.setStep();
+				self.ctx.clearRect(0,0,self.canvas.width,self.canvas.height);
+				self.snow.forEach(function(e,i){
+					var snowFlake = self.ctx.createRadialGradient(e.x, e.y, 0, e.x, e.y, e.r);
+			        snowFlake.addColorStop(0, "rgba(255, 255, 255, 1)");
+			        snowFlake.addColorStop(.5, "rgba(255, 255, 255, 0.5)");
+			        snowFlake.addColorStop(1, "rgba(255, 255, 255, 0)");
+			        self.ctx.save();
+			        	self.ctx.fillStyle = snowFlake;
+						self.ctx.beginPath();
+						self.ctx.arc(e.x,e.y,e.r,0,2*Math.PI);
+						self.ctx.fill();
+						self.ctx.restore();
+				});
+				self.loop = requestAnimationFrame(self.drawFrame.bind(self));
+        	},
+        	end:function(){
+        		this.stop();
+        		this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
+        	}
+        };
+        var fall = new SnowFall(canvas,50);
+            fall.run();
+        
+	})();
+	</script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  	<meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+	<title>翻的ship</title>
+	<link rel="stylesheet" href="./css/ship.css">
+	<script>
+        var phoneWidth =  parseInt(window.screen.width);
+        var phoneScale = phoneWidth/640;
+        var ua = navigator.userAgent;
+        if (/Android (\d+\.\d+)/.test(ua)){
+            var version = parseFloat(RegExp.$1);
+            if(version>2.3){
+                document.write('<meta name="viewport" content="width=640, minimum-scale = '+phoneScale+', maximum-scale = '+phoneScale+', target-densitydpi=device-dpi">');
+            }else{
+                document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+            }
+        } else {
+            document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+        }
+</script>
+</head>
+<body>
+    <div style="display: none;"><img width="0" height="0" src="../images/d-img.png"></div>
+	<header></header>
+	<div id="content" class="content">
+		<input type="text" class="dia dia1" value="我计算机专业的">
+        <input type="text" class="dia dia2" value="帮我修下电脑~">
+        <input type="text" class="dia dia2" value="友谊的小船说翻就翻">
+	</div>
+    <button id="save">点击保存</button>
+	<footer></footer>
+    <script src="../js/lib/html2canvas.js"></script>
+    <script>
+        (function(){
+             function isMoblie(){
+                var ua = navigator.userAgent.toLowerCase(),
+                    sys = {};
+                    sys['iphone'] = ua.match(/iphone/);
+                    sys['android'] = ua.match(/android/);
+                return sys['iphone']||sys['android'];
+             }
+            // https://github.com/ebidel/filer.js/blob/master/src/filer.js#L137
+            function base64Img2Blob(code){
+                var parts = code.split(';base64,');
+                var contentType = parts[0].split(':')[1];
+                var raw = window.atob(parts[1]);
+                var rawLength = raw.length;
+
+                var uInt8Array = new Uint8Array(rawLength);
+
+                for (var i = 0; i < rawLength; ++i) {
+                  uInt8Array[i] = raw.charCodeAt(i);
+                }
+
+                return new Blob([uInt8Array], {type: contentType}); 
+            }
+            function downloadFile(fileName, content){
+                //console.log(content);
+                var aLink = document.createElement('a');
+                var blob = base64Img2Blob(content); //new Blob([content]);
+                //console.log(blob);
+                var evt = document.createEvent("HTMLEvents");
+                evt.initEvent("click", false, false);//initEvent 不加后两个参数在FF下会报错, 感谢 Barret Lee 的反馈
+                aLink.download = fileName;
+                aLink.href = URL.createObjectURL(blob);
+               // console.log(aLink.href);
+                aLink.dispatchEvent(evt);
+            }
+
+            document.getElementById('save').onclick = function(){
+                html2canvas(document.getElementsByClassName('content')).then(function(canvas){
+                    //document.body.appendChild(canvas);
+                    //console.log(canvas);
+                    //document.body.appendChild(canvas);
+                    if(isMoblie()){
+                        document.body.innerHTML = '';
+                        
+                        var img = new Image();
+                        img.src = canvas.toDataURL("image/jpeg",0.5);
+                        document.body.appendChild(img);
+                        var tips = document.createElement('p');
+                        tips.className =  'tips';
+                        tips.innerHTML = '长按保存图片';
+
+                        document.body.appendChild(tips);
+                        return;
+                    }
+                    downloadFile('ship.jpeg', canvas.toDataURL("image/jpeg",0.5));
+                });
+            };
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
+<head>
+<title>图片处理</title>
+<style type="text/css">
+    .main{
+        width: 900px;
+        margin: 0 auto;
+        border: 2px dotted #eee;
+        min-height: 400px;
+    }
+    .left{
+        float: left;
+        width: 200px;
+        padding-top: 20px;
+        padding-left: 10px;
+        border-right: 1px dotted #ee9;
+    }
+    .right{
+        width: 100%;
+        padding-left: 200px;
+    }
+    #dragbox{
+        border:2px dashed #CCC;
+        width:160px;
+        height:90px;
+    }
+    .box{
+        position: relative;
+    }
+    .box::after{
+        content: " ";
+        display: block;
+        width:3px;
+        height: 3px;
+        background-color: transparent;
+        position: absolute;
+        top: -3px;
+        left: 0px;
+        border-radius: 50%;
+    }
+</style>
+</head>
+<body>
+     <div class="main">
+       <div class="left">
+        <input type="file" onchange="showFile(this)"/>
+        <br>
+        或者将文件拖放到框子里：<br>
+        <img id="dragbox" ondragenter="disabledDefault(event)" ondragover="disabledDefault(event)" ondrop="dragImg(event,this)"/>
+       </div>
+       <div id="" class="right">
+          <div id="box" class="box"></div>
+       </div>
+     </div>
+<script type="text/javascript">
+ 
+//通过浏览文件夹选择文件后调用：
+function showFile(input){
+    var file = input.files[0];
+    showImg(file);//将文件显示到图片元素
+}
+ 
+//通过拖拽文件放到指定元素时调用，ondragenter、ondragover事件触发时需要禁止浏览器默认行为和事件冒泡
+function disabledDefault(e){
+    e.stopPropagation();  
+    e.preventDefault(); 
+}
+ 
+//通过拖拽文件放到指定元素后调用，ondrop事件触发时需要禁止浏览器默认行为和事件冒泡
+function dragImg(e,div){
+    disabledDefault(e);
+    var file = e.dataTransfer.files[0];
+    showImg(file);//将文件显示到图片元素
+}
+ 
+//显示选定的图片
+function showImg(file){
+    var reader = new FileReader();
+    reader.onload = function(e) {
+        //直接显示图片
+        //document.getElementById("dragbox").src = this.result;
+        var img = new Image();
+        img.src = this.result;
+        console.log(this.result);
+        console.log(img.naturalWidth);
+        var nWidth = img.naturalWidth,
+            nheight = img.naturalHeight;
+        var canvas = document.createElement('canvas');//创建画布
+        canvas.width=160;
+        canvas.height=90;
+        var ctx = canvas.getContext('2d');//得到2D工具
+        //将图片按新的高宽度重新绘制到画布上
+        ctx.drawImage(img, 0, 0, 160, 90);
+        //压缩质量
+        var base64 = canvas.toDataURL('image/jpeg',0.8);
+        //显示
+        var dragbox = document.getElementById("dragbox");
+        dragbox.src = base64;
+
+        var box = document.getElementById('box');
+        var imgData = ctx.getImageData(0,0,160,90);
+       // ctx.putImageData(imgData,0,92);
+        var imgArr = imgData.data;
+        //console.log(imgData);
+        var bstr='box-shadow:';
+        var barr=[];
+        var x=0,y;
+        for(var i=0;i<imgArr.length;i+=4){
+            if(i%640==0){
+                x=0;
+            }
+            y=Math.floor(i/640)*3+3;
+            barr.push(x+'px '+y+'px rgba('+imgArr[i]+','+imgArr[i+1]+','+imgArr[i+2]+','+imgArr[i+3]+')');
+            x+=3;
+            //console.log(Math.floor(i/160));
+            
+
+        }
+        var css = document.createElement('style');
+        css.innerText = '.box::after{box-shadow:'+barr.join(',')+';}';
+        document.body.appendChild(css);
+
+    }
+    reader.readAsDataURL(file);
+}
+</script>
+</body>
+</html>

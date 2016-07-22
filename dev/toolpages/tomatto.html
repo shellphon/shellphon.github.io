@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
+  <title>番茄钟</title>
+<style type="text/css">
+  div{
+   margin:0 auto;
+   text-align:center;
+  }
+   .circular-wrap{
+    padding:10px 0 10px 0;
+    width:400px;
+    border-radius: 20px;
+    background-color: #FFE4B5;
+  }
+  .div-btn{
+  	margin-top:10px;
+  }
+  .div-time span{
+  	color:#99CC99;
+  }
+  .input-btn{
+  	color: #A1A1A1;
+  	border-radius: 5px;
+  	border-width: 1px;
+  	border-color: #8C8C8C;
+  	background:transparent;
+  }
+</style>
+ </head>
+ <body>
+   <div>
+   	<h1>简单番茄</h1>
+   </div>
+  <!--
+   开始界面：开始按钮，剩下时间（25分钟）
+             按开始按钮，按钮变成暂停按钮，剩下时间开始变化，每一秒变化一次，直到剩下时间为0的时候弹出提示框；
+             期间按暂停按钮，则时间都不变化，暂停按钮变继续按钮。
+             继续按钮之后继续计时；
+             提示框弹出后，所有界面都重置回开始页面。
+   技术关键： 首先计算时间，时间计算
+       剩下时间，计时器：每一秒减1，直到时间为0结束；
+       停止计时器，继续计时器；
+       结束时弹出提示框并结束计时器，剩下时间重置；
+        时间展示 mm:ss
+          每一秒过去，展示ss就减1，当ss为0时变为59，mm减1；
+  -->
+  <div class="circular-wrap">
+    <div class="div-time"><span>番茄工作法</span></div>
+    <div id="time" class="div-time">
+     <span id="left_min">25</span>
+     <span>:</span>
+     <span id="left_second">00</span>
+    </div>
+    <div>
+      <input type="text" id="text_miss" value="" />
+    </div>
+    <div class="div-btn">
+     <input type="button" class="input-btn" id="run" value="开始" />
+     <input type="button" class="input-btn" id="reset" value="重置"/>
+    </div>
+  </div>
+<script type="text/javascript">
+   (function(){
+     var toma = 25,
+         time=leftTime = toma*60000,//25 min
+         status = 0,// 0 开始; 1 计时; 2 暂停;
+         clockInstance=null,
+         oLeftMin = document.getElementById("left_min"),
+         oLeftSec = document.getElementById("left_second"),
+         oRun = document.getElementById("run");
+     function clockin(){
+      var leftMin = oLeftMin.innerHTML,
+          leftSec = oLeftSec.innerHTML,
+          textAlert = '';
+      leftTime -= 1000;
+      if(leftTime==0){
+       clearInterval(clockInstance);
+       textAlert = document.getElementById("text_miss").value;
+       alert("时间到了！！！  "+ textAlert);
+       oRun.value="开始";
+       status = 0;
+       leftTime=time;
+       startView();
+      }else{
+       if(leftSec==0){
+        oLeftSec.innerHTML=59;
+        oLeftMin.innerHTML-=1;
+        if(oLeftMin.innerHTML<10){
+         oLeftMin.innerHTML="0" + oLeftMin.innerHTML;
+        }
+       }else{
+        oLeftSec.innerHTML-=1;
+        if(oLeftSec.innerHTML<10){
+         oLeftSec.innerHTML="0" + oLeftSec.innerHTML;
+        }
+       }
+      }
+     }
+     function run(){
+      if(status==0||status==2){
+       oRun.value="暂停";
+       status = 1;
+       clockInstance = setInterval(clockin,1000);
+      }else if(status==1){
+       oRun.value="继续";
+       status = 2;
+       clearInterval(clockInstance);
+      }
+     }
+     function reset(){
+       leftTime = time;
+       status = 0;// 0 开始; 1 计时; 2 暂停;
+       clearInterval(clockInstance);
+       clockInstance=null;
+       oRun.value="开始";
+       startView();
+     }
+     function startView(){
+       oLeftSec.innerHTML = "00";
+       oLeftMin.innerHTML = toma;
+     }
+     oRun.onclick = function(){
+        run();
+     };
+     document.getElementById('reset').onclick = function(){
+        reset();
+     };
+    startView();
+   })();
+  </script>
+ </body>
+</html>

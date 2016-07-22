@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
+  <title>RGB换算</title>
+  <link href="http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+<style type="text/css">
+  *{
+    margin: 0;
+    padding: 0;
+    font-family: Microsoft Yahei, Arial;
+  }
+  .container-wrap{
+    width: 400px;
+    margin: 60px auto;
+  }
+  .container-wrap h2{
+    text-align: center;
+  }
+  .colorboard{
+    border: 1px solid #000;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+  }
+  </style>
+ </head>
+ <body>
+  <div class="container-wrap">
+    <h2>换算啦</h2>
+    <hr />
+    <div class="colorboard"></div>
+    <hr />
+    <div class="form-rows">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="input-group">
+            <input type="text" id="rgb1" class="form-control" placeholder="11,111,125">
+            <span class="input-group-btn">
+              <button class="btn btn-default" id="change_rgb" type="button">=></button>
+            </span>
+            <input type="text" id="rgb2" class="form-control" disabled>
+          </div><!-- /input-group -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="input-group">
+            <input type="text" id="rgb3" placeholder="fefefe" class="form-control">
+            <span class="input-group-btn">
+              <button class="btn btn-default" id="to_rgb" type="button">=></button>
+            </span>
+            <input type="text" id="rgb4" class="form-control" disabled>
+          </div><!-- /input-group -->
+        </div>
+      </div><!-- /.row -->
+    </div>
+  </div>
+  <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://cdn.bootcss.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script src="http://cdn.bootcss.com/bootbox.js/4.3.0/bootbox.min.js"></script>
+  <script type="text/javascript">
+  (function($){
+    $('#change_rgb').click(function(){
+      var numbers = $('#rgb1').val(),
+          numArr,
+          res='',
+          temp;
+      if(numbers.indexOf(',')<0){
+        bootbox.alert('输入非法');
+        return;
+      }
+          numArr = numbers.split(',');
+          numArr.forEach(function(num){
+            if(num>255||num<0){
+              res+="ER";
+            }else{
+              temp=Number(num).toString(16);
+              res+=temp.length>1?temp:'0'+temp;
+            }
+          });
+        $('#rgb2').val(res);
+        $('.colorboard').css({background:'#'+res});
+    });
+    $('#to_rgb').click(function(){
+      var str = $('#rgb3').val(),
+          numArr=[];
+        if(str.length!=3 && str.length!=6){
+          bootbox.alert('输入非法：长度不对');
+          return;
+        }
+      try{
+        if(str.length==3){
+          str.forEach(function(s){
+            numArr.push(parseInt(s+s,16));
+          });
+        }else if(str.length==6){
+          for(var i=0;i<6;i+=2){
+            numArr.push(parseInt(str[i]+str[i+1],16));
+          }
+        }
+        $('.colorboard').css({background:'#'+str});
+      }catch(e){
+        numArr = '转换有误';
+      }
+        $('#rgb4').val(numArr.join(','));
+    });
+  })(jQuery);
+  </script>
+ </body>
+</html>

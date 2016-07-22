@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+  <link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
+  <title>where ever</title>
+ <style type="text/css">
+ h2{
+    text-align: center;
+ }
+ .info{
+    text-align:center;
+    white-space:nowrap;
+    color: #333;
+    padding:10px;
+ }
+ </style>
+ <script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp"></script>
+ </head>
+<body>
+<h2>周末去哪儿</h2>
+<div id="container"style="margin:50px auto;width:80%; min-height:500px;"></div>
+
+<script>
+ 
+function init() {
+	var center = new qq.maps.LatLng(23.09831, 113.299561);
+	var place = [
+		{'name':'北京路','n':113.275377,'e':23.131648},
+		{'name':'上下九','n':113.252412,'e':23.119542},
+		{'name':'小蛮腰','n':113.330995,'e':23.112229},
+		{'name':'红专厂','n':113.375672,'e':23.118204},
+		{'name':'小洲村','n':113.364821,'e':23.068239},
+		{'name':'黄埔古港','n':113.397623,'e':23.092791},
+        {'name':'1850创意园','n':113.248154,'e':23.101335},
+        {'name':'荔湾湖公园','n':113.238878,'e':23.126671}
+	];
+    var map = new qq.maps.Map(document.getElementById("container"), {
+        // 地图的中心地理坐标。
+        center: center,
+        zoom:12
+    });
+    //添加到提示窗
+    var info = new qq.maps.InfoWindow({
+        map: map
+    });
+    var placeMarkers = place.map(function(e){
+        e.marker = new qq.maps.Marker({
+            position: new qq.maps.LatLng(e.e, e.n),
+            map: map
+        });
+        (function(place){
+            qq.maps.event.addListener(place.marker, 'click', function() {
+                info.open(); 
+                //console.log(place.marker);
+                info.setContent('<div class="info">'+place.name+'</div>');
+                info.setPosition(place.marker.position); 
+            });
+        })(e);
+        return e;
+    });
+}
+document.body.onload=function(){
+	init();
+};
+
+</script>
+</body>
+</html>
