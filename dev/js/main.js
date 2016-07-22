@@ -32,6 +32,6 @@
     }
     setTimeout(function(){
       typeEffect('.div-title h3', 88);
-      typeEffect('#tab_home p', 88);
+      typeEffect('#tab_home .words', 88);
     },500);
   })(jQuery);
