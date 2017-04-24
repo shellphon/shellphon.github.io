@@ -8,18 +8,23 @@
         body{
             text-align: center;
         }
+        .wrapper{
+            width: 250px;
+            height: 280px;
+            position: relative;
+            margin: 50px auto; 
+        }
         .content{
             width: 250px;
             height: 280px;
             position: relative;
-            margin: 50px auto;
             background: url(../images/noword.png) -58px -15px no-repeat;
         }
         .content img{
             display: block;
             margin: 0 auto;
         }
-        .content textarea{
+        .wrapper textarea{
             width: 214px;
             display: block;
             font-size: 20px;
@@ -63,10 +68,12 @@
 	<header></header>
     <input class="btn btn-default" type="file" onchange="showFile(this)">
     <p>高版本浏览器可以尝试复制粘贴图片</p>
-	<div id="content" class="content">
-		<textarea id="words" cols="30" rows="10">对方不想和你说话
-并扔给一张图片</textarea>
-	</div>
+    <div class="wrapper">
+        <div id="content" class="content">
+        </div>
+            <textarea id="words" cols="30" rows="10">对方不想和你说话
+    并扔给一张图片</textarea>
+    </div>
     <button id="save">点击保存</button>
 	<footer></footer>
     <script src="../js/lib/html2canvas.js"></script>
@@ -96,6 +103,7 @@
                         }else{
                             img.style.height = contentLogo.height+'px';
                         }
+                    document.getElementById('content').innerHTML = '';
                     document.getElementById('content').appendChild(img);
                 }
                 reader.readAsDataURL(file);
