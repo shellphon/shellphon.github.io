@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>翻的ship</title>
-	<link rel="stylesheet" href="./css/ship.css">
-	<script>
-        var phoneWidth =  parseInt(window.screen.width);
+<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>翻的ship</title><link rel="stylesheet" href="./css/ship.css"><script>var phoneWidth =  parseInt(window.screen.width);
         var phoneScale = phoneWidth/640;
         var ua = navigator.userAgent;
         if (/Android (\d+\.\d+)/.test(ua)){
@@ -18,22 +10,7 @@
             }
         } else {
             document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
-        }
-</script>
-</head>
-<body>
-    <div style="display: none"><img width="0" height="0" src="../images/d-img.png"></div>
-	<header></header>
-	<div id="content" class="content">
-		<input type="text" class="dia dia1" value="我计算机专业的">
-        <input type="text" class="dia dia2" value="帮我修下电脑~">
-        <input type="text" class="dia dia2" value="友谊的小船说翻就翻">
-	</div>
-    <button id="save">点击保存</button>
-	<footer></footer>
-    <script src="../js/lib/html2canvas.js"></script>
-    <script>
-        (function(){
+        }</script></head><body><div style="display: none"><img width="0" height="0" src="../images/d-img.png"></div><header></header><div id="content" class="content"><input type="text" class="dia dia1" value="我计算机专业的"> <input type="text" class="dia dia2" value="帮我修下电脑~"> <input type="text" class="dia dia2" value="友谊的小船说翻就翻"></div><button id="save">点击保存</button><footer></footer><script src="../js/lib/html2canvas.js"></script><script>(function(){
              function isMoblie(){
                 var ua = navigator.userAgent.toLowerCase(),
                     sys = {};
@@ -90,7 +67,4 @@
                     downloadFile('ship.jpeg', canvas.toDataURL("image/jpeg",0.5));
                 });
             };
-        })();
-    </script>
-</body>
-</html>
+        })();</script></body></html>

@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-  <link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
-<head>
-<title>图片处理</title>
-<style type="text/css">
-    .main{
+<!DOCTYPE html><html lang="en"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><link rel="shortcut icon" href="./../fav.ico" type="image/x-icon"><head><title>图片处理</title><style type="text/css">.main{
         width: 900px;
         margin: 0 auto;
         border: 2px dotted #eee;
@@ -41,24 +33,7 @@
         top: -3px;
         left: 0px;
         border-radius: 50%;
-    }
-</style>
-</head>
-<body>
-     <div class="main">
-       <div class="left">
-        <input type="file" onchange="showFile(this)">
-        <br>
-        或者将文件拖放到框子里：<br>
-        <img id="dragbox" ondragenter="disabledDefault(event)" ondragover="disabledDefault(event)" ondrop="dragImg(event,this)">
-       </div>
-       <div id="" class="right">
-          <div id="box" class="box"></div>
-       </div>
-     </div>
-<script type="text/javascript">
- 
-//通过浏览文件夹选择文件后调用：
+    }</style></head><body><div class="main"><div class="left"><input type="file" onchange="showFile(this)"><br>或者将文件拖放到框子里：<br><img id="dragbox" ondragenter="disabledDefault(event)" ondragover="disabledDefault(event)" ondrop="dragImg(event,this)"></div><div id="" class="right"><div id="box" class="box"></div></div></div><script type="text/javascript">//通过浏览文件夹选择文件后调用：
 function showFile(input){
     var file = input.files[0];
     showImg(file);//将文件显示到图片元素
@@ -126,7 +101,4 @@ function showImg(file){
 
     }
     reader.readAsDataURL(file);
-}
-</script>
-</body>
-</html>
+}</script></body></html>

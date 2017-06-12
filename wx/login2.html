@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>另一个登录页</title>
-	<link rel="stylesheet" href="./css/login2.css">
-	<script>
-        var phoneWidth =  parseInt(window.screen.width);
+<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>另一个登录页</title><link rel="stylesheet" href="./css/login2.css"><script>var phoneWidth =  parseInt(window.screen.width);
         var phoneScale = phoneWidth/640;
         var ua = navigator.userAgent;
         if (/Android (\d+\.\d+)/.test(ua)){
@@ -18,22 +10,4 @@
             }
         } else {
             document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
-        }
-</script>
-</head>
-<body>
-	<header></header>
-	<section class="content">
-	   <div class="input-block">
-        <div class="input-item user"><input type="text" placeholder="e-mail"></div> 
-        <div class="input-item password"><input type="password" value="123456"></div>   
-       </div>
-       <button class="login-btn">Login in</button>
-       <div class="links">
-           <a href="#" class="forget">Forget Password</a>
-           <a href="#" class="sign">Sign Up</a>
-       </div>
-	</section>
-	<footer></footer>
-</body>
-</html>
+        }</script></head><body><header></header><section class="content"><div class="input-block"><div class="input-item user"><input type="text" placeholder="e-mail"></div><div class="input-item password"><input type="password" value="123456"></div></div><button class="login-btn">Login in</button><div class="links"><a href="#" class="forget">Forget Password</a> <a href="#" class="sign">Sign Up</a></div></section><footer></footer></body></html>

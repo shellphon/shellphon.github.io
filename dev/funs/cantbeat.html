@@ -1,4 +1,11 @@
-<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="shortcut icon" href="./../fav.ico" type="image/x-icon"><title>我们是斗不过xxx的</title><style>body{
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
+	<title>我们是斗不过xxx的</title>
+	<style>
+        body{
             text-align: center;
         }
         .content{
@@ -45,7 +52,20 @@
             background-image: none;
             border: 1px solid transparent;
             border-radius: 4px;
-        }</style></head><body><div style="display: none"><img width="0" height="0" src="../images/d-img.png"></div><header></header><div id="content" class="content"><textarea id="words" cols="30" rows="10">我们是斗不过xx的！</textarea></div><button id="save">点击保存</button><footer></footer><script src="../js/lib/html2canvas.js"></script><script>(function(){
+        }
+    </style>
+</head>
+<body>
+    <div style="display: none"><img width="0" height="0" src="../images/d-img.png"></div>
+	<header></header>
+	<div id="content" class="content">
+		<textarea id="words" cols="30" rows="10">我们是斗不过xx的！</textarea>
+	</div>
+    <button id="save">点击保存</button>
+	<footer></footer>
+    <script src="../js/lib/html2canvas.js"></script>
+    <script>
+        (function(){
            
             // https://github.com/ebidel/filer.js/blob/master/src/filer.js#L137
             function base64Img2Blob(code){
@@ -80,4 +100,7 @@
                     downloadFile('我们是斗不过.jpeg', canvas.toDataURL("image/jpeg",0.5));
                 });
             };
-        })();</script></body></html>
+        })();
+    </script>
+</body>
+</html>

@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
- <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
-  <title>番茄钟</title>
-<style type="text/css">
-  div{
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="shortcut icon" href="./../fav.ico" type="image/x-icon"><title>番茄钟</title><style type="text/css">div{
    margin:0 auto;
    text-align:center;
   }
@@ -27,14 +20,7 @@
   	border-width: 1px;
   	border-color: #8C8C8C;
   	background:transparent;
-  }
-</style>
- </head>
- <body>
-   <div>
-   	<h1>简单番茄</h1>
-   </div>
-  <!--
+  }</style></head><body><div><h1>简单番茄</h1></div><!--
    开始界面：开始按钮，剩下时间（25分钟）
              按开始按钮，按钮变成暂停按钮，剩下时间开始变化，每一秒变化一次，直到剩下时间为0的时候弹出提示框；
              期间按暂停按钮，则时间都不变化，暂停按钮变继续按钮。
@@ -46,24 +32,7 @@
        结束时弹出提示框并结束计时器，剩下时间重置；
         时间展示 mm:ss
           每一秒过去，展示ss就减1，当ss为0时变为59，mm减1；
-  -->
-  <div class="circular-wrap">
-    <div class="div-time"><span>番茄工作法</span></div>
-    <div id="time" class="div-time">
-     <span id="left_min">25</span>
-     <span>:</span>
-     <span id="left_second">00</span>
-    </div>
-    <div>
-      <input type="text" id="text_miss" value="">
-    </div>
-    <div class="div-btn">
-     <input type="button" class="input-btn" id="run" value="开始">
-     <input type="button" class="input-btn" id="reset" value="重置">
-    </div>
-  </div>
-<script type="text/javascript">
-   (function(){
+  --><div class="circular-wrap"><div class="div-time"><span>番茄工作法</span></div><div id="time" class="div-time"><span id="left_min">25</span> <span>:</span> <span id="left_second">00</span></div><div><input type="text" id="text_miss" value=""></div><div class="div-btn"><input type="button" class="input-btn" id="run" value="开始"> <input type="button" class="input-btn" id="reset" value="重置"></div></div><script type="text/javascript">(function(){
      var toma = 25,
          time=leftTime = toma*60000,//25 min
          status = 0,// 0 开始; 1 计时; 2 暂停;
@@ -129,7 +98,4 @@
         reset();
      };
     startView();
-   })();
-  </script>
- </body>
-</html>
+   })();</script></body></html>

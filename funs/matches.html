@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
- <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
-  <title>匹配</title>
-<style type="text/css">
-  *{
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="shortcut icon" href="./../fav.ico" type="image/x-icon"><title>匹配</title><style type="text/css">*{
     margin: 0;
     padding: 0;
   }
@@ -114,53 +107,10 @@
     position: fixed;
     top: 20px;
     right: 20px;
-  }
-  
-</style>
-<link href="http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
- </head>
- <body>
-  <div class="fixed-info">
-    <p>步数：<span id="steps">0</span><br>
-    时间：<span id="time_min">00</span>:<span id="time_sec">00</span>
-    </p>
-    <ul id="level_pass" class="level-info">
-    </ul>
-  </div>
-  <div class="fixed-range">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>No</th>
-          <th>ID</th>
-          <th>Step</th>
-          <th>Time</th>
-        </tr>
-      </thead>
-      <tbody id="range">
-        <tr>
-          <td>1</td>
-          <td>Dont</td>
-          <td>1</td>
-          <td>00:01</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div id="map" class="map">
-  </div>
-  <script type="text/javascript"> 
-        var ua = navigator.userAgent.toLowerCase(),
+  }</style><link href="http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet"></head><body><div class="fixed-info"><p>步数：<span id="steps">0</span><br>时间：<span id="time_min">00</span>:<span id="time_sec">00</span></p><ul id="level_pass" class="level-info"></ul></div><div class="fixed-range"><table class="table"><thead><tr><th>No</th><th>ID</th><th>Step</th><th>Time</th></tr></thead><tbody id="range"><tr><td>1</td><td>Dont</td><td>1</td><td>00:01</td></tr></tbody></table></div><div id="map" class="map"></div><script type="text/javascript">var ua = navigator.userAgent.toLowerCase(),
             sys = {};
             sys['iphone'] = ua.match(/iphone/);
             sys['android'] = ua.match(/android/);
         if (sys['iphone']||sys['android']) { 
             window.location.href = '/funs/matches-mobile.html'; 
-        }
-  </script> 
-  <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-  <script src="http://cdn.bootcss.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-  <script src="http://cdn.bootcss.com/bootbox.js/4.3.0/bootbox.min.js"></script>
-  <script src="matches.js"></script>
- </body>
-</html>
+        }</script><script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script><script src="http://cdn.bootcss.com/bootstrap/3.3.1/js/bootstrap.min.js"></script><script src="http://cdn.bootcss.com/bootbox.js/4.3.0/bootbox.min.js"></script><script src="matches.js"></script></body></html>

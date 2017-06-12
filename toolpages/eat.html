@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
- <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
-  <title>吃饭</title>
-<style type="text/css">
-  *{
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="shortcut icon" href="./../fav.ico" type="image/x-icon"><title>吃饭</title><style type="text/css">*{
     margin: 0;
     padding: 0;
     font-family: Microsoft Yahei, Arial;
@@ -135,47 +128,7 @@
     background-color: rgba(127, 226, 72, 0.56);
     border: 0px;
     border-radius: 21px;
-  }
-  </style>
-  
- </head>
- <body>
-  <div>
-    <div id="resturants">
-      <h3>中午去哪吃随机V1.0</h3>
-      <hr>
-      <ul id="rest_ul">
-        <li>家乐缘</li>
-        <li>都城快餐</li>
-        <li>筒骨粉</li>
-        <li>潮汕卤味</li>
-        <li>猪杂汤</li>
-        <li>蒸饭</li>
-        <li>大老远的烧鹅</li>
-        <li>华润熟食</li>
-      </ul>
-      <input type="text" value="" id="inputContent" style="display:none">
-      <div id="timesTips">
-        <span>抽奖次数，滚动修改</span>
-      </div>
-      <div id="voteDiv">
-        <input type="text" id="votes" value="11" disabled="disabled">
-      </div>
-      <input type="button" id="btn" value="开始随机">
-      <input type="button" id="addBtn" value="添加店">
-    </div>
-  </div>
-      <div id="alertWrap">
-        <div id="floater"></div>
-        <div id="alertContent">
-          <div id="sortList"></div>
-          <span id="alertResult">哈哈</span>
-          <span id="close">X</span>
-        </div>
-      </div>
-  <script type="text/javascript" src="var-eat.js"></script>
-  <script type="text/javascript">
-      (function(){
+  }</style></head><body><div><div id="resturants"><h3>中午去哪吃随机V1.0</h3><hr><ul id="rest_ul"><li>家乐缘</li><li>都城快餐</li><li>筒骨粉</li><li>潮汕卤味</li><li>猪杂汤</li><li>蒸饭</li><li>大老远的烧鹅</li><li>华润熟食</li></ul><input type="text" value="" id="inputContent" style="display:none"><div id="timesTips"><span>抽奖次数，滚动修改</span></div><div id="voteDiv"><input type="text" id="votes" value="11" disabled="disabled"></div><input type="button" id="btn" value="开始随机"> <input type="button" id="addBtn" value="添加店"></div></div><div id="alertWrap"><div id="floater"></div><div id="alertContent"><div id="sortList"></div><span id="alertResult">哈哈</span> <span id="close">X</span></div></div><script type="text/javascript" src="var-eat.js"></script><script type="text/javascript">(function(){
           var resturants = [],
             resturantAll = document.getElementById("resturants"),//店wrapper
             domRests = resturantAll.getElementsByTagName("li"),//店集合
@@ -275,8 +228,4 @@
             }
           };
         }
-      })();
-  </script>
- </body>
-
-</html>
+      })();</script></body></html>

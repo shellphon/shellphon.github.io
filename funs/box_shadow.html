@@ -1,23 +1,9 @@
-<!DOCTYPE html>
-<html>
- <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width;initial-scale=1;maximum-scale=1;user-scalable=no;">
-  <link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
-  <title>box-shadow</title>
-  <style>
-    #box{
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width;initial-scale=1;maximum-scale=1;user-scalable=no;"><link rel="shortcut icon" href="./../fav.ico" type="image/x-icon"><title>box-shadow</title><style>#box{
       width: 4px;
       height: 4px;
       display: block;
       margin:20px auto;
-    }
-  </style>
- </head>
- <body>
-  <div id="box"></div>
-  <script>
-  (function(){
+    }</style></head><body><div id="box"></div><script>(function(){
     var px = 50;
     var allWidth = 400/px;//document.body.clientWidth/px,
         arr = [];
@@ -57,7 +43,4 @@
         boxDom.style.height = px+'px';
         boxDom.style.boxShadow = box.join(',');
 
-  })();
-  </script>
- </body>
-</html>
+  })();</script></body></html>

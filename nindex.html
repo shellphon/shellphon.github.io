@@ -1,0 +1,101 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="shortcut icon" href="/fav.ico" type="image/x-icon"><title>Well, U Dont Dont</title><link rel="stylesheet" href="css/main.css" type="text/css"><style>*{margin: 0;padding: 0;}
+   body{
+    background-color: #323232;
+   }
+   a{text-decoration: none;}
+   .fl{float: left;}
+   .fr{float: right;}
+   .content{
+    width: 600px;
+    overflow: hidden;
+    margin: 100px auto;
+   }
+   .guide{
+    width: 600px;
+    float: left;
+    border-radius: 10px;
+    border:1px solid #fff;
+    background-color: rgba(255,255,255, .2);
+    box-sizing: border-box;
+    padding: 20px;
+   }
+   .guide .sharingan{
+    
+   }
+   .g-header{
+    margin-bottom: 20px;
+   }
+   .guide h1{
+    font-size: 30px;
+    text-align: center;
+    line-height: 104px;
+
+    color:#000;
+    text-shadow: 0 0 8px #f00;
+   }
+
+   .reel{
+      width:300px;
+      height:76px;
+      background:#fff;
+      /*background-image:linear-gradient(to right, rgba(0,0,0,.3) 20%, transparent 20%, transparent 80%, rgba(0,0,0,.3) 80%,rgba(0,0,0,.3) 100%), linear-gradient(to bottom, rgba(0,0,0,1) 0%, #333 30%, #333 70%, rgba(0,0,0,1) 100% );*/
+      background-image: linear-gradient(to right, rgba(255,0,0,.3) 15%, transparent 15%, transparent 85%, rgba(255,0,0,.3) 85%,rgba(255,0,0,.3) 100%), linear-gradient(to bottom, rgba(0,0,0,1) 0%, transparent 30%, transparent 70%, rgba(0,0,0,1) 100% );
+      border-radius:8px;
+      position:relative;
+      
+      border:1px solid #222;
+      margin:0 auto;
+    }
+    .reel::before, .reel::after{
+      content:" ";
+      display:block;
+      width:12px;
+      height:62px;
+     /* background: #999;*/
+      background-color: #290606;
+      position:absolute;
+      top:7px;
+    }
+    .reel:before{
+      left:-12px;
+      border-radius: 8px 0 0 8px;
+    }
+    .reel:after{
+      right:-12px;
+      border-radius: 0 8px 8px 0;
+    }
+    .reel h3{
+      font-size: 30px;
+      line-height: 76px;
+      text-align: center;
+    }
+    .reel-content{
+      width: 290px;
+      box-sizing: border-box;
+      padding: 15px;
+      list-style: none;
+      margin: 0 auto;
+      background: rgba(242,235,217,1);
+      background-image: linear-gradient(to right, rgba(255,0,0,.3) 0%,rgba(255,0,0,.3) 5%, transparent 10%, transparent 90%,rgba(255,0,0,.3) 95%,rgba(255,0,0,.3) 100%); 
+    }
+    .reel-content li{
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+    }
+    .reel-content li a{
+      display: block;
+      color: #333;
+    }
+    .reel-content li a:hover{
+      animation-name: swing;
+      animation-duration: .75s;
+    }</style></head><body><div style="display: none"><img width="0" height="0" src="images/d-img.png"></div><div class="content"><div class="guide"><div class="g-header"><div class="sharingan fl"><div class="gogok gogok1"></div><div class="gogok gogok2"></div><div class="gogok gogok3"></div></div><h1>Dont / Shellphon</h1></div><div id="open" class="reel"><h3>打开</h3></div><ul id="nav" class="reel-content"><li><a href="">首页</a></li><li><a href="">关于我</a></li><li><a href="">小页面</a></li></ul><div id="close" class="reel"><h3>收起</h3></div></div></div><script>(function(){
+        document.getElementById('open').onclick = function(){
+          document.getElementById('nav').style.display = 'block';
+        };
+        document.getElementById('close').onclick = function(){
+          document.getElementById('nav').style.display = 'none';
+        };
+    })();</script></body></html>

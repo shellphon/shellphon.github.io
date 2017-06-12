@@ -36,7 +36,7 @@ gulp.task('font',['clean'], function(){//复制fonts文件
 
 gulp.task('minify',['clean'], function() {
   return gulp.src(['./dev/**/*.html'])
-    .pipe(htmlmin())
+    .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest('./tmp/'));
 });
 

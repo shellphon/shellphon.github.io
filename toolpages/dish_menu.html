@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
- <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
-  <title>点餐</title>
-  <link href="http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
-<style type="text/css">
-  *{
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="shortcut icon" href="./../fav.ico" type="image/x-icon"><title>点餐</title><link href="http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet"><style type="text/css">*{
     margin: 0;
     padding: 0;
     font-family: Microsoft Yahei, Arial;
@@ -41,53 +33,7 @@
   .danger td.name::before {
     content: '【已订】';
     color: #ff2002;
-  }
-  </style>
- </head>
- <body>
-  <div id="extra_div">
-    <h3>配菜</h3>
-    <table class="table table-hover">
-      <tr>
-          <th>#</th>
-          <th>配菜</th>
-          <th>￥</th>
-        </tr>
-        <tbody id="extra">
-          <tr>
-            <td>0</td>
-            <td class="name">金牌猪肚饭</td>
-            <td class="price">12元</td>
-          </tr>
-        </tbody>
-    </table>
-  </div>
-  <div class="container-wrap">
-    <h2>餐单</h2>
-    <table class="table table-hover">
-      <tr>
-        <th>#</th>
-        <th>菜名</th>
-        <th>价格</th>
-      </tr>
-      <tbody id="menu">
-        <tr>
-          <td>0</td>
-          <td class="name">金牌猪肚饭</td>
-          <td class="price">12元</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <button id="lucky" class="btn btn-success">随机一下？</button>
-  <button id="rich" class="btn btn-info">有钱任性</button>
-  <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-  <script src="http://cdn.bootcss.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-  <script src="http://cdn.bootcss.com/bootbox.js/4.3.0/bootbox.min.js"></script>
-  <script src="var-menu.js"></script>
-  <script src="dish_menu.js"></script>
-  <script type="text/javascript">
-/*  (function($){
+  }</style></head><body><div id="extra_div"><h3>配菜</h3><table class="table table-hover"><tr><th>#</th><th>配菜</th><th>￥</th></tr><tbody id="extra"><tr><td>0</td><td class="name">金牌猪肚饭</td><td class="price">12元</td></tr></tbody></table></div><div class="container-wrap"><h2>餐单</h2><table class="table table-hover"><tr><th>#</th><th>菜名</th><th>价格</th></tr><tbody id="menu"><tr><td>0</td><td class="name">金牌猪肚饭</td><td class="price">12元</td></tr></tbody></table></div><button id="lucky" class="btn btn-success">随机一下？</button> <button id="rich" class="btn btn-info">有钱任性</button><script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script><script src="http://cdn.bootcss.com/bootstrap/3.3.1/js/bootstrap.min.js"></script><script src="http://cdn.bootcss.com/bootbox.js/4.3.0/bootbox.min.js"></script><script src="var-menu.js"></script><script src="dish_menu.js"></script><script type="text/javascript">/*  (function($){
       var oMenu = $('#menu');
       $('#lucky').click(function(){
          var names = oMenu.find('.name'),
@@ -103,7 +49,4 @@
              rand = names.length-Math.floor(Math.random()*5)-1;
              bootbox.alert('本期豪华大礼包：【'+ids.eq(rand).text()+'】<span class="lucky-name">'+names.eq(rand).text()+'</span>? <span class="lucky-price">'+ prices.eq(rand).text() + '</span>元<br/>不够？加几个配菜。←');
       }); 
-  })(jQuery);*/
-  </script>
- </body>
-</html>
+  })(jQuery);*/</script></body></html>

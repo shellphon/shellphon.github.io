@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  	<link rel="shortcut icon" href="./../fav.ico" type="image/x-icon">
-  	<link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-	<title>base64 code</title>
-	<style>
-		.content{
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="shortcut icon" href="./../fav.ico" type="image/x-icon"><link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"><title>base64 code</title><style>.content{
 			position: relative;
 		    padding: 45px 15px 15px;
 		    margin: 15px 0;
@@ -42,26 +33,7 @@
 		}
 		.form-inline .form-control.text-area{
 			width:40%;
-		}
-	</style>
-</head>
-<body>
-	<div class="content">
-		<div class="form-inline base-form decode-form">
-		    <textarea type="text" class="form-control text-area" rows="3" id="to_decode" placeholder="输入base64编码"></textarea>
-		  
-		  	<button class="btn btn-default" id="decode">解码 =></button>
-		  	<textarea type="text" class="form-control text-area" rows="3" id="res_decode"></textarea> 
-		</div>
-		<div class="form-inline base-form encode-form">
-		    <textarea type="text" class="form-control text-area" rows="3" id="to_encode" placeholder="输入字符串"></textarea>
-		  
-		  	<button class="btn btn-default" id="encode">编码 =></button>
-		  	<textarea type="text" class="form-control text-area" rows="3" id="res_encode"></textarea> 
-		</div>
-	</div>
-	<script type="text/javascript">
-		(function(){
+		}</style></head><body><div class="content"><div class="form-inline base-form decode-form"><textarea type="text" class="form-control text-area" rows="3" id="to_decode" placeholder="输入base64编码"></textarea><button class="btn btn-default" id="decode">解码 =></button><textarea type="text" class="form-control text-area" rows="3" id="res_decode"></textarea></div><div class="form-inline base-form encode-form"><textarea type="text" class="form-control text-area" rows="3" id="to_encode" placeholder="输入字符串"></textarea><button class="btn btn-default" id="encode">编码 =></button><textarea type="text" class="form-control text-area" rows="3" id="res_encode"></textarea></div></div><script type="text/javascript">(function(){
 			var decodeBtn = document.getElementById('decode'),
 				encodeBtn = document.getElementById('encode');
 
@@ -79,7 +51,4 @@
 					var encodeStr = document.getElementById('to_encode').value;
 					document.getElementById('res_encode').value = window.btoa(encodeStr);
 				};
-		})();
-	</script>
-</body>
-</html>
+		})();</script></body></html>
