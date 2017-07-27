@@ -104,8 +104,9 @@
                 var aLink = document.createElement('a');
                 var blob = base64Img2Blob(content); //new Blob([content]);
                 //console.log(blob);
-                var evt = document.createEvent("HTMLEvents");
-                evt.initEvent("click", false, false);//initEvent 不加后两个参数在FF下会报错, 感谢 Barret Lee 的反馈
+                //var evt = document.createEvent("HTMLEvents");
+                //evt.initEvent("click", false, false);//initEvent 不加后两个参数在FF下会报错, 感谢 Barret Lee 的反馈
+                var evt = new MouseEvent('click');
                 aLink.download = fileName;
                 aLink.href = URL.createObjectURL(blob);
                // console.log(aLink.href);
