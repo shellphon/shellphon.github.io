@@ -21,3 +21,5 @@ tmp
 **/build
 **/node_modules
 qls.config.js
+
+yarn.lock

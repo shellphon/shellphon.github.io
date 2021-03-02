@@ -220,6 +220,7 @@
                 author_name:'g-match-mobile',
                 message:''
             },
+            // 废弃
             url:'http://api.duoshuo.com/posts/create.json',
             upload:function(dataObj, method){
                 var result = this.datas;
@@ -301,6 +302,6 @@
         });
       }
     };
-    RangeNet.pull();
+    // RangeNet.pull();
     Game.start(2);
   })(Zepto);

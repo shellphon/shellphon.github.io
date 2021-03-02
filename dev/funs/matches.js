@@ -281,6 +281,6 @@
         });
       }
     };
-    RangeNet.pull();
+    // RangeNet.pull();
     Game.start(2);
   })(jQuery);

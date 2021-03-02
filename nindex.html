@@ -19,9 +19,6 @@
     box-sizing: border-box;
     padding: 20px;
    }
-   .guide .sharingan{
-    
-   }
    .g-header{
     margin-bottom: 20px;
    }
@@ -91,11 +88,38 @@
     .reel-content li a:hover{
       animation-name: swing;
       animation-duration: .75s;
-    }</style></head><body><div style="display: none"><img width="0" height="0" src="images/d-img.png"></div><div class="content"><div class="guide"><div class="g-header"><div class="sharingan fl"><div class="gogok gogok1"></div><div class="gogok gogok2"></div><div class="gogok gogok3"></div></div><h1>Dont / Shellphon</h1></div><div id="open" class="reel"><h3>打开</h3></div><ul id="nav" class="reel-content"><li><a href="">首页</a></li><li><a href="">关于我</a></li><li><a href="">小页面</a></li></ul><div id="close" class="reel"><h3>收起</h3></div></div></div><script>(function(){
-        document.getElementById('open').onclick = function(){
-          document.getElementById('nav').style.display = 'block';
-        };
-        document.getElementById('close').onclick = function(){
-          document.getElementById('nav').style.display = 'none';
-        };
-    })();</script></body></html>
+    }</style></head><body><div id="app"></div><script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script><script>const app = new Vue({
+      el: '#app',
+      data: {
+        fold: true
+      },
+      methods: {
+        toggleFold: function() {
+          this.fold = !this.fold;
+        }
+      },
+      template: `
+      <div class="content">
+      <div class="guide">
+        <div class="g-header">
+          <div class="sharingan fl">
+              <div class="gogok gogok1">
+              </div>
+              <div class="gogok gogok2">
+              </div>
+              <div class="gogok gogok3">
+            </div>
+          </div>
+          <h1>Dont</h1>
+        </div>
+        <div class="reel" @click="toggleFold"><h3>打开</h3></div>
+        <ul id="nav" v-if="!fold" class="reel-content">
+          <li><a href="">首页</a></li>
+          <li><a href="">关于我</a></li>
+          <li><a href="">小页面</a></li>
+        </ul>
+        <div class="reel" @click="toggleFold"><h3>收起</h3></div>
+      </div>
+      </div>
+      `
+    });</script></body></html>
